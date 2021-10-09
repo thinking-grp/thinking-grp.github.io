@@ -1,0 +1,88 @@
+div{
+  color: white;
+}
+main>div{
+  box-shadow: 0 0 15px #1115;
+}
+h2{
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: .5rem;
+}
+.logo-anm{
+  transform: translateY(50px);
+  transition: 3s;
+  opacity: 0;
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+main::before{
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 2;
+  background-image: url('https://media.discordapp.net/attachments/890950257947586630/891307450257510450/P8303129.JPG?width=894&height=670');
+  background-size: cover;
+  background-position: bottom;
+}
+ .logo-anm.anim {
+  opacity: 1;
+  transform: translateY(0px);
+}
+div.logo-anm img{
+  display: table-cell;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+.animation-img {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: all 1s;
+}
+.animation-img.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+div#about, div#articles, div#other{
+  margin: 10vh 10vw;
+  padding: 10vh 10vw;
+  background-color: #0004;
+  border: 1px solid #fff4;
+  border-radius: 10px;
+}
+div#about p{
+  letter-spacing: .2rem;
+  color: #ccca;
+}
+
+div#articles>a>div{
+  width: calc(100% - 50px);
+  margin: 25px;
+  text-align: left;
+  font-size: 20px;
+}
+div#articles *{
+  font-weight: 300;
+}
+div#articles>a>div>*{
+  vertical-align: middle;
+  font-size: 20px;
+}
+div#articles>a>div>div{
+  display: inline-block;
+  width: 30%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  margin-right: 50px;
+}
+div[data-article="1"]>div,div[data-article="2"]>div{
+  background-image: url('/image/background.jpg');
+}

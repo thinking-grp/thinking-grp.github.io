@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>記事一覧 - thinking</title>
+  <script src="/script/preload.js"></script>
+  <script src="/script/article.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta name="msapplication-TileImage" content="/image/logo/square.png">
+  <meta name="msapplication-TileColor" content="#fff">
+  <link rel="canonical" href="https://thinking-grp.github.io/">
+  <link rel="shortcut icon" href="/image/logo/square.png">
+  <link rel="stylesheet" href="/style/index.css">
+  <link rel="apple-touch-icon-precomposed" href="/image/logo/square.png">
+  <style>
+  article{
+    text-align: left;
+    padding: 10vh 10vw;
+  }
+  article *{
+    vertical-align: middle;
+    font-size: 20px;
+  }
+  article>div{
+    margin-right: 50px;
+    width: 30%;
+    background-size: cover;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/9;
+    display: inline-block;
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <div></div>
+  </main>
+  <script>
+    article(`<div style="background-image: url('/image/background.jpg');"></div>
+    <a href="./article01.html">thinking公式サイトを作ったよ</a>
+    `)
+  </script>
+  <!--直接htmlで書けばいい？知らん(´・ω・｀)
+  まぁ真面目なこと言うとHTML書けねぇ人いるから（）あとこっちの方が書くの楽だから（）-->
+</body>
+</html>

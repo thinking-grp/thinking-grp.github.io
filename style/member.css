@@ -1,0 +1,65 @@
+/*なんかこのサイトおかしくてさ、あんまうまいこと動かんのよね
+これは僕の技術力の問題？そんなに変なの書いてないと思うんだけどなぁ
+まぁ、ご指摘はお願いします*/
+body{
+  background-color: #242424;
+}
+footer{
+  position: relative;
+  top: 50px;
+}
+
+main>div{
+  margin: 10vh 10vw;
+  padding: 10vh 10vw;
+  background-color: #0004;
+  border: 1px solid #fff4;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+}
+main>div::before{
+  content: '';
+  position: relative;
+  left: 0; top: 0;
+  height: 30vh;
+  min-height: 150px;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-position: center;
+  border-radius: 10px;
+}
+main>div>div *{
+  text-align: left;
+}
+main>div>div>div a{
+  display: inline-block;
+  padding: 5px;
+  padding-top: 0;
+  height: 20px;
+  background-color: #0005;
+  vertical-align: middle;
+  border-radius: 10px;
+  border: 1px solid #fff4;
+  font-family: 'Noto Sans JP',sans-serif;
+}
+
+main>div:nth-child(1)::before{
+  background-image: url('/image/icon/sorakime.jpg');
+}
+main>div:nth-child(2)::before{
+  background-image: url('/image/icon/ogizaru.jpg');
+}
+main>div:nth-child(3)::before{
+  background-image: url('/image/icon/zip.jpg');
+}
+
+main>div:nth-child(4)::before{
+  background-image: url('/image/icon/michi.jpg');
+}
+main>div:nth-child(5)::before{
+  background-image: url('/image/icon/sukuna-alice.jpg');
+}
+main>div:nth-child(6)::before{
+  background-image: url('/image/icon/hidemaru.jpg');
+}

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;1,400&family=Noto+Sans+JP:wght@300;700&display=swap');
+body, *, header>h1 {
+  margin: 0;
+  text-align: center;
+  font-family: 'Barlow','Noto Sans JP',sans-serif;
+  color: #fff;
+  text-decoration: none;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+body{
+  background-image: url('/image/background.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+hr{
+  height: 2px;
+  border: none;
+  background-color: #fff7;
+}
+
+/*<header>*/
+header{
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  top: 0; left: 0; right: 0;
+  background-color: #1119;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 9999;
+  box-shadow: 0 0 15px #111e;
+}
+header>div{
+  width: auto;
+  margin: 0 auto;
+}
+header>div *{
+  vertical-align: middle;
+  padding: 0 5px;
+  color: #fffc;
+}
+header>div>a:nth-child(1){
+  display: inline-block;
+  position: relative;
+  top: 0;
+  height: 30px;
+  left: -15px;
+  aspect-ratio: 1/1;
+  background-image: url('/image/logo/square.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*<main>*/
+main{
+  position: relative;
+  top: 30px;
+}
+
+/*<footer>*/
+footer{
+  margin: 5px;
+}
+
+
+main>div>div h1{
+  font-size: 40px;
+  font-weight: 100;
+}
+main>div>div p{
+  font-size: 20px;
+}
+main>div>div>div{
+  display: block;
+}
+main>div>div{
+  display: block;
+  width: 100%;
+  padding: 15px;
+}
