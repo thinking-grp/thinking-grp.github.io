@@ -22,13 +22,15 @@ h2{
 main::before{
   content: '';
   display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
   width: 100%;
   aspect-ratio: 5 / 2;
   background-image: url('https://media.discordapp.net/attachments/890950257947586630/891307450257510450/P8303129.JPG?width=894&height=670');
   background-size: cover;
   background-position: bottom;
 }
- .logo-anm.anim {
+.logo-anm.anim {
   opacity: 1;
   transform: translateY(0px);
 }
