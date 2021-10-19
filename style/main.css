@@ -9,7 +9,8 @@ body, *, header>h1 {
   scroll-behavior: smooth;
 }
 body{
-  background-image: url('/image/background.jpg');
+  backdrop-filter: blur(4px);
+  background-image: url('https://images-ext-2.discordapp.net/external/orJGHI3ZPfd4b8s0RFwGTw4qC4Lw2L1VLRCQAH9PV_o/%3Fwidth%3D894%26height%3D670/https/media.discordapp.net/attachments/890950257947586630/891307450257510450/P8303129.JPG?width=739&height=554');
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
