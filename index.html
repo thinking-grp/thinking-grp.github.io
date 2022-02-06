@@ -7,10 +7,11 @@
         <link rel="stylesheet" href="style/index.css"/>
         <link rel="stylesheet" href="style/main.css"/>
     </head>
-
     <body>
         <header>
-            <img src="image/logo/sikaku-transparent.png" alt="thinking" width="50px"/>
+            <a href="index.html">Home</a>
+            　
+            <a href="member.html">Members</a>
         </header>
         <div id="slider" style="background-size: cover;">
             <!--背景はcssのbackground-imageでつけようと思っております(?)-->
@@ -18,10 +19,10 @@
             <img src="image/logo/transparent.png" alt="thinking" id="thinking-logo" />
             <h2>thinking of something, we do something.</h2>
         </div>
-        <main>
+        <main class="fadeIn">
             <div id="about">
                 <h2>thinkingについて</h2>
-                <p>何か書いてね</p>
+                <p>プログラマだけでなく、フォトグラファーなどのジャンルにとらわないクリエイターが活躍できる場です。</p>
             </div>
             <div id="projects">
                 <h2>Projects</h2>
@@ -53,22 +54,22 @@
             <div id="links">
                 <h2>Links</h2>
                 <div id="linksColumn">
-                    <div class="linksColumn-item">
+                    <div class="linksColumn-item" style="display: inline-block; _display: inline;">
                         <img src="" class="linksColumn-item-img">
                         <h3>GitHub</h3>
                         <p>@thinking-grp</p>
                     </div>
-                    <div class="linksColumn-item">
+                    <div class="linksColumn-item" style="display: inline-block; _display: inline;">
                         <img src="" class="linksColumn-item-img">
                         <h3>YouTube</h3>
                         <p>thinking</p>
                     </div>
-                    <div class="linksColumn-item">
+                    <div class="linksColumn-item" style="display: inline-block; _display: inline;">
                         <img src="" class="linksColumn-item-img">
                         <h3>Twitter</h3>
                         <p>@thinking_grp</p>
                     </div>
-                    <div class="linksColumn-item">
+                    <div class="linksColumn-item" style="display: inline-block; _display: inline;">
                         <img src="" class="linksColumn-item-img">
                         <h3>note</h3>
                         <p>thinking_grp</p>
@@ -76,5 +77,8 @@
                 </div>
             </div>
         </main>
+        <footer>
+            Copyright © 2021 thinking All rights reserved.
+        </footer>
     </body>
 </html>

@@ -1,0 +1,31 @@
+#membersColumn {
+    color: aliceblue;
+    margin-left: 1em;
+}
+
+.membersColumn-item {
+    display: inline-block;
+    _display: inline;
+    background: #575757;
+    height: 300px;
+    border-radius: 5px;
+    padding-left: 1em;
+    margin: 1em;
+    width: 90%;
+}
+
+.membersColumn-item > img {
+    margin: 0.5em;
+    background: #000;
+    height: 100px;
+    width: 100px;
+    border: none;
+}
+
+.membersColumn-item > h3 {
+    padding-left: 0.5em;
+}
+
+.membersColumn-item > ul {
+    list-style: none;
+}

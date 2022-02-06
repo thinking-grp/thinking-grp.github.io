@@ -23,6 +23,7 @@ header {
     border-bottom: solid 1px #4e4e4e62;
     vertical-align: middle;
     height: 50px;
+    padding-top: 1.05em;
 }
 
 a {
@@ -48,5 +49,37 @@ main {
 
 .center_div {
     text-align: center;
-    width: 87.5%;
+    width: 95%;
+}
+
+footer {
+    text-align: center;
+    padding: 2em;
+    background: #4e4e4e;
+    color: #c9c9c9;
+}
+
+body {
+    animation: fadeIn 3s ease 0s 1 normal;
+    -webkit-animation: fadeIn 3s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@keyframes fadeInAnime{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

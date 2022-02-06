@@ -29,6 +29,9 @@
     .center_div {
         width: 100%!important;
     }
+    .linksColumn-item {
+        margin: 0.1em!important;
+    }
 }
 
 #slider {
@@ -46,7 +49,7 @@ img {
 }
 
 #projectsColumn > div {
-    width: 40%;
+    width: 45%;
     background: #575757;
     height: 150px;
     border-radius: 5px;
@@ -72,7 +75,7 @@ img {
     border-radius: 5px;
     padding-left: 1em;
     margin: 1em;
-    width: 80%;
+    width: 90%;
 }
 
 .blogsColumn-item > img {
@@ -92,5 +95,21 @@ img {
 }
 
 #thinking-logo {
-    width: 60%;
+    width: 65%;
+    z-index: 0;
+}
+
+.linksColumn-item {
+    margin: 1em;
+    width: 45%;
+    background: #575757;
+    height: 150px;
+    border-radius: 5px;
+    margin-left: 1em;
+    text-align: center;
+}
+
+#linksColumn {
+    color: aliceblue;
+    padding: 1.1em;
 }
