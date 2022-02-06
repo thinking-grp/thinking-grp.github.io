@@ -41,6 +41,7 @@
   padding: 7em;
   padding-top: 10em;
   background: url('../image/logo-background.jpg');
+  background-size: cover;
   color: rgb(235, 235, 235);
 }
 
@@ -49,7 +50,6 @@ img {
 }
 
 #projectsColumn {
-  height: 150px;
   color: aliceblue;
 }
 
