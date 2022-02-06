@@ -57,7 +57,7 @@ img {
 
 #blogsColumn {
   color: aliceblue;
-  margin-left: 1em;
+  margin-left: 0em;
 }
 
 .blogsColumn-item {
@@ -66,8 +66,8 @@ img {
   height: 300px;
   border-radius: 5px;
   padding-left: 1em;
-  margin: 1em;
-  width: 90%;
+  margin: 0.5em;
+  width: 97%;
 }
 
 .blogsColumn-item > img {
@@ -92,16 +92,14 @@ img {
 }
 
 .linksColumn-item {
-  margin: 1em;
-  width: 45%;
+  margin: 0.2em;
+  width: 49%;
   background: #575757;
   height: 150px;
   border-radius: 5px;
-  margin-left: 1em;
   text-align: center;
 }
 
 #linksColumn {
   color: aliceblue;
-  padding: 1.1em;
 }
