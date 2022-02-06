@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+
+body {
+    text-align: center;
+    margin: 0em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#header-icon {
+    background: url('../image/logo/sikaku-transparent.png');
+    width: 50px;
+}
+
+header {
+    left: 0em;
+    display: inline-block;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    background: #4d4d4d96;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
+    border-bottom: solid 1px #4e4e4e62;
+    vertical-align: middle;
+    height: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #c9c9c9;
+}
+
+main {
+    text-align: left;
+    padding-left: 7.5em;
+}
+
+.p {
+    padding-left: 1em;
+}
+
+.moreBtn {
+    border: solid 1px #5e5e5e;
+    border-radius: 5px;
+    color: #5e5e5e;
+    padding: 0.2em;
+}
+
+.center_div {
+    text-align: center;
+    width: 87.5%;
+}
