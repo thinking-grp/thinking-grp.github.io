@@ -1,85 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Noto+Sans+JP:wght@300&display=swap');
+:root{
+  --content-width: 60vw;
+  --content-side-margin: 20vw;
+}
 
 body {
-    text-align: center;
-    margin: 0em;
-    font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+  margin: 0em;
+  font-family: 'Barlow', 'Noto Sans JP', sans-serif;
+  background-color: #eee;
 }
 
 #header-icon {
-    background: url('../image/logo/sikaku-transparent.png');
-    width: 50px;
+  background: url('../image/logo/sikaku-transparent.png');
+  width: 50px;
 }
 
 header {
-    left: 0em;
-    display: inline-block;
-    z-index: 1;
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    background: #4d4d4d96;
-    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
-    border-bottom: solid 1px #4e4e4e62;
-    vertical-align: middle;
-    height: 50px;
-    padding-top: 1.05em;
+  left: 0em;
+  display: inline-block;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  position: relative;
+  padding: 5px var(--content-side-margin);
+  box-sizing: border-box;
+  background: #4d4d4d96;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px #4e4e4e62;
+  vertical-align: middle;
+  height: 40px;
+}
+header > div {
+  position: relative;
+  height: 100%;
+  width: var(--content-width);
+}
+#header-buttons {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
 }
 
 a {
-    text-decoration: none;
-    color: #c9c9c9;
+  text-decoration: none;
+  color: #c9c9c9;
 }
 
 main {
-    text-align: left;
-    padding-left: 7.5em;
+  text-align: left;
+  width: var(--content-width);
+  margin: 5px var(--content-side-margin);
 }
 
 .p {
-    padding-left: 1em;
+  padding-left: 1em;
 }
 
 .moreBtn {
-    border: solid 1px #5e5e5e;
-    border-radius: 5px;
-    color: #5e5e5e;
-    padding: 0.2em;
+  border: solid 1px #5e5e5e;
+  border-radius: 5px;
+  color: #5e5e5e;
+  padding: 0.2em;
 }
 
 .center_div {
-    text-align: center;
-    width: 95%;
+  text-align: center;
+  width: 95%;
 }
 
 footer {
-    text-align: center;
-    padding: 2em;
-    background: #4e4e4e;
-    color: #c9c9c9;
+  text-align: center;
+  padding: 2em;
+  background: #4e4e4e;
+  color: #c9c9c9;
 }
 
 body {
-    animation: fadeIn 3s ease 0s 1 normal;
-    -webkit-animation: fadeIn 3s ease 0s 1 normal;
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+h2 {
+  letter-spacing: .1rem;
 }
 
 @keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
 
 @keyframes fadeInAnime{
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
