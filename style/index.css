@@ -48,18 +48,22 @@ img {
   filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));
 }
 
-#projectsColumn > div {
-  width: 45%;
-  background: #575757;
-  height: 150px;
-  border-radius: 5px;
-  margin-left: 1em;
-  text-align: center;
-}
-
 #projectsColumn {
   height: 150px;
   color: aliceblue;
+}
+
+#projectsColumn > .p > * {
+  width: 100%;
+  background: #575757;
+  height: 150px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+}
+
+.p {
+  display: flex;
 }
 
 #blogsColumn {
@@ -69,7 +73,6 @@ img {
 
 .blogsColumn-item {
   display: inline-block;
-  _display: inline;
   background: #575757;
   height: 300px;
   border-radius: 5px;
@@ -95,7 +98,7 @@ img {
 }
 
 #thinking-logo {
-  width: 65%;
+  width: 50%;
   z-index: 0;
 }
 
