@@ -100,10 +100,11 @@ main {
 }
 
 footer {
+  border-top: 2px solid #ddd;
+  background-color: #fff;
   text-align: center;
   padding: 2em;
-  background: #4e4e4e;
-  color: #c9c9c9;
+  color: #222;
 }
 
 body {

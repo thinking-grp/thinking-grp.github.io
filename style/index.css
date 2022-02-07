@@ -76,10 +76,11 @@
 
 .p {
   display: flex;
+  margin: 5px 0 10px;
 }
 
 #blogsColumn {
-  color: #000;;
+  color: #000;
 }
 
 .blogsColumn-item {
@@ -90,7 +91,7 @@
   padding: 20px;
   box-shadow: 0 0 5px #0008;
   box-sizing: border-box;
-  margin: 5px 0;
+  margin: 5px 0 20px;
 }
 
 .blogsColumn-item > img {
