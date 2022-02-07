@@ -85,10 +85,14 @@ main {
 
 .moreBtn {
   display: inline-block;
-  border: solid 1px #5e5e5e;
-  border-radius: 5px;
+  position: relative;
+  border-radius: 3px;
   color: #5e5e5e;
+  box-shadow: 0 0 5px #0008;
   padding: 0.2em;
+  margin: 10px 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .center_div {
@@ -103,13 +107,15 @@ footer {
 }
 
 body {
-  animation: fadeIn 2s ease 0s 1 normal;
-  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  animation: fadeIn 1s ease 0s 1 normal;
+  -webkit-animation: fadeIn 1s ease 0s 1 normal;
 }
 
 h2 {
   letter-spacing: .1rem;
-  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 27px;
+  margin-bottom: 10px;
 }
 p{
   margin: 2px 0;
