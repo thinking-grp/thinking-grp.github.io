@@ -100,11 +100,25 @@ main {
 }
 
 footer {
+  display: flex;
   border-top: 2px solid #ddd;
   background-color: #fff;
-  text-align: center;
-  padding: 2em;
-  color: #222;
+  text-align: left;
+  padding: 10px var(--content-side-margin);
+}
+
+footer * {
+  color: #444;
+  font-weight: 500;
+}
+
+.footerColumn {
+  width: 100%;
+}
+
+.footerColumn .footer-bigger {
+  font-size: 17px;
+  margin-bottom: 5px;
 }
 
 body {
