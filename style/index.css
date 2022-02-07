@@ -44,11 +44,12 @@ img {
 
 #projectsColumn > .p > * {
   width: 100%;
-  background: #575757;
+  background: #222;
   height: 150px;
-  border-radius: 5px;
+  border-radius: 3px;
   text-align: center;
   margin: 5px;
+  box-shadow: 0 0 5px #0008;
 }
 
 .p {
@@ -64,7 +65,7 @@ img {
   display: inline-block;
   background: #575757;
   height: 300px;
-  border-radius: 5px;
+  border-radius: 3px;
   padding-left: 1em;
   margin: 1em;
   width: 90%;

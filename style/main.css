@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Noto+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Noto+Sans+JP:wght@300&display=swap');
 :root{
   --content-width: 60vw;
   --content-side-margin: 20vw;
@@ -40,7 +40,7 @@ header {
   border-bottom: solid 1px #4e4e4e62;
   vertical-align: middle;
   height: 60px;
-  transition: height 0.4s ease-in-out;
+  transition: height 0.2s ease-in-out;
 }
 header > div {
   position: relative;
@@ -84,6 +84,7 @@ main {
 }
 
 .moreBtn {
+  display: inline-block;
   border: solid 1px #5e5e5e;
   border-radius: 5px;
   color: #5e5e5e;
