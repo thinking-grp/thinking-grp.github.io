@@ -139,8 +139,8 @@
   margin: 0 20px;
   width: 100%;
   display: flex;
-  background: #575757;
-  height: 150px;
+  background: #fff;
+  height: 100px;
   border-radius: 5px;
   text-align: left;
   padding: 20px;
@@ -150,23 +150,30 @@
 .linksColumn-item-text {
   width: 100%;
   margin-left: 20px;
+  position: relative;
 }
 
 .linksColumn-item-text h3 {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 5px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .linksColumn-item-text p {
+  position: absolute;
+  top: 50%;
   font-size: 20px;
+  margin: 0;
+  color: #6f85aa;
 }
 
 .linksColumn-item-img {
   height: 100%;
   aspect-ratio: 1/1;
-}
-
-#linksColumn {
-  color: aliceblue;
+  border-radius: 4px;
 }
