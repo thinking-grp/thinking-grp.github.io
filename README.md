@@ -3,11 +3,9 @@
 ### /index.html
 トップページ。
 
-### /script/annimation.js
-現時点ではヘッダーのアニメーション用。
-
 ### /script/common.js
 共通の部品を、スクリプト読み込ますだけで標示させるやつ。
+それからheaderのアニメーションにも使ってる。
 headerとかfooterとか。title、metaとかはSEOの関係もあってhtmlに書く
 
 ### /style/*
