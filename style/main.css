@@ -83,18 +83,6 @@ main {
   margin: 5px var(--content-side-margin);
 }
 
-.moreBtn {
-  display: inline-block;
-  position: relative;
-  border-radius: 3px;
-  color: #5e5e5e;
-  box-shadow: 0 0 5px #0008;
-  padding: 0.2em;
-  margin: 10px 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .center_div {
   text-align: center;
 }
