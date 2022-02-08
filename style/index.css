@@ -136,9 +136,12 @@
   margin: 40px 0;
 }
 
-.linksColumn-item {
-  margin: 0 20px;
+.linksColumn-row > a {
   width: 100%;
+  margin: 0 20px;
+}
+
+.linksColumn-item {
   display: flex;
   background: #fff;
   height: 100px;
