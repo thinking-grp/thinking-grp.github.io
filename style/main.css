@@ -33,7 +33,7 @@ header {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #fffa;
+  background-color: #fffb;
   padding: 5px var(--content-side-margin);
   box-sizing: border-box;
   box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
@@ -64,12 +64,32 @@ header > div {
 #slider {
   text-align: center;
   height: 30%;
-  margin: 0em;
-  padding: 7em;
+  margin: 0;
+  padding: 0 var(--content-side-margin) 7em;
   padding-top: 10em;
   background: url('../image/logo-background.jpg');
   background-size: cover;
   color: rgb(235, 235, 235);
+}
+
+#slider.slider-general * {
+  text-align: left;
+  margin: 0;
+  color: #fff;
+}
+
+#slider.slider-general h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 2px;
+  margin-left: 0;
+  background-color: #ddd;
+}
+
+#slider.slider-general h3 {
+  font-weight: 200;
 }
 
 a {
