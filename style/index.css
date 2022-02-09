@@ -60,16 +60,6 @@
   }
 }
 
-.moreBtn {
-  display: inline-block;
-  position: relative;
-  border-radius: 3px;
-  color: #5e5e5e;
-  padding: 7px 10px;
-  margin: 10px 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 #projectsColumn {
   color: aliceblue;
@@ -192,8 +182,7 @@
 
 .linksColumn-item,
 .blogsColumn-item,
-#projectsColumn > .p > *,
-.moreBtn {
+#projectsColumn > .p > * {
   transition: all 0.6s ease;
   box-shadow: 0 0 5px #0008;
 }
