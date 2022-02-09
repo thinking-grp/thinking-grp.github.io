@@ -9,8 +9,8 @@ window.onload = () => {
       <a href="/" id="header-icon"></a>
       <div id="header-buttons">
         <a href="/about/">About</a>
-        <a href="/projects/">Projects</a>
-        <a href="/blogs/">Blogs</a>
+        <a href="/project/">Project</a>
+        <a href="/blog/">Blog</a>
       </div>
     </div>
   </header>
@@ -32,8 +32,8 @@ window.onload = () => {
     </div>
     <div class="footerColumn">
       <p><a href="/project/" class="footer-bigger">プロジェクト一覧</a></p>
-      <p><a href="/project/thinkfont/">thinkFont</a></p>
-      <p><a href="/project/thinkos/">thinkOS</a></p>
+      <p>thinkFont</p>
+      <p>thinkOS</p>
       <p><a href="https://sorakime.github.io/mncr/">monochrome Project.</a></p>
     </div>
     <div class="footerColumn">
