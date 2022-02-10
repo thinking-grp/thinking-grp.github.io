@@ -14,12 +14,14 @@
   box-shadow: 0 0 5px #0008;
 }
 
-.membersColumn-item > img {
+.membersColumn-item > .profilepic {
   aspect-ratio: 1/1;
   background: #000;
   height: 100%;
   border-radius: 2px;
   filter: none;
+  background-size: cover;
+  background-position: center;
 }
 
 .membersItem-details {
@@ -36,6 +38,13 @@
   font-weight: 300;
 }
 
+.membersItem-details > .links * {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+  color: #38f;
+}
+
 .role {
   font-size: 12px;
   margin: 0;
@@ -44,4 +53,48 @@
   top: -2px;
   display: inline-block;
   border-radius: 10px;
+}
+
+#sorakime .profilepic {
+  background-image: url('/image/icon/sorakime.JPG');
+}
+
+#zip .profilepic {
+  background-image: url('/image/icon/zip.png');
+}
+
+#ogizaru .profilepic {
+  background-image: url('/image/icon/ogizaru.jpg');
+}
+
+#michi .profilepic {
+  background-image: url('/image/icon/michi.jpg');
+}
+
+#alice .profilepic {
+  background-image: url('/image/icon/alice.jpg');
+}
+
+#xepos .profilepic {
+  background-image: url('/image/icon/xepos.jpeg');
+}
+
+#haru-lab .profilepic {
+  background-image: url('/image/icon/haru-lab.png');
+}
+
+#hidemal .profilepic {
+  background-image: url('/image/icon/hidemal.jpeg');
+}
+
+#yukkuri-rmys .profilepic {
+  background-image: url('/image/icon/yukkuri-rmys.jpg');
+}
+
+#nighthax .profilepic {
+  background-image: url('/image/icon/nighthax.png');
+}
+
+#mf7cli .profilepic {
+  background-image: url('/image/icon/mf7cli.jpeg');
 }

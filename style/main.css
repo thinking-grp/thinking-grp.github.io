@@ -28,6 +28,7 @@ header {
   display: inline-block;
   z-index: 1;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   position: fixed;
   top: 0;
   left: 0;
