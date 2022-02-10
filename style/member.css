@@ -35,3 +35,13 @@
   font-size: 20px;
   font-weight: 300;
 }
+
+.role {
+  font-size: 12px;
+  margin: 0;
+  margin-left: 5px;
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  border-radius: 10px;
+}
