@@ -69,7 +69,7 @@
   width: 100%;
   background: #222;
   height: 150px;
-  border-radius: 3px;
+  border-radius: 10px;
   text-align: center;
   margin: 5px;
 }
@@ -85,19 +85,20 @@
 
 .blogsColumn-item {
   display: flex;
-  background: #fff;
+  background-color: #2e2e2e;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
   margin: 5px 0 20px;
+  color: #e6e6e6;
 }
 
 .blogsColumn-item > img {
   aspect-ratio: 16/9;
-  background: #000;
+  background: #e6e6e6;
   height: 100%;
-  border-radius: 2px;
+  border-radius: 10px;
   filter: none;
 }
 
@@ -142,11 +143,12 @@
 
 .linksColumn-item {
   display: flex;
-  background: #fff;
+  background-color: #2e2e2e;
   height: 100px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: left;
   padding: 20px;
+  color: #e6e6e6;
 }
 
 .linksColumn-item-text {
@@ -177,19 +179,19 @@
 .linksColumn-item-img {
   height: 100%;
   aspect-ratio: 1/1;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .linksColumn-item,
 .blogsColumn-item,
 #projectsColumn > .p > * {
   transition: all 0.6s ease;
-  box-shadow: 0 0 5px #0008;
+  box-shadow: 0 0 15px 2px #00000023;
 }
 
 .linksColumn-item:hover,
 .blogsColumn-item:hover,
 #projectsColumn > .p > *:hover,
 .moreBtn:hover {
-  box-shadow: 0 0 10px #0008;
+  box-shadow: 0 0 15px 2px #00000023;
 }

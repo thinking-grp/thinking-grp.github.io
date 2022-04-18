@@ -4,21 +4,22 @@
 
 .membersColumn-item {
   display: flex;
-  background: #fff;
+  background-color: #2e2e2e;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
   margin: 5px 0 20px;
   transition: all 0.6s ease;
-  box-shadow: 0 0 5px #0008;
+  box-shadow: 0 0 15px 2px #00000048;
+  color: #e6e6e6;
 }
 
 .membersColumn-item > .profilepic {
   aspect-ratio: 1/1;
-  background: #000;
+  background: #e6e6e6;
   height: 100%;
-  border-radius: 2px;
+  border-radius: 10px;
   filter: none;
   background-size: cover;
   background-position: center;
