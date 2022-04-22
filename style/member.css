@@ -68,24 +68,12 @@
   background-image: url('/image/icon/ogizaru.jpg');
 }
 
-#michi .profilepic {
-  background-image: url('/image/icon/michi.jpg');
-}
-
 #alice .profilepic {
   background-image: url('/image/icon/alice.jpg');
 }
 
-#xepos .profilepic {
-  background-image: url('/image/icon/xepos.jpeg');
-}
-
 #haru-lab .profilepic {
   background-image: url('/image/icon/haru-lab.png');
-}
-
-#hidemal .profilepic {
-  background-image: url('/image/icon/hidemal.jpeg');
 }
 
 #yukkuri-rmys .profilepic {
