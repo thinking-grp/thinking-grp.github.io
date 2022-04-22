@@ -87,3 +87,15 @@
 #mf7cli .profilepic {
   background-image: url('/image/icon/mf7cli.jpeg');
 }
+
+#xilletex .profilepic {
+  background-image: url('/image/icon/xilletex.png');
+}
+
+#dadan .profilepic {
+  background-image: url('/image/icon/dadan.png');
+}
+
+#sora .profilepic {
+  background-image: url('/image/icon/sora.png');
+}
