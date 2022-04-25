@@ -1,8 +1,4 @@
 window.onload = () => {
-  document.getElementsByTagName('head')[0].innerHTML = `
-  ${document.getElementsByTagName('head')[0].innerHTML}
-  <link rel="stylesheet" href="/style/main.css">
-  `
   document.body.innerHTML = `
   <header>
     <div>
