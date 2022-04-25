@@ -67,16 +67,22 @@
 
 #projectsColumn > .p > * {
   width: 100%;
+  margin: 0!important;
   background: #222;
   height: 150px;
   border-radius: 10px;
   text-align: center;
-  margin: 5px;
+  line-height: 115px;
+  font-size: 15px;
 }
 
 .p {
   display: flex;
   margin: 5px 0 10px;
+}
+
+.p > h3 {
+  margin: 0!important;
 }
 
 #blogsColumn {
