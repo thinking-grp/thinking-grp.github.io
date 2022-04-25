@@ -1,0 +1,10 @@
+ul > li > .leader {
+    font-weight: bold;
+    display: inline-block;
+}
+
+ul > li > .role {
+    margin-left: 5px;
+    font-size: 12px;
+    display: inline-block;
+}
