@@ -80,9 +80,11 @@
   display: flex;
   margin: 5px 0 10px;
 }
-
 .p > h3 {
   margin: 0!important;
+}
+.p > a {
+  color: #e6e6e6;
 }
 
 #blogsColumn {
