@@ -69,7 +69,7 @@
   width: 100%;
   padding: 20px;
   height: 150px;
-  border-radius: 10px;
+  border-radius: var(--main-radius);
   text-align: center;
   line-height: 115px;
   font-size: 15px;
@@ -83,7 +83,7 @@
   margin: 0!important;
 }
 .p > a {
-  font-family: Barlow, sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 #thinkosBtn {
@@ -111,7 +111,7 @@
   display: flex;
   background-color: #f8f8f8;
   height: 200px;
-  border-radius: 10px;
+  border-radius: var(--main-radius);
   padding: 20px;
   box-sizing: border-box;
   margin: 5px 0 20px;
@@ -169,7 +169,7 @@
   display: flex;
   background-color: #f8f8f8;
   height: 100px;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: left;
   padding: 20px;
   color: #050505;
@@ -214,12 +214,12 @@
 .blogsColumn-item,
 #projectsColumn > .p > * {
   transition: all 0.6s ease;
-  box-shadow: 0 0 15px 2px #00000023;
+  box-shadow: var(--main-shadow);
 }
 
 .linksColumn-item:hover,
 .blogsColumn-item:hover,
 #projectsColumn > .p > *:hover,
 .moreBtn:hover {
-  box-shadow: 0 0 15px 2px #00000023;
+  box-shadow: var(--hover-shadow);
 }

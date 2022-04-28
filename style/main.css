@@ -2,6 +2,9 @@
 :root{
   --content-width: 60vw;
   --content-side-margin: 20vw;
+  --main-shadow: 0 0 5px 2px #0003;
+  --hover-shadow: 0 0 8px 2px #0005;
+  --main-radius: 5px;
 }
 
 body {
@@ -111,8 +114,7 @@ main {
 footer {
   display: flex;
   border-top: 1px solid #00000033;
-  background-color: #ffffff;
-  text-align: left;
+  background-color: #ffffff;  text-align: left;
   padding: 10px var(--content-side-margin);
 }
 
@@ -133,18 +135,18 @@ footer * {
 .moreBtn {
   display: inline-block;
   position: relative;
-  border-radius: 10px;
+  border-radius: var(--main-radius);
   color: #050505;
   padding: 7px 10px;
   margin: 10px 0;
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.6s ease;
-  box-shadow: 0 0 15px 2px #0000001f;
+  box-shadow: var(--main-shadow);
   background-color: #f5f5f5;
 }
 .moreBtn:hover {
-  box-shadow: 0 0 10px 2px #0000001f;
+  box-shadow: var(--hover-shadow);
 }
 
 body {

@@ -30,7 +30,7 @@ window.onload = () => {
       <p><a href="/project/" class="footer-bigger">プロジェクト一覧</a></p>
       <p><a href="/project/thinkfont">thinkFont</a></p>
       <p><a href="/project/thinkos">thinkOS</a></p>
-      <p><a href="https://sorakime.github.io/mncr/">monochrome Project.</a></p>
+      <p><a href="https://www.monochrome.tk/">monochrome Project.</a></p>
     </div>
     <div class="footerColumn">
       <p><a href="/agreement">プライバシーポリシーと利用規約</a></p>

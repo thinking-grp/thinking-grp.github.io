@@ -1,12 +1,12 @@
 #projectsColumn > a {
   display: block;
   width: 100%;
-  box-shadow: 0 0 15px 2px #00000048;
+  box-shadow: var(--main-shadow);
   background: #222;
   height: 300px;
   max-height: 60vh;
   min-height: 30vh;
-  border-radius: 10px;
+  border-radius: var(--main-radius);
   text-align: center;
   margin: 15px 0;
   position: relative;
