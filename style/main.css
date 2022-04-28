@@ -134,14 +134,14 @@ footer * {
   display: inline-block;
   position: relative;
   border-radius: 10px;
-  color: #e0e0e0;
+  color: #050505;
   padding: 7px 10px;
   margin: 10px 0;
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.6s ease;
   box-shadow: 0 0 15px 2px #0000001f;
-  background-color: #2e2e2e;
+  background-color: #f5f5f5;
 }
 .moreBtn:hover {
   box-shadow: 0 0 10px 2px #0000001f;
