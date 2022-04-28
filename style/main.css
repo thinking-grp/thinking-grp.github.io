@@ -34,7 +34,7 @@ header {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #494949b0;
+  background-color: #ffffff80;
   padding: 5px var(--content-side-margin);
   box-sizing: border-box;
   box-shadow: 0 0 15px 2px #00000048;
@@ -58,7 +58,7 @@ header > div {
 }
 #header-buttons > * {
   font-size: 18px;
-  color: #ffffff;
+  color: #000000;
   margin: 0 7px;
 }
 
