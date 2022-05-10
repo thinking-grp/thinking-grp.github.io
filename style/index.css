@@ -24,17 +24,13 @@
 }
 @media screen and (max-width: 500px) {
   main {
-    text-align: center!important;
+    text-align: left!important;
     padding-left: 0em!important;
   }
   #slider {
-    padding: 0em!important;
+    padding: 3em!important;
     padding-top: 3em!important;
     height: 20%!important;
-  }
-  #slider h2 {
-    animation-name: fadeInRight;
-    animation-duration: 2.4s;
   }
   #thinking-logo {
     width: 90%!important;
