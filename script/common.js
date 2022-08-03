@@ -37,7 +37,7 @@ window.onload = () => {
       <p>Copyright &copy; 2022 thinking All rights reserved.</p>
     </div>
   </footer>
-  `
+  `;
   window.addEventListener('scroll', () => {
     let scrollTop = document.documentElement.scrollTop;
     let sliderHeight = document.getElementById('slider').getBoundingClientRect().height;
@@ -46,5 +46,5 @@ window.onload = () => {
     } else {
       document.getElementsByTagName('header')[0].style.height = '60px';
     }
-  })
+  });
 }
