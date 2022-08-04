@@ -17,45 +17,6 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 800px) {
-  main {
-    padding-left: 1.5em!important;
-  }
-}
-@media screen and (max-width: 500px) {
-  main {
-    text-align: left!important;
-    padding-left: 0em!important;
-  }
-  #slider {
-    padding: 3em!important;
-    padding-top: 3em!important;
-    height: 20%!important;
-  }
-  #thinking-logo {
-    width: 90%!important;
-    display: none;
-    animation-name: topDrop;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-  .moreBtn {
-    padding-left: 0.1em!important;
-  }
-  #projectsColumn > div {
-    margin-left: 0em!important;
-  }
-  #blogsColumn > div {
-    padding-left: 0.1em!important;
-  }
-  .center_div {
-    width: 100%!important;
-  }
-  .linksColumn-item {
-    margin: 0.1em!important;
-  }
-}
-
 
 #projectsColumn {
   color: aliceblue;
@@ -75,9 +36,7 @@
   display: flex;
   margin: 5px 0 10px;
 }
-.p > h3 {
-  margin: 0!important;
-}
+
 .p > a {
   font-family: 'Barlow', sans-serif;
 }
@@ -93,7 +52,7 @@
 #thinkfontBtn {
   width: 90%;
   margin: 10px;
-  background: #f8f8f8!important;
+  background: #f8f8f8;
 }
 #thinkfontBtn > h3 {
   color: #050505;
@@ -218,4 +177,56 @@
 #projectsColumn > .p > *:hover,
 .moreBtn:hover {
   box-shadow: var(--hover-shadow);
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    text-align: left;
+    padding-left: 0em;
+  }
+  #slider {
+    padding: 3em;
+    padding-top: 3em;
+    height: 20%;
+  }
+  #thinking-logo {
+    width: 90%;
+    display: none;
+    animation-name: topDrop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  .center_div {
+    width: 100%;
+  }
+  #linksColumn .linksColumn-row {
+    width: auto;
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
+  .linksColumn-row > a {
+    display: block;
+    padding: 0;
+    margin: 20px 2px;
+  }
+  #projectsColumn > div {
+    display: grid;
+    width: auto;
+  }
+  #projectsColumn > .p > * {
+    width: auto;
+  }
+  .blogsColumn-item {
+    display: block;
+    height: auto;
+    margin: 5px;
+  }
+  .blogsColumn-item > img {
+    height: auto;
+    width: 100%;
+  }
+  .blogItem-details {
+    margin: 0;
+  }
 }

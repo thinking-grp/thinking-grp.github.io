@@ -1,18 +1,14 @@
-#membersColumn {
-  color: #000;
-}
-
 .membersColumn-item {
   display: flex;
-  background-color: #2e2e2e;
+  background-color: #fff;
   height: 200px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
   margin: 5px 0 20px;
   transition: all 0.6s ease;
-  box-shadow: 0 0 15px 2px #00000048;
-  color: #e6e6e6;
+  box-shadow: 0 0 5px 2px #0002;
+  color: #222;
 }
 
 .membersColumn-item > .profilepic {
@@ -60,14 +56,6 @@
   background-image: url('/image/icon/sorakime.jpg');
 }
 
-#zip .profilepic {
-  background-image: url('/image/icon/zip.jpg');
-}
-
-#ogizaru .profilepic {
-  background-image: url('/image/icon/ogizaru.jpg');
-}
-
 #alice .profilepic {
   background-image: url('/image/icon/alice.jpg');
 }
@@ -78,10 +66,6 @@
 
 #yukkuri-rmys .profilepic {
   background-image: url('/image/icon/yukkuri-rmys.jpg');
-}
-
-#nighthax .profilepic {
-  background-image: url('/image/icon/nighthax.jpg');
 }
 
 #mf7cli .profilepic {
@@ -98,4 +82,12 @@
 
 #sora .profilepic {
   background-image: url('/image/icon/sora.jpg');
+}
+
+#hidemal .profilepic {
+  background-image: url('/image/icon/hidemal.jpg');
+}
+
+#kyapp .profilepic {
+  background-image: url('/image/icon/kyapp.jpg');
 }

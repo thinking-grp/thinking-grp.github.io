@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&family=Noto+Sans+JP:wght@300&display=swap');
 :root{
-  --content-width: 60vw;
-  --content-side-margin: 20vw;
+  --content-width: 1000px;
+  --content-side-margin: auto;
   --main-shadow: 0 0 5px 2px #0003;
   --hover-shadow: 0 0 8px 2px #0005;
   --main-radius: 5px;
@@ -50,6 +50,8 @@ header > div {
   position: relative;
   height: 100%;
   width: var(--content-width);
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
 }
 #header-buttons {
   display: inline-block;
@@ -69,8 +71,8 @@ header > div {
   text-align: center;
   height: 30%;
   margin: 0;
-  padding: 0 var(--content-side-margin) 7em;
-  padding-top: 10em;
+  padding: 8em 20vw;
+  padding-top: calc(8em + 59px);
   background: url('../image/logo-background.jpg');
   background-size: cover;
   color: rgb(235, 235, 235);
@@ -78,7 +80,7 @@ header > div {
 
 #slider.slider-general * {
   text-align: left;
-  margin: 0;
+  width: 100%;
   color: #fff;
 }
 
@@ -105,6 +107,7 @@ main {
   text-align: left;
   width: var(--content-width);
   margin: 5px var(--content-side-margin);
+  max-width: calc(100% - 20px);
 }
 
 .center_div {
@@ -114,8 +117,9 @@ main {
 footer {
   display: flex;
   border-top: 1px solid #00000033;
-  background-color: #ffffff;  text-align: left;
-  padding: 10px var(--content-side-margin);
+  background-color: #ffffff;
+  text-align: left;
+  padding: 10px 20vw;
 }
 
 footer * {
@@ -183,6 +187,9 @@ p{
     opacity: 1;
   }
 }
-@media screen and (max-width: 800px) {
-  
+
+@media (max-width: 900px) {
+  footer {
+    padding: 0 10px;
+  }
 }
