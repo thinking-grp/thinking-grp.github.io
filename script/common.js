@@ -42,9 +42,11 @@ window.onload = () => {
     </div>
   </footer>
   `;
+//2020-OOOO yearget
   date = new Date();
   year = date.getFullYear();
   document.getElementById("year").innerHTML = year;
+
   window.addEventListener('scroll', () => {
     let scrollTop = document.documentElement.scrollTop;
     let sliderHeight = document.getElementById('slider').getBoundingClientRect().height;
