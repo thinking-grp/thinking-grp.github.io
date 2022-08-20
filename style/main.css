@@ -122,6 +122,10 @@ footer {
   padding: 10px 20vw;
 }
 
+.year-s {
+  display: flex;
+}
+
 footer * {
   color: #000000;
   font-weight: 500;
@@ -193,3 +197,4 @@ p{
     padding: 0 10px;
   }
 }
+
