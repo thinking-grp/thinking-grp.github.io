@@ -37,7 +37,7 @@ window.onload = () => {
       <p><a href="/agreement">プライバシーポリシーと利用規約</a></p>
       <div class="year-s">
         <p>Copyright &copy; &#160;</p>
-<p><div>2022-</div><div id="year"></div></p>
+        <p><div>2022-</div><div id="year"></div></p>
       </div>
       <p>thinking All rights reserved.</p>
     </div>
