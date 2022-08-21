@@ -39,7 +39,6 @@ window.onload = () => {
         <p>Copyright &copy; &#160;</p>
 <p><div>2022-</div><div id="year"></div></p>
       </div>
-      <p><div>2022-</div><div id="year"></div></p>
       <p>thinking All rights reserved.</p>
     </div>
   </footer>
