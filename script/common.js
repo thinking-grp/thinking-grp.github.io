@@ -36,15 +36,17 @@ window.onload = () => {
     <div class="footerColumn">
       <p><a href="/agreement">プライバシーポリシーと利用規約</a></p>
       <div class="year-s">
-        <p>Copyright &copy; &#160;<div>2022-</div><div id="year"></div></p>
+        <p>&copy; &#160;<div>2022-</div><div id="year"></div></p>
       </div>
-      <p>thinking All rights reserved.</P>
+      <p>thinking All rights reserved.</p>
     </div>
   </footer>
   `;
+//2020-OOOO yearget
   date = new Date();
   year = date.getFullYear();
   document.getElementById("year").innerHTML = year;
+
   window.addEventListener('scroll', () => {
     let scrollTop = document.documentElement.scrollTop;
     let sliderHeight = document.getElementById('slider').getBoundingClientRect().height;
