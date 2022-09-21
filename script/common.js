@@ -5,7 +5,6 @@ window.onload = () => {
     <div>
       <a href="/" id="header-icon"></a>
       <div id="header-buttons">
-        <a href="https://mf-3d.github.io/twitter-bot-thinking/">Thinking-bot</a>
         <a href="/about/">About</a>
         <a href="/project/">Project</a>
         <a href="/blog/">Blog</a>
