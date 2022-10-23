@@ -40,7 +40,7 @@ headerとかfooterとか。title、metaとかはSEOの関係もあってhtmlに�
 
 私たちのメンバー紹介ページ
 
-### /background-images/*
+### /background-images/
 
 壁紙配布ページ
 
