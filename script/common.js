@@ -42,7 +42,7 @@ window.onload = () => {
     </div>
   </footer>
   `;
-//2020-OOOO yearget
+//2020-OOOO year
   date = new Date();
   year = date.getFullYear();
   document.getElementById("year").innerHTML = year;
