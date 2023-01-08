@@ -1,7 +1,7 @@
 .membersColumn-item {
   display: flex;
   background-color: #fff;
-  height: 200px;
+  height: auto;
   border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
