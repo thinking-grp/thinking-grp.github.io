@@ -24,6 +24,7 @@ window.onload = () => {
       <p><a href="/about/dept/" class="footer-bigger">部署一覧</a></p>
       <p><a href="/project/thinkfont/">thinkFont</a></p>
       <p><a href="/project/thinkos/">thinkOS</a></p>
+      <p><a href="/project/thinkerAI/">thinkerAI</a></p>
       <p><a href="/about/dept/web/">Web開発</a></p>
       <p><a href="/about/dept/material/">素材等作成</a></p>
     </div>
@@ -31,6 +32,7 @@ window.onload = () => {
       <p><a href="/project/" class="footer-bigger">プロジェクト一覧</a></p>
       <p><a href="/project/thinkfont">thinkFont</a></p>
       <p><a href="/project/thinkos">thinkOS</a></p>
+      <p><a href="/project/thinkerAI/">thinkerAI</a></p>
       <p><a href="https://mncrp.github.io/">monochrome Project.</a></p>
     </div>
     <div class="footerColumn">
