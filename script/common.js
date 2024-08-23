@@ -19,6 +19,7 @@ window.onload = () => {
       <p><a href="/sitemap">サイトマップ</a></p>
       <p><a href="/contact">お問い合わせ</a></p>
       <p><a href="/join">応募する</a></p>
+      <p><a href="/wallpaper">壁紙ダウンロード</a></p>
     </div>
     <div class="footerColumn">
       <p><a href="/about/dept/" class="footer-bigger">部署一覧</a></p>
