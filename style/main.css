@@ -198,3 +198,13 @@ p{
   }
 }
 
+@media (min-width: 768px) {
+  .wallpaper img {
+    width: 500px;
+    }
+}
+   @media (max-width: 767px) {
+  .wallpaper img {
+    width: 45%;
+    }
+}
