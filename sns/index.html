@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thinking SNS</title>
+</head>
+<body>
+  <div class="pre">Beta<md-ripple></md-ripple></div>
+  <h1>thinking sns</h1>
+  <div class="center">
+  <button id="openDialogButton">ご利用時の注意事項</button><button class="nobgbtn" onclick="location.href='https://thinking-grp.github.io/'">thinking 公式</button></div>
+  <nobr>
+    <div class="menu-container">
+    <label for="default"><div id="menu1" class="menu"><input type="radio" name="texttype" value="default" id="default" checked class="displaynone"/>通常テキスト<md-ripple></md-ripple></div></label>
+    <label for="mini"><div id="menu2" class="menu"><input type="radio" name="texttype" value="mini" id="mini" class="displaynone"/>ミニ投稿<md-ripple></md-ripple></div></label>
+    <label for="delay"><div id="menu3" class="menu"><input type="radio" name="texttype" value="delay" id="delay" class="displaynone"/>ディレイド投稿<md-ripple></md-ripple></div></nobr></div></label>
+  </div>
+  <div class="head">
+    <button onclick="toggletexttypeMenu()">投稿タイプ<md-ripple></md-ripple></button>
+      <script>
+    function toggletexttypeMenu() {
+      const menus = document.querySelectorAll('.menu');
+      menus.forEach(menu => {
+        menu.classList.toggle('show');
+      });
+    }
+  </script>
+  <input type="text" id="text" placeholder="テキストを入力">
+  <label for="bg"><div class="bg-color-box colorbox" id="bgBox"><md-ripple></md-ripple></div></label>
+  <input class="hide" type="color" id="bg" value="#ffffff">
+  <label for="color"><div class="text-color-box colorbox" id="textBox"><md-ripple></md-ripple></div></label>
+  <input class="hide" type="color" id="color" value="#000000">
+    <button id="submitButton">投稿</button>
+    </div>
+<div id="miniPost">
+</div>
+<ul id="postList">
+</ul>
+  <md-dialog id="myDialog">
+  <div slot="headline"> ご利用時の注意事項</div>
+  <form slot="content" id="form-id" method="dialog">投稿削除について<br>投稿は容量管理のため、予告なく削除されることがあります。予めご了承ください。<br><br>個人情報の保護<br>個人情報（氏名、住所、連絡先など）は、絶対に投稿しないでください。<br><br>投稿頻度について<br>サービスの維持に影響を及ぼす可能性があるため、高すぎる頻度での読み込み・リアクションはご遠慮ください。<br><br>運営について<br>私たちは利益がないグループで運営しています。そのため、様々な制限の都合により予告なくサービスを一時停止する場合があります。<br><br>
+バグや不具合の報告<br>バグや不具合を発見した場合は、投稿を通じてお知らせいただけると助かります。
+  </form>
+  <div slot="actions">
+    <md-text-button form="form-id" value="ok">完了</md-text-button>
+  </div>
+</md-dialog>
+  <script></script>
+  <md-dialog id="dialog2">
+    <div slot="headline">おっと!</div>
+    <form slot="content" id="form2" method="dialog">
+       何かしらの問題が発生したようです。詳しくはコンソールをご確認ください。
+       </form>
+       <div slot="actions">
+         <md-text-button form="form2">閉じる</md-text-button>
+      </div>
+  </md-dialog>
+  <button id="loadMoreButton" style="display: none;">もっと読み込む</button>
+  <div class="bottommargin"></div>
+</body>
+</html>
