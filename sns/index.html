@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <link rel="stylesheet" href="https://thinking-grp.github.io/sns/style.css">
-  <meta property="og:image" content="https://thinking-grp.github.io/image/logo/ogp-logo.png" />
+  <link rel="icon" href="https://thinking-grp.github.io/image/logo/ogp-logo.png">
   <script type="importmap">
     {
       "imports": {
@@ -55,6 +55,7 @@
     <button id="submitButton">投稿</button>
     </div>
 <div id="login-section">
+  <div class="flex">
   <div class="error">ログインしていません</div>
   <button id="google-login-btn">Googleでログイン</button>
   <div class="email-login">
@@ -62,11 +63,10 @@
     <input type="password" id="login-password" placeholder="パスワード">
     <button id="email-login-btn">ログイン</button>
     <button id="email-register-btn">新規登録</button>
-  </div>
+  </div></div>
 </div>
 
-<!-- ユーザー情報とログアウトボタン -->
-<div id="user-info-section">
+<div id="user-info-section" style="display: none;">
   <span id="user-info"></span>
   <button id="logout-btn">ログアウト</button>
 </div>
@@ -99,5 +99,4 @@
   <script type="module" src="https://thinking-grp.github.io/sns/script.js"></script>
 
 </body>
-
 </html>
