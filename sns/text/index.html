@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" href="https://thinking-grp.github.io/sns/text/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thinking SNS テキスト通話</title>
+    <link rel="icon" href="https://thinking-grp.github.io/image/logo/ogp-logo.png">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="snstype"><button class="snstypebtn" onclick="location.href='https://thinking-grp.github.io/sns'">スレッド</button><button class="snstypebtn snstypeselect">テキスト通話</button></div>
+  <div class="pre">Beta<md-ripple></md-ripple></div>
+  <h1>thinking sns</h1>
+    <div class="center">
+
+  <button id="openDialogButton">ご利用時の注意事項</button><button class="nobgbtn" onclick="location.href='https://thinking-grp.github.io/'">thinking 公式</button></div>
+<div class="container">
+  <div id="initSection">
+        <div id="firstbox">
+        
+            <h2>トークルームを作成</h2>
+            <div class="input-group">
+                <input type="text" id="createId" placeholder="IDを入力" class="text-box">
+                <input type="number" id="participantCount" min="2" max="5" placeholder="2~5人" class="text-box">
+                <button onclick="createSession()"><md-ripple></md-ripple>開始</button>
+            </div>
+            <p class="error" id="createError">このIDは既に使用されています</p></div>
+<div id="firstbox">
+            <h2>トークルームに参加</h2>
+            <div class="input-group">
+                <input type="text" id="joinId" placeholder="IDを入力" class="text-box">
+                <button onclick="joinSession()">参加<md-ripple></md-ripple></button>
+            </div>
+            <p class="error" id="joinError">セッションが見つかりません</p>
+        </div></div></div>
+
+        <div id="chatSection" class="chat-container">
+            <div class="session-info">
+                <h2 class="session-id" id="sessionTitle"></h2>
+                <p class="participant-count" id="participantInfo"></p>
+            </div>
+            <div id="textboxContainer" class="textbox-container"></div>
+            <div class="button-group">
+                <button onclick="leaveSession()">退出</button>
+                <button onclick="deleteSession()" style="background-color: #ff4444; color: white;">セッション削除</button>
+            </div>
+        </div>
+    </div>
+  
+ <md-dialog id="myDialog">
+  <div slot="headline"> ご利用時の注意事項</div>
+  <form slot="content" id="form-id" method="dialog">トークルーム削除について<br>トークルームは容量管理のため、予告なく削除されることがあります。予めご了承ください。<br><br>個人情報の保護<br>個人情報（氏名、住所、連絡先など）は、絶対に書き込まないでください。<br><br>長時間のご利用について<br>サービスの維持に影響を及ぼす可能性があるため、長すぎる時間のご利用はご遠慮ください。<br><br>運営について<br>私たちは利益がないグループで運営しています。そのため、様々な制限の都合により予告なくサービスを一時停止する場合があります。<br><br>
+バグや不具合の報告<br>バグや不具合を発見した場合は、投稿を通じてお知らせいただけると助かります。
+  </form>
+  <div slot="actions">
+    <md-text-button form="form-id" value="ok">完了</md-text-button>
+  </div>
+</md-dialog>
+  <md-dialog id="dialog2">
+    <div slot="headline">おっと!</div>
+    <form slot="content" id="form2" method="dialog">
+       何かしらの問題が発生したようです。詳しくはコンソールをご確認ください。
+       </form>
+       <div slot="actions">
+         <md-text-button form="form2">閉じる</md-text-button>
+      </div>
+  </md-dialog>
+  
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script  type="module" src="https://thinking-grp.github.io/sns/text/script.js"></script>
+  
+</body>
+  
+</html>
