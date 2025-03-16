@@ -1,136 +1,395 @@
-.membersColumn-item {
+.card-layout {
   display: flex;
-  background-color: #fff;
-  height: auto;
-  border-radius: 5px;
-  padding: 20px;
-  box-sizing: border-box;
-  margin: 5px 0 20px;
-  transition: all 0.6s ease;
-  box-shadow: 0 0 5px 2px #0002;
-  color: #222;
-}
-
-.membersColumn-item > .profilepic {
-  aspect-ratio: 1/1;
-  background: #e6e6e6;
+  flex-wrap: wrap;
+  width: 100%;
   height: 100%;
-  border-radius: 10px;
-  filter: none;
-  background-size: cover;
-  background-position: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  &::after {
+    content: "";
+    width: 30%;
+    height: 0;
+  }
 }
 
-.membersItem-details {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: 20px;
-}
-
-.membersItem-details > h3 {
-  margin: 5px 0;
-  width: 100%;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.membersItem-details > .links * {
-  display: inline-block;
-  margin-right: 5px;
-  font-size: 14px;
-  color: #38f;
-}
-
-.role {
-  font-size: 12px;
-  margin: 0;
-  margin-left: 5px;
+.card {
   position: relative;
-  top: -2px;
-  display: inline-block;
+  width: 200px;
+  height: 140px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 60px 5px 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.imgwrap {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  left: 50%;
+  top: -40px;
+  transform: translate(-50%);
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+  transition: 0.2s;
+
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.card-detail-layout {
+  background: transparent;
+  transform: translateY(40px);
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
+}
+
+.card-detail {
+  position: relative;
+  transform: translateY(-22px);
+  font-size: 20px;
+  text-align: center;
+  transition: 0.7s linear(0, 1.32, 0.87, 1.05, 0.98, 1.01, 1);
+
+  & span {
+    display: block;
+
+    &:first-child {
+      font-size: 12px;
+      margin: 2px 0;
+      color: #5c5c5c;
+    }
+
+    &:nth-child(3) {
+      font-size: 12px;
+      margin: 2px 0;
+      color: #5e5e5e;
+    }
+  }
+}
+
+.card:hover .card-detail {
+  transform: translateY(1px);
+}
+
+.card:hover {
+  box-shadow: rgba(65, 65, 65, 0.298) 0px 7px 29px 0px;
+
+  & .imgwrap {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+.mem-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
   border-radius: 10px;
+  background: transparent;
+  width: 150px;
+  height: 30px;
+  border: none;
+  outline: none;
+
+  & :focus {
+    outline: none;
+    border: none;
+  }
 }
 
-#sorakime .profilepic {
-  background-image: url('/image/icon/sorakime.jpg');
-}
-#Xepos .profilepic {
-  background-image: url('/image/icon/683E360A-62ED-4151-B9CA-1649543400FF\ -\ Mikigoh_動画編集.jpeg');
-}
-
-#miti .profilepic {
-  background-image: url('/image/icon/309137\ -\ 未知.jpg');
-}
-
-#haru-lab .profilepic {
-  background-image: url('/image/icon/harulab.jpg');
+.flow-background {
+  opacity: 0;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #00000000;
+  transition: 0.5s ease;
 }
 
-#NightHax .profilepic {
-  background-image: url('/image/icon/Blue\ -\ Ksan_Kshi.png');
+.flow-background.active {
+  display: block;
+  opacity: 1;
+  background: #00000069;
 }
 
-#earth .profilepic {
-  background-image: url('/image/icon/earth\(1\).png');
+.flow-card {
+  background: #fff;
+  width: 300px;
+  height: 500px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-#alice .profilepic {
-  background-image: url('/image/icon/alice.jpg');
+.flow-background.active .flow-card {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 
-#konamitu .profilepic {
-  background-image: url('/image/icon/ver2.2\ -\ 粉蜜柑.png');
+.member-card-bg {
+  background: transparent;
+  width: 100%;
+  height: 120px;
+
+  & img {
+    border-radius: 18px 18px 0 0;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
 }
 
-#amania .profilepic {
-  background-image: url('/image/icon/amania_logo_denoise_denoise\ -\ _\ amania.png');
+.member-card-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: #ffffff solid 2px;
+  background-color: #fff;
+
+  & img {
+    border-radius: 20px;
+    width: inherit;
+    height: inherit;
+  }
 }
 
-#mizuyoukan .profilepic {
-  background-image: url('/image/icon/DSC_0105_3\ -\ 西脇鼓大良.JPG');
+@media screen and (min-width:430px) {
+  .flow-card {
+    width: 400px;
+  }
+
+  .member-card-icon {
+    width: 130px;
+    height: 130px;
+
+    & img {
+      border-radius: 20px;
+      width: inherit;
+      height: inherit;
+    }
+  }
 }
 
-#otada .profilepic {
-  background-image: url('/image/icon/-JvPI7S4_400x400\ -\ 名前分かると思ったか.jpg');
+.member-card-detail {
+  margin-top: 70px;
 }
 
-#ZIP .profilepic {
-  background-image: url('/image/icon/ba9985864c05e64a41e0af1cbca6c185\ -\ group\ thinking.png');
+.member-card-name {
+  font-size: 25px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
 }
 
-#yukkuri-rmys .profilepic {
-  background-image: url('/image/icon/yukkuri-rmys.jpg');
+.member-card-role {
+  font-size: 13px;
+  color: #a3a3a3;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  outline: none;
+  border: none;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
 }
 
-#mf7cli .profilepic {
-  background-image: url('/image/icon/mf7cli.jpg');
+.member-card-bio {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 15px;
+  text-align: center;
+  resize: none;
+  width: 100%;
+  height: 160px;
+  border: none;
+
+  & span {
+    width: calc(100% - 50px);
+    display: block;
+    margin: 0 auto;
+  }
 }
 
-#xilletex .profilepic {
-  background-image: url('/image/icon/xilletex.jpg');
+.member-card-link {
+  background: transparent;
+  margin: 0 20px;
+  justify-content: center;
+  display: flex;
 }
 
-#dadan .profilepic {
-  background-image: url('/image/icon/NfFFY_Ug_400x400\ -\ 駄々ん.jpg');
+.mc-link {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #00000000;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  color: #000;
+  cursor: pointer;
+  transition: .3s;
+
+  &.x {
+    color: #08a0e9;
+
+    &:hover {
+      color: #000;
+      background-color: #08a0e9;
+    }
+  }
+
+  &.github {
+    color: #0d1117;
+
+    &:hover {
+      color: #fff;
+      background-color: #0d1117;
+    }
+  }
+
+  &.gitlab {
+    fill: none;
+
+    &:hover {
+      background-color: #554488;
+
+      & img {
+        filter: brightness(0%) contrast(300%) invert(100%);
+      }
+    }
+  }
+
+  &.yt {
+    color: #ff0000;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #ff0000;
+    }
+  }
+
+  &.bs {
+    fill: none;
+
+    &:hover {
+      background-color: #0661c0;
+
+      & img {
+        filter: brightness(0%) contrast(300%) invert(100%);
+      }
+    }
+  }
+
+  &.mk {
+    fill: none;
+
+    &:hover {
+      background-color: #55701e;
+
+      & img {
+        filter: brightness(0%) contrast(300%) invert(100%);
+      }
+    }
+  }
+
+  &.my-website {
+    position: relative;
+
+    & img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {}
+  }
+
 }
 
-#sora .profilepic {
-  background-image: url('/image/icon/sora.jpg');
+.my-website-wrap {
+  display: flex;
+
+  & input:last-child {
+    width: 100px !important;
+  }
 }
 
-#hidemal .profilepic {
-  background-image: url('/image/icon/hidemal.jpg');
+.img-link-icon {
+  width: 24px;
+  height: 24px;
 }
 
-#kyapp .profilepic {
-  background-image: url('/image/icon/kyapp.jpg');
+/* --------------デバッグ-------------- */
+/* .flow-background {
+  display: block !important;
+  opacity: 1;
+  background: #00000069;
+  pointer-events: auto;
 }
 
-#noaxing .profilepic {
-  background-image: url('/image/icon/noaxing.jpg');
+.flow-card {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+} */
+
+/* --------------デバッグ-------------- */
+
+.role_style {
+  padding: 0 25px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-#gasukaku .profilepic {
-  background-image: url('/image/icon/gasukaku.jpg');
+.fadeIn {
+  margin-bottom: 100px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }

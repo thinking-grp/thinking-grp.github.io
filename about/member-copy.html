@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Members - thinking</title>
+  <link rel="stylesheet" href="/style/main.css">
+  <link rel="stylesheet" href="/style/member.css">
+  <link rel="icon" href="https://thinking-grp.github.io/image/logo/favicon.ico" type="image/x-icon">
+</head>
+
+<body style="user-select: none;">
+  <header>
+    <div>
+      <a href="/" id="header-icon"></a>
+      <div id="header-buttons">
+        <a href="/about/">About</a>
+        <a href="/project/">Project</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flow-background" id="action">
+    <div class="flow-card">
+      <div class="member-card-bg">
+        <img src="/image/banner/{banner-XXX.png}" alt="">
+      </div>
+      <div class="member-card-icon">
+        <img src="/image/icon/{icon-XXX.png}" alt="">
+      </div>
+      <div class="member-card-detail">
+        <div class="member-card-name">
+          <span id="name">{name.name}</span>
+        </div>
+        <div class="member-card-role">
+          <span></span>
+        </div>
+        <div class="member-card-bio">
+          <span></span>
+        </div>
+        <div class="member-card-link">
+          <a href="https://twitter.com/{name.link.x_twitter}" class="mc-link x">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="https://github.com/{name.link.github}" class="mc-link github">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+          <a href="https://gitlab.com/{name.link.gitlab}" class="mc-link gitlab">
+            <img src="/image/logo/gitlab.png" class="img-link-icon" alt="">
+          </a>
+          <a href="https://www.youtube.com/{name.link.youtube}" class="mc-link yt">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+          <a href="https://bsky.app/profile/{name.link.bluesky}" class="mc-link bs">
+            <img src="/image/logo/Bluesky_Logo.svg" class="img-link-icon" alt="">
+          </a>
+          <a href="{name.link.misskey}" class="mc-link mk">
+            <img src="/image/logo/misskey-logo.png" class="img-link-icon" alt="">
+          </a>
+          <a href="{name.link.my_website}" class="mc-link my-website" id="mws_bgc">
+            <img src="{name.link.my_website}/favicon.ico" class="img-link-icon" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="slider" class="slider-general">
+    <h2>メンバー一覧</h2>
+    <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
+  </div>
+  <main class="fadeIn">
+    <div id="members">
+      <div class="mem-header">
+        <div>
+          <h2>Members</h2>
+        </div>
+        <select name="section" id="section-select" class="dropdown">
+          <option value="">フィルターなし</option>
+          <option value="non">non</option>
+          <option value="non">non</option>
+          <option value="non">non</option>
+          <option value="non">non</option>
+          <option value="non">non</option>
+          <option value="non">non</option>
+        </select>
+      </div>
+      <div class="card-layout">
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footerColumn">
+      <p><a href="/about/">私たちについて</a></p>
+      <p><a href="/blog/">ブログ</a></p>
+      <p><a href="/sitemap">サイトマップ</a></p>
+      <p><a href="/contact">お問い合わせ</a></p>
+      <p><a href="/join">応募する</a></p>
+      <p><a href="/wallpaper">壁紙ダウンロード</a></p>
+    </div>
+    <div class="footerColumn">
+      <p><a href="/about/dept/" class="footer-bigger">部署一覧</a></p>
+      <p><a href="/project/thinkfont/">thinkFont</a></p>
+      <p><a href="/project/thinkos/">thinkOS</a></p>
+      <p><a href="/project/thinkerAI/">thinkerAI</a></p>
+      <p><a href="/about/dept/web/">Web開発</a></p>
+      <p><a href="/about/dept/material/">素材等作成</a></p>
+    </div>
+    <div class="footerColumn">
+      <p><a href="/project/" class="footer-bigger">プロジェクト一覧</a></p>
+      <p><a href="/project/thinkfont">thinkFont</a></p>
+      <p><a href="/project/thinkos">thinkOS</a></p>
+      <p><a href="/project/thinkerAI/">thinkerAI</a></p>
+      <p><a href="https://mncrp.github.io/">monochrome Project.</a></p>
+    </div>
+    <div class="footerColumn">
+      <p><a href="/agreement">プライバシーポリシーと利用規約</a></p>
+      <div class="year-s">
+        <p>&copy; &#160;
+        <div>2022-</div>
+        <div id="year"></div>
+        </p>
+      </div>
+      <p>thinking All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const flowBackground = document.querySelector('.flow-background');
+        flowBackground.style.display = 'block';
+        requestAnimationFrame(() => {
+          flowBackground.classList.add('active');
+        });
+      });
+    });
+    document.querySelector('.flow-background').addEventListener('click', (event) => {
+      if (event.target === event.currentTarget) {
+        const flowBackground = document.querySelector('.flow-background');
+        flowBackground.classList.remove('active');
+        flowBackground.addEventListener('transitionend', () => {
+          if (!flowBackground.classList.contains('active')) {
+            flowBackground.style.display = 'none';
+          }
+        }, { once: true });
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('https://www.kunit.site/data.json')
+        .then(response => response.json())
+        .then(data => {
+          const membersContainer = document.getElementById('members');
+          const cardLayout = document.createElement('div');
+          cardLayout.className = 'card-layout';
+
+          Object.keys(data).forEach((key, index) => {
+            const member = data[key];
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.id = `card_member${index + 1}`;
+
+            card.innerHTML = `
+          <div class="imgwrap">
+            <img id="img_member${index + 1}" src="https://www.kunit.site/images/icon/${member.iconImage}" alt="${member.name}">
+          </div>
+          <div class="card-detail-layout">
+            <div class="card-detail">
+              <span>クリックして詳細</span>
+              <span id="name_member${index + 1}">${member.name}</span>
+              <span class="role_style" id="role_member${index + 1}">${member.role}</span>
+            </div>
+          </div>
+        `;
+
+            card.addEventListener('click', () => {
+              const flowBackground = document.querySelector('.flow-background');
+              flowBackground.querySelector('.member-card-bg img').src = `https://www.kunit.site/images/banner/${member.bgImage}`;
+              flowBackground.querySelector('.member-card-icon img').src = `https://www.kunit.site/images/icon/${member.iconImage}`;
+              flowBackground.querySelector('.member-card-name span').textContent = member.name;
+              flowBackground.querySelector('.member-card-role span').textContent = member.role;
+              flowBackground.querySelector('.member-card-bio span').textContent = member.bio;
+
+              // SNSリンクの設定（従来のコード）
+              const xLink = flowBackground.querySelector('.mc-link.x');
+              if (member.links.x_twitter && member.links.x_twitter !== "") {
+                xLink.href = `https://twitter.com/${member.links.x_twitter}`;
+                xLink.style.display = "flex";
+              } else {
+                xLink.style.display = "none";
+              }
+
+              const githubLink = flowBackground.querySelector('.mc-link.github');
+              if (member.links.github && member.links.github !== "") {
+                githubLink.href = `https://github.com/${member.links.github}`;
+                githubLink.style.display = "flex";
+              } else {
+                githubLink.style.display = "none";
+              }
+
+              const gitlabLink = flowBackground.querySelector('.mc-link.gitlab');
+              if (member.links.gitlab && member.links.gitlab !== "") {
+                gitlabLink.href = `https://gitlab.com/${member.links.gitlab}`;
+                gitlabLink.style.display = "flex";
+              } else {
+                gitlabLink.style.display = "none";
+              }
+
+              const ytLink = flowBackground.querySelector('.mc-link.yt');
+              if (member.links.youtube && member.links.youtube !== "") {
+                ytLink.href = `https://www.youtube.com/${member.links.youtube}`;
+                ytLink.style.display = "flex";
+              } else {
+                ytLink.style.display = "none";
+              }
+
+              const bsLink = flowBackground.querySelector('.mc-link.bs');
+              if (member.links.bluesky && member.links.bluesky !== "") {
+                bsLink.href = `https://bsky.app/profile/${member.links.bluesky}`;
+                bsLink.style.display = "flex";
+              } else {
+                bsLink.style.display = "none";
+              }
+
+              const mkLink = flowBackground.querySelector('.mc-link.mk');
+              if (member.links.misskey && member.links.misskey !== "") {
+                mkLink.href = member.links.misskey;
+                mkLink.style.display = "flex";
+              } else {
+                mkLink.style.display = "none";
+              }
+
+              const websiteLink = flowBackground.querySelector('.mc-link.my-website');
+              if (member.links.my_website && member.links.my_website !== "") {
+                websiteLink.href = member.links.my_website;
+                websiteLink.querySelector('img').src = `${member.links.my_website}/favicon.ico`;
+                websiteLink.style.display = "flex";
+
+                // カスタムホバー色の設定
+                if (member.color) {
+                  // インラインスタイルを削除し、data属性として色を保存
+                  websiteLink.removeAttribute('style');
+                  websiteLink.dataset.hoverColor = member.color;
+                }
+              } else {
+                websiteLink.style.display = "none";
+              }
+
+              flowBackground.style.display = 'block';
+              requestAnimationFrame(() => {
+                flowBackground.classList.add('active');
+              });
+            });
+
+            cardLayout.appendChild(card);
+          });
+
+          membersContainer.appendChild(cardLayout);
+
+          // ホバー効果用のCSSを動的に追加
+          const style = document.createElement('style');
+          style.textContent = `
+        .mc-link.my-website {
+          transition: background-color 0.3s ease;
+        }
+      `;
+          document.head.appendChild(style);
+
+          // ホバーイベントリスナーを設定
+          document.addEventListener('mouseover', function (e) {
+            if (e.target.closest('.mc-link.my-website')) {
+              const link = e.target.closest('.mc-link.my-website');
+              const color = link.dataset.hoverColor;
+              if (color) {
+                link.style.backgroundColor = color;
+              }
+            }
+          });
+
+          document.addEventListener('mouseout', function (e) {
+            if (e.target.closest('.mc-link.my-website')) {
+              const link = e.target.closest('.mc-link.my-website');
+              link.style.backgroundColor = '';
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching member data:', error));
+    });
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
