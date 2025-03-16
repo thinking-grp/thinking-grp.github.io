@@ -8,8 +8,25 @@
 
   &::after {
     content: "";
-    width: 30%;
+    width: 21%;
     height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-layout {
+    justify-content: center;
+
+    &::after {
+      content: "";
+      width: 0%;
+      height: 0;
+    }
+  }
+
+  .card {
+    width: 20px;
+    height: 140px;
   }
 }
 
