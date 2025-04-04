@@ -41,21 +41,37 @@
   font-family: 'Barlow', sans-serif;
 }
 
-#thinkosBtn,#thinkingsnsBtn {
+#thinkosBtn {
   width: 90%;
   margin: 10px;
-  background: #222;
+  background: #1f1f1f;
 }
 #thinkosBtn > h3 {
+  color: #e6e6e6;
+}
+#thinkeraiBtn {
+  width: 90%;
+  margin: 10px;
+  background: #3f3f3f;
+}
+#thinkeraiBtn > h3 {
+  color: #e6e6e6;
+}
+#thinkingsnsBtn {
+  width: 90%;
+  margin: 10px;
+  background: #6c6c6c;
+}
+#thinkingsnsBtn > h3 {
   color: #e6e6e6;
 }
 #thinkfontBtn {
   width: 90%;
   margin: 10px;
-  background: #f8f8f8;
+  background: #a7a7a7;
 }
 #thinkfontBtn > h3 {
-  color: #050505;
+  color: #e6e6e6;
 }
 
 #blogsColumn {
