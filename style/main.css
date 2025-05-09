@@ -103,7 +103,7 @@ a {
   color: #444;
 }
 
-main p a {
+main a {
   text-decoration: underline;
   font-weight: bolder;
 }
