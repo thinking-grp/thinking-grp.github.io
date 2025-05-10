@@ -103,11 +103,6 @@ a {
   color: #444;
 }
 
-main a {
-  text-decoration: underline;
-  font-weight: bolder;
-}
-
 main {
   text-align: left;
   width: var(--content-width);
