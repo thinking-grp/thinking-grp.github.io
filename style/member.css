@@ -12,6 +12,9 @@
     height: 0;
   }
 }
+.membersColumn:not(:last-child) {
+  border-bottom: 3px solid gray;
+}
 
 @media (max-width: 767px) {
   .card-layout {
