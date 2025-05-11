@@ -13,7 +13,7 @@
   }
 }
 .membersColumn:not(:last-child) {
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid #b8b8b8;
 }
 
 @media (max-width: 767px) {
