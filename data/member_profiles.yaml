@@ -20,12 +20,12 @@ Gasukaku（ガスカク）です。
   github: halka9000stg
   twitter: Distr_to_Yonder
   current: true
-- name: Yukkuri_RMYS
+- name: RMYS
   roles:
     - 運営
     - SNS運営等管理責任者
   color:
-  icon: /yukkuri-rmys.jpg
+  icon: /rmys.jpg
   join: 2021-12-28
   intro: |-
 主に動画編集とか画像編集が好きな暇人です！
