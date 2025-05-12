@@ -6,14 +6,24 @@ void main() {
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
   Uri din = base.replace(pathSegments: base.pathSegments.followedBy(<String>["data", "member_profiles.yaml"]).toList()); // /data/member_profiles.yaml
   Uri dout = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", "member_generated.html"]).toList()); // /about/member_generated.html
-  File f = File.fromUri(din);
-  String data = f.readAsStringSync();
+
+  File fin = File.fromUri(din);
+  File fout = File.fromUri(dout);
+  if(!fout.existsSync()){
+    fout.createSync();
+  }
+
+  late String ret;
+  String data = fin.readAsStringSync();
   YamlNode yn = loadYamlNode(data);
+
   if(yn is YamlList){
-    final ret = yn.map((YamlNode ln){
+    final retx = yn.map((YamlNode ln){
         if(ln is YamlMap){
           
         }
       });
   }
+
+  fout.writeSync(ret);
 }
