@@ -87,11 +87,14 @@ void generate(File fin, File fout){
   YamlNode yn = loadYamlNode(data);
 
   if(yn is YamlList){
-    final List<MemberProfile> = yn.map<MemberProfile>((YamlNode ln){
+    final List<MemberProfile> mps = yn.map<MemberProfile>((YamlNode ln){
         if(ln is YamlMap){
           return MemberProfile.fromYaml(ln);
         }else{}
-      });
+      }).where((MemberProfile mp) => mp.current).toList();
+    mps.sort();
+    Itreable<String> resx = mps.map<String>();
+    ret = <String>[pre].followedBy(resx).followedBy(<String>[post]).join("\n");
   }else{}
 
   fout.writeSync(ret);
