@@ -1,5 +1,6 @@
 import "dart:io";
 import "package:yaml/yaml.dart";
+import "package:color/color.dart";
 
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
@@ -115,8 +116,72 @@ class MemberProfile implements Comparable<MemberProfile>{
   MemberProfile({required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
   factory MemberProfile.fromYaml(YamlMap yaml){}
 
+  bool get isRepresentative() => this.roles.contains("代表");
+  bool get isViceRepresentative() => this.roles.contains("副代表");
+  bool get isPrevRepresentative() => this.roles.contains("前 代表");
+  bool get isFormerRepresentative() => this.roles.contains("元 代表");
+  bool get isExecutive() => this.roles.contains("運営") || this.isRepresentative || this.roles.isViceRepresentative;
+  bool get isExecutivePlus() => this.isExecutive || this.isPrevRepresentative || this.isFormerRepresentative;
+
   @override
-  int compareTo(MemberProfile other){}
+  int compareTo(MemberProfile other){
+    if(this.isExecutivePlus != other.isExecutivePlus){
+      return this.isExecutivePlus ? 1 : -1;
+    }
+    if(this.isExecutivePlus){
+      if(this.isRepresentative){
+        return 1;
+      } else if(this.isViceRepresentative) {
+        if(other.isRepresentative){
+          return -1;
+        } else if(other.isViceRepresentative){
+          return 0;
+        } else {
+          return 1;
+        }
+      } else if(this.isPrevRepresentative) {
+        if(other.isFormerRepresentative){
+          return 1;
+        } else {
+          return -1;
+        }
+      } else if(this.isFormerRepresentative) {
+        if(other.isFormerRepresentative) {
+          return 0;
+        } else {
+          return -1;
+        }
+      } else {
+        if(other.isRepresentative || other.isViceRepresentative){
+          return -1;
+        } else if(other.isPrevRepresentative || other.isFormerRepresentative) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    }
+    return this.join.compareTo(other.join);
+  }
   @override
-  String toString(){}
+  String toString(){
+    String? hpa = _toUrlStrA(this.site?.toString(), "", "WebSite", (_) => true);
+    String? gha = _toUrlStrA(this.github, "https://github.com/", "GitHub");
+    String? twa = _toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
+    String? yta = _toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
+  List<String> links = <String?>[hpa, gha, twa, yta].whereType<String>().toList();
+  }
 }
+
+String? _toUrlStrA(String? id, String base, String label, [bool Function(String)? test]){
+  if(id == null){
+    return null;
+  }
+  if(test != null){
+    if(test(id)){
+      return "<a href=\"$id\">$label</a>";
+    }
+  }
+  return "<a href=\"$base$id\">$label</a>";
+}
+String _indent(String input, [int n = 1]) => "  " * n + input;
