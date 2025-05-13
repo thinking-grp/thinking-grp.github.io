@@ -130,10 +130,12 @@ class MemberProfile implements Comparable<MemberProfile>{
       site = Uri.tryParse(ss);
     }
 
+    DateTime dt = DateTime.parse(yaml.valueAs<String>("join"));
+
     return MemberProfile(
       name: yaml.valueAs<String>("name"),
       roles: roles, color: col, icon: icon,
-      join: yaml.valueAs<DateTime>("join"),
+      join: dt,
       intro: yaml.valueAs<String?>("intro") ?? "",
       site: site,
       github: yaml.valueAs<String?>("github"),
