@@ -23,6 +23,10 @@ void main() {
   } on YamlMapHasNotRequiredKeysError catch(e, t) {
     print(e);
     print(t);
+
+  } catch(e, t) {
+    print(e);
+    print(t);
   }
 }
 
@@ -93,9 +97,9 @@ class MemberProfile implements Comparable<MemberProfile>{
      List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
 
     List<String> roles = <String>[];
-    YamlNode rc = yaml.nodes["roles"]!;
+    YamlNode? rc = yaml.nodes["roles"];
     late Object? nv;
-    if(rc is YamlList){
+    if(rc != null && rc is YamlList){
       for(YamlNode n in rc.nodes){
         if(n is YamlScalar){
           nv = n.value;
