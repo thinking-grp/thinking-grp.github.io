@@ -1,4 +1,5 @@
 import "dart:io";
+import "dart:convert";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
 
@@ -42,46 +43,6 @@ void generate(File fin, File fout){
     </main>
   </body>
 </html>""";
-/*
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="gasukaku">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>Gasukaku
-                <p class="role">代表</p>
-              </h3>
-              <div class="p">
-                Gasukaku（ガスカク）です。
-                <br>
-                ちょっとしたホームページ作成、動画編集ならできます。
-              </div>
-              <div class="links">
-                <a href="https://www.gasukaku.net/">WebSite</a>
-                <a href="https://twitter.com/gasukaku">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="xilletex">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>佐藤 陽花　<small>(さとう はるか)</small>
-                <p class="role">副代表</p>
-              </h3>
-              <div class="p">
-                情報科学分野の研究者・技術者で、分散処理やコンピュータ言語、OS/CPUが専門です。DartやRustがメイン言語ですが、色々な言語に手だしています。
-              </div>
-              <div class="links">
-                <a href="https://github.com/halka9000stg">GitHub</a>
-                <a href="https://twitter.com/Distr_to_Yonder">Twitter</a>
-                <a href="https://youtube.com/@Halka_ch">YouTube</a>
-              </div>
-            </div>
-          </div>
-        </div>
-*/
-      
 
   late String ret;
   String data = fin.readAsStringSync();
@@ -100,6 +61,9 @@ void generate(File fin, File fout){
 
   fout.writeSync(ret);
 }
+
+final LineSplitter _ls = LineSplitter();
+
 class MemberProfile implements Comparable<MemberProfile>{
   final String name;
   final List<String> roles;
@@ -165,11 +129,60 @@ class MemberProfile implements Comparable<MemberProfile>{
   }
   @override
   String toString(){
+/*
+        <div class="membersColumn">
+          <div class="membersColumn-item" id="gasukaku">
+            <div class="profilepic"></div>
+            <div class="membersItem-details">
+              <h3>Gasukaku
+                <p class="role">代表</p>
+              </h3>
+              <div class="p">
+                Gasukaku（ガスカク）です。
+                <br>
+                ちょっとしたホームページ作成、動画編集ならできます。
+              </div>
+              <div class="links">
+                <a href="https://www.gasukaku.net/">WebSite</a>
+                <a href="https://twitter.com/gasukaku">Twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="membersColumn">
+          <div class="membersColumn-item" id="xilletex">
+            <div class="profilepic"></div>
+            <div class="membersItem-details">
+              <h3>佐藤 陽花　<small>(さとう はるか)</small>
+                <p class="role">副代表</p>
+              </h3>
+              <div class="p">
+                情報科学分野の研究者・技術者で、分散処理やコンピュータ言語、OS/CPUが専門です。DartやRustがメイン言語ですが、色々な言語に手だしています。
+              </div>
+              <div class="links">
+                <a href="https://github.com/halka9000stg">GitHub</a>
+                <a href="https://twitter.com/Distr_to_Yonder">Twitter</a>
+                <a href="https://youtube.com/@Halka_ch">YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+*/
+    late String i;
+    Itreable<String> roles = _pack(this.roles.isEmpty() ? <String>[]: <String>[this.roles.map<String>((String s){
+        if(s.startsWith("前 ")  || s.startsWith("元 ")){
+          i = s.split(" ");
+          return "<small>${i.first}</small>${i.last}";
+        } else {
+          return s;
+        }
+}).join(", ")], "p", "class=\"role\"");
+    Itreable<String> intro = _pack(_ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
     String? hpa = _toUrlStrA(this.site?.toString(), "", "WebSite", (_) => true);
     String? gha = _toUrlStrA(this.github, "https://github.com/", "GitHub");
     String? twa = _toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
     String? yta = _toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
-  List<String> links = <String?>[hpa, gha, twa, yta].whereType<String>().toList();
+  Itreable<String> links = _pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
   }
 }
 
@@ -185,3 +198,20 @@ String? _toUrlStrA(String? id, String base, String label, [bool Function(String)
   return "<a href=\"$base$id\">$label</a>";
 }
 String _indent(String input, [int n = 1]) => "  " * n + input;
+Itreable<String> _indentMap(Itreable<String> lines, [int n = 1]) => lines.map<String>((String e) => _indent(e, n));
+List<String> _indentMapL(Itreable<String> lines, [int n = 1]) => _indentMapL(lines, n).toList();
+Itreable<String> _pack(Itreable<String> lines, String tag, [String? attrs]) => lines.isEmpty() ? <String>[] : (<String>["<$tag${attrs == null ? "" : " $attrs"}>"].followedBy(_indentMap(lines)).followedBy(<String>["</$tag>"]));
+List<String> _packL(Itreable<String> lines, String tag, [String? attrs]) => _pack(lines, tag, attrs).toList();
+
+extension EachInsertExtension<E> on Iterable<E> {
+  Iterable<E> eachInsert(E insertee) sync* {
+    final iterator = this.iterator;
+    if (!iterator.moveNext()) return; // 空のとき
+
+    yield iterator.current;
+    while (iterator.moveNext()) {
+      yield insertee;
+      yield iterator.current;
+    }
+  }
+}
