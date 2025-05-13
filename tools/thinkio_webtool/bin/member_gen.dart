@@ -17,7 +17,9 @@ void main() {
   try{
     generate(fin, fout);
   } on YamlSchemaViolationError catch(e) {
+    print(e);
   } on YamlMapHasNotRequiredKeysError catch(e) {
+    print(e);
   }
 }
 
