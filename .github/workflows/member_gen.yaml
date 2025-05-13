@@ -36,4 +36,5 @@ jobs:
         git add .
         git commit --author=. -m 'generated'
         git push
+      working-directory: "./"
       if: steps.diff.outcome == 'failure'
