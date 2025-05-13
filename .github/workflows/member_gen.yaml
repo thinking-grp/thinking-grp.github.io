@@ -21,3 +21,12 @@ jobs:
       run: dart pub get
     - name: generate
       run: dart run bin/member_gen.dart
+    - name: Commit & Push
+      run: |
+        set -x
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        git add .
+        git commit --author=. -m 'generated'
+        git push
+      if: steps.diff.outcome == 'failure'
