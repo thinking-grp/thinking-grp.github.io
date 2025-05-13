@@ -238,7 +238,7 @@ class MemberProfile implements Comparable<MemberProfile>{
           </div>
         </div>
 */
-    Itreable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: ${this.color?.toHexColor()?.toString() ?? "#b8b8b8"};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
+    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: ${this.color?.toHexColor()?.toString() ?? "#b8b8b8"};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
@@ -264,7 +264,7 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
 
-    Iterable<String> column = _pack(_pack(<String>[profPic].followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn\"");
+    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn\"");
 
     return _indentMap(column, n).join("\n");
   }
