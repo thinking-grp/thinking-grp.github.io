@@ -59,7 +59,7 @@ void generate(File fin, File fout){
         }
       }).where((MemberProfile mp) => mp.current).toList();
     mps.sort();
-    Itreable<String> resx = mps.map<String>();
+    Iterable<String> resx = mps.map<String>((MemberProfile mp) => mp.toString(4));
     ret = <String>[pre].followedBy(resx).followedBy(<String>[post]).join("\n");
   }else{
     throw YamlSchemaViolationError();
@@ -185,7 +185,7 @@ class MemberProfile implements Comparable<MemberProfile>{
     return this.join.compareTo(other.join);
   }
   @override
-  String toString(){
+  String toString([int? n = 0]){
 /*
         <div class="membersColumn">
           <div class="membersColumn-item" id="gasukaku">
@@ -225,22 +225,36 @@ class MemberProfile implements Comparable<MemberProfile>{
           </div>
         </div>
 */
-    String baseName = this.name.replaceAllMapped(RegExp("(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>")
+
+    String profPic = "<div class="profilepic"></div>";
+
+    String baseName = this.name.replaceAllMapped(RegExp("(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp("( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
+
     late String i;
-    Itreable<String> roles = _pack(this.roles.isEmpty() ? <String>[]: <String>[this.roles.map<String>((String s){
+    String? roles = this.roles.isEmpty ? null : _wrap(this.roles.map<String>((String s){
         if(s.startsWith("前 ")  || s.startsWith("元 ")){
           i = s.split(" ");
           return "<small>${i.first}</small>${i.last}";
         } else {
           return s;
         }
-}).join(", ")], "p", "class=\"role\"");
-    Itreable<String> intro = _pack(_ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
+}).join(", "), "p", "class=\"role\"");
+
+    List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", _indent(roles), "</h3>"]
+
+    Iterable<String> intro = _pack(_ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
+
     String? hpa = _toUrlStrA(this.site?.toString(), "", "WebSite", (_) => true);
     String? gha = _toUrlStrA(this.github, "https://github.com/", "GitHub");
     String? twa = _toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
     String? yta = _toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
-  Itreable<String> links = _pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
+  Iterable<String> links = _pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
+
+    Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
+
+    Iterable<String> column = _pack(_pack(<String>[profPic].followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn\"");
+
+    return _indentMap(column, n).join("\n");
   }
 }
 
@@ -256,21 +270,25 @@ String? _toUrlStrA(String? id, String base, String label, [bool Function(String)
   return "<a href=\"$base$id\">$label</a>";
 }
 String _indent(String input, [int n = 1]) => "  " * n + input;
-Itreable<String> _indentMap(Itreable<String> lines, [int n = 1]) => lines.map<String>((String e) => _indent(e, n));
-List<String> _indentMapL(Itreable<String> lines, [int n = 1]) => _indentMapL(lines, n).toList();
-Itreable<String> _pack(Itreable<String> lines, String tag, [String? attrs]) {
+Iterable<String> _indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => _indent(e, n));
+List<String> _indentMapL(Iterable<String> lines, [int n = 1]) => _indentMapL(lines, n).toList();
+Iterable<String> _pack(Iterable<String> lines, String tag, [String? attrs]) {
   if(lines.isEmpty){
     return <String>[];
   }
   String attrx = attrs == null ? "" : " $attrs";
   return <String>["<$tag$attrx>"].followedBy(_indentMap(lines)).followedBy(<String>["</$tag>"]);
 }
-List<String> _packL(Itreable<String> lines, String tag, [String? attrs]) => _pack(lines, tag, attrs).toList();
+List<String> _packL(Iterable<String> lines, String tag, [String? attrs]) => _pack(lines, tag, attrs).toList();
+String _wrap(String line, String tag, [String? attrs]){
+  String attrx = attrs == null ? "" : " $attrs";
+  return "<$tag$attrx>$line</$tag>";
+}
 
 extension EachInsertExtension<E> on Iterable<E> {
   Iterable<E> eachInsert(E insertee) sync* {
     final iterator = this.iterator;
-    if (!iterator.moveNext()) return; // 空のとき
+    if (!iterator.moveNext()) return;
 
     yield iterator.current;
     while (iterator.moveNext()) {
