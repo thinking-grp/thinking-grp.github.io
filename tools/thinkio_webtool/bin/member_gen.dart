@@ -41,6 +41,9 @@ void generate(File fin, File fout){
     <link rel="stylesheet" href="/style/member.css">
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
+<style>
+
+</style>
   </head>
   <body>
     <div id="slider" class="slider-general">
@@ -238,7 +241,8 @@ class MemberProfile implements Comparable<MemberProfile>{
           </div>
         </div>
 */
-    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: ${this.color?.toHexColor()?.toString() ?? "#b8b8b8"};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
+
+    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: ${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
