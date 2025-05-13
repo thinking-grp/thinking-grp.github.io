@@ -4,11 +4,10 @@ on:
     branches:
       - main
     paths:
-      - "/data/member_profiles.yaml"
-      - "/tools/thinkio_webtool/misc/manualRun.txt"
+      - "data/member_profiles.yaml"
+      - "tools/thinkio_webtool/misc/manualRun.txt"
 jobs:
   build:
-
     runs-on: ubuntu-latest
     container:
       image:  google/dart:latest
