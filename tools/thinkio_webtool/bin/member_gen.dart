@@ -239,7 +239,7 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     String profPic = "<div class=\"profilepic\"></div>";
 
-    String baseName = this.name.replaceAllMapped(RegExp("(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp("( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
+    String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
     late List<String> i;
     String? roles = this.roles.isEmpty ? null : _wrap(this.roles.map<String>((String s){
