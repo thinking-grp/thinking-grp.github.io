@@ -143,9 +143,10 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Color? col = null;
     String? cs = yaml.valueAsOrNull<String>("color");
-    if(cs is String){
+    if(cs != null){
       col = Color.hex(cs);
     }
+    print("${yaml.valueAs<String>("name")}\nvalue color$cs\nparsed color: $col\n");
 
     Uri? icon = null;
     String? ics = yaml.valueAsOrNull<String>("icon");
