@@ -6,12 +6,13 @@ on:
     paths:
       - "data/member_profiles.yaml"
       - "tools/thinkio_webtool/misc/manualRun.txt"
+defaults:
+  run:
+    working-directory: "./tools/thinkio_webtool"
 jobs:
-  build:
+  generate:
+    name: Generation
     runs-on: ubuntu-latest
-　　defaults:
-      run:
-        working-directory: ./tools/thinkio_webtool
     container:
       image:  google/dart:latest
     steps:
