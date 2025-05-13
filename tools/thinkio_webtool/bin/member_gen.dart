@@ -91,7 +91,9 @@ class MemberProfile implements Comparable<MemberProfile>{
   final String? twitter;
   final String? youtube;
   final bool current;
-  
+
+  static Uri defaultIcon = Uri.parse("https://www.thinking-grp.org/image/noimage.jpg");
+
   MemberProfile({required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
   factory MemberProfile.fromYaml(YamlMap yaml){
      List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
@@ -236,8 +238,7 @@ class MemberProfile implements Comparable<MemberProfile>{
           </div>
         </div>
 */
-
-    String profPic = "<div class=\"profilepic\"></div>";
+    Itreable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
