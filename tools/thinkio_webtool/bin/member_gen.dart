@@ -295,7 +295,7 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
 
-    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn\"");
+    Iterable<String> column = _pack(_pack(_pack(profPic.followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn-item\""), "div", "class=\"membersColumn\"");
 
     return _indentMap(column, n).join("\n");
   }
