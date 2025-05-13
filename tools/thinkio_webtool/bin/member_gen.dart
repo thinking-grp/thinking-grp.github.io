@@ -16,7 +16,8 @@ void main() {
   }
   try{
     generate(fin, fout);
-  } catch(e) {
+  } on YamlSchemaViolationError catch(e) {
+  } on YamlMapHasNotRequiredKeysError catch(e) {
   }
 }
 
@@ -53,13 +54,15 @@ void generate(File fin, File fout){
     final List<MemberProfile> mps = yn.nodes.map<MemberProfile>((YamlNode ln){
         if(ln is YamlMap){
           return MemberProfile.fromYaml(ln);
-        }else{}
+        }else{
+          throw YamlSchemaViolationError();
+        }
       }).where((MemberProfile mp) => mp.current).toList();
     mps.sort();
     Itreable<String> resx = mps.map<String>();
     ret = <String>[pre].followedBy(resx).followedBy(<String>[post]).join("\n");
   }else{
-    throw 0;
+    throw YamlSchemaViolationError();
   }
 
   fout.writeSync(ret);
@@ -283,7 +286,7 @@ extension YamlMapExt on YamlMap {
     if(requires.every((String k) => this.containsKey(k))){
       ret.addAll(requires);
     } else {
-      throw 0;
+      throw YamlMapHasNotRequiredKeysError();
     }
     for(String k in optionals){
       if(this.containsKey(k)){
@@ -299,13 +302,16 @@ extension YamlMapExt on YamlMap {
       if(v is T){
         return v as T;
       } else {
-        throw 0;
+        throw YamlSchemaViolationError();
       }
     }
     if(n is T){
       return n as T;
     } else {
-      throw 0;
+      throw YamlSchemaViolationError();
     }
   }
 }
+
+class YamlSchemaViolationError extends Error {}
+class YamlMapHasNotRequiredKeysError extends Error {}
