@@ -42,7 +42,7 @@ void generate(File fin, File fout){
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
 <style>
-.membersItem-details{
+.membersColumn-item{
   display: flex;
   min-height: 7em;
 }
@@ -295,7 +295,7 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
 
-    Iterable<String> column = _pack(_pack(_pack(profPic.followedBy(details), "div", "class=\"membersItem-details\""), "div", "class=\"membersColumn-item\""), "div", "class=\"membersColumn\"");
+    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersColumn-item\""), "div", "class=\"membersColumn\"");
 
     return _indentMap(column, n).join("\n");
   }
