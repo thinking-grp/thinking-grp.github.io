@@ -2,12 +2,13 @@ import "dart:io";
 import "dart:convert";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
+const bool deploy = true;
 
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
   Uri din = base.replace(pathSegments: base.pathSegments.followedBy(<String>["data", "member_profiles.yaml"]).toList()); // /data/member_profiles.yaml
-  Uri dout = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", "member_generated.html"]).toList()); // /about/member_generated.html
+  Uri dout = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", deploy ? "member.html" : "member_generated.html"]).toList()); // /about/member_generated.html (dryrun), /about/member.html (deploy)
 
   File fin = File.fromUri(din);
   File fout = File.fromUri(dout);
