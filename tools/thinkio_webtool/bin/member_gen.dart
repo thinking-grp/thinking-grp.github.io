@@ -60,14 +60,14 @@ void generate(File fin, File fout){
         if(ln is YamlMap){
           return MemberProfile.fromYaml(ln);
         }else{
-          throw YamlSchemaViolationError();
+          throw YamlSchemaViolationError(YamlMap, ln.runtimeType);
         }
       }).where((MemberProfile mp) => mp.current).toList();
     mps.sort();
     Iterable<String> resx = mps.map<String>((MemberProfile mp) => mp.toString(4));
     ret = <String>[pre].followedBy(resx).followedBy(<String>[post]).join("\n");
   }else{
-    throw YamlSchemaViolationError();
+    throw YamlSchemaViolationError(YamlList, yn.runtimeType);
   }
 
   fout.writeAsStringSync(ret);
@@ -309,7 +309,7 @@ extension YamlMapExt on YamlMap {
     if(requires.every((String k) => this.containsKey(k))){
       ret.addAll(requires);
     } else {
-      throw YamlMapHasNotRequiredKeysError();
+      throw YamlMapHasNotRequiredKeysError(requires.where((String e) => !this.containsKey(e)).toList());
     }
     for(String k in optionals){
       if(this.containsKey(k)){
@@ -325,16 +325,32 @@ extension YamlMapExt on YamlMap {
       if(v is T){
         return v as T;
       } else {
-        throw YamlSchemaViolationError();
+        throw YamlSchemaViolationError(T, v.runtimeType);
       }
     }
     if(n is T){
       return n as T;
     } else {
-      throw YamlSchemaViolationError();
+      throw YamlSchemaViolationError(T, n.runtimeType);
     }
   }
 }
 
-class YamlSchemaViolationError extends Error {}
-class YamlMapHasNotRequiredKeysError extends Error {}
+class YamlSchemaViolationError extends Error {
+  final Type requiredType;
+  final Type actualType;
+
+  YamlSchemaViolationError(this.requiredType, this.actualType);
+
+  @override
+  String toString() => "YamlSchemaViolationError\nThe type of value violates supposed schema\nrequired: ${this.requiredType}\nactual: ${this.actualType}\n";
+  
+}
+class YamlMapHasNotRequiredKeysError extends Error {
+  final List<String> missings;
+
+  YamlMapHasNotRequiredKeysError(this.missings);
+  
+  @override
+  String toString() => "YamlMapHasNotRequiredKeysError\nThe map hasn't required keys\nmissings: ${this.missings}\n";
+}
