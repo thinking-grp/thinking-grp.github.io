@@ -13,10 +13,11 @@ jobs:
   generate:
     name: Generation
     runs-on: ubuntu-latest
-    container:
-      image:  google/dart:latest
     steps:
     - uses: actions/checkout@v2
+    - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 3.7
     - name: install dependencies
       run: pub get
     - name: generate
