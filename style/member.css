@@ -15,6 +15,33 @@
 .membersColumn:not(:last-child) {
   border-bottom: 1.8px solid #b8b8b8;
 }
+.membersColumn-item{
+  display: flex;
+  min-height: 7em;
+}
+.profilepic {
+  width: 5em;
+  padding: 19px 7px 7px;
+}
+.profilepic .icon-wrap {
+  position: relative;
+  width: 80%;
+  aspect-ratio: 1;
+  border: 2px solid;
+  background: light-gray;
+  border-radius: 50%;
+  margin: 3px;
+  padding: 0px;
+}
+.profilepic .icon-wrap img {
+  position: absolute;
+  margin: 1px;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  clip-path: circle(50%);
+}
 
 @media (max-width: 767px) {
   .card-layout {
