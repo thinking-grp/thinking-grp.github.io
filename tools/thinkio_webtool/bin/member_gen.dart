@@ -16,7 +16,8 @@ void main() {
   }
   try{
     generate(fin, fout);
-  } catch(e) {}
+  } catch(e) {
+  }
 }
 
 void generate(File fin, File fout){
@@ -49,7 +50,7 @@ void generate(File fin, File fout){
   YamlNode yn = loadYamlNode(data);
 
   if(yn is YamlList){
-    final List<MemberProfile> mps = yn.map<MemberProfile>((YamlNode ln){
+    final List<MemberProfile> mps = yn.nodes.map<MemberProfile>((YamlNode ln){
         if(ln is YamlMap){
           return MemberProfile.fromYaml(ln);
         }else{}
@@ -57,7 +58,9 @@ void generate(File fin, File fout){
     mps.sort();
     Itreable<String> resx = mps.map<String>();
     ret = <String>[pre].followedBy(resx).followedBy(<String>[post]).join("\n");
-  }else{}
+  }else{
+    throw 0;
+  }
 
   fout.writeSync(ret);
 }
@@ -78,7 +81,58 @@ class MemberProfile implements Comparable<MemberProfile>{
   final bool current;
   
   MemberProfile({required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
-  factory MemberProfile.fromYaml(YamlMap yaml){}
+  factory MemberProfile.fromYaml(YamlMap yaml){
+     List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
+
+    List<String> roles = <String>[];
+    YamlNode rc = yaml.nodes["roles"];
+    late Object? nv;
+    if(rc is YamlList){
+      for(YamlNode n in rc.nodes){
+        if(n is YamlScalar){
+          nv = n.value;
+          if(nv is String){
+            roles.add(nv);
+          }
+        }
+      }
+    }
+
+    Color? col = null;
+    String? cs = yaml.valueAs<String?>("color");
+    if(cs is String){
+      col = Color.hex(cs);
+    }
+
+    Uri? icon = null;
+    String? ics = yaml.valueAs<String?>("icon");
+    if(ics is String){
+      if(ics == "/"){
+      } else if (ics.startsWith("/")) {
+        icon = Uri.tryParse("https://www.thinking-grp.org/image/icon$ics");
+      } else {
+        icon = Uri.tryParse(ics);
+      }
+      
+    }
+
+    Uri? site = null;
+    String? ss = yaml.valueAs<String?>("site");
+    if(ss is String){
+      site = Uri.tryParse(ss);
+    }
+
+    return MemberProfile(
+      name: yaml.valueAs<String>("name"),
+      roles: roles, color: col, icon: icon,
+      join: yaml.valueAs<DateTime>("join"),
+      intro: yaml.valueAs<String?>("intro") ?? "",
+      site: site,
+      github: yaml.valueAs<String?>("github"),
+      twitter: yaml.valueAs<String?>("twitter"),
+      youtube: yaml.valueAs<String?>("youtube"),
+      current: yaml.valueAs<bool>("current"));
+  }
 
   bool get isRepresentative() => this.roles.contains("代表");
   bool get isViceRepresentative() => this.roles.contains("副代表");
@@ -168,6 +222,7 @@ class MemberProfile implements Comparable<MemberProfile>{
           </div>
         </div>
 */
+    String baseName = this.name.replaceAllMapped(RegExp("(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>")
     late String i;
     Itreable<String> roles = _pack(this.roles.isEmpty() ? <String>[]: <String>[this.roles.map<String>((String s){
         if(s.startsWith("前 ")  || s.startsWith("元 ")){
@@ -200,7 +255,13 @@ String? _toUrlStrA(String? id, String base, String label, [bool Function(String)
 String _indent(String input, [int n = 1]) => "  " * n + input;
 Itreable<String> _indentMap(Itreable<String> lines, [int n = 1]) => lines.map<String>((String e) => _indent(e, n));
 List<String> _indentMapL(Itreable<String> lines, [int n = 1]) => _indentMapL(lines, n).toList();
-Itreable<String> _pack(Itreable<String> lines, String tag, [String? attrs]) => lines.isEmpty() ? <String>[] : (<String>["<$tag${attrs == null ? "" : " $attrs"}>"].followedBy(_indentMap(lines)).followedBy(<String>["</$tag>"]));
+Itreable<String> _pack(Itreable<String> lines, String tag, [String? attrs]) {
+  if(lines.isEmpty){
+    return <String>[];
+  }
+  String attrx = attrs == null ? "" : " $attrs";
+  return <String>["<$tag$attrx>"].followedBy(_indentMap(lines)).followedBy(<String>["</$tag>"]);
+}
 List<String> _packL(Itreable<String> lines, String tag, [String? attrs]) => _pack(lines, tag, attrs).toList();
 
 extension EachInsertExtension<E> on Iterable<E> {
@@ -212,6 +273,39 @@ extension EachInsertExtension<E> on Iterable<E> {
     while (iterator.moveNext()) {
       yield insertee;
       yield iterator.current;
+    }
+  }
+}
+
+extension YamlMapExt on YamlMap {
+  List<String> hasKeys({List<String> requires = const <String>[], List<String> optionals = const <String>[]}){
+    List<String> ret = <String>[];
+    if(requires.every((String k) => this.containsKey(k))){
+      ret.addAll(requires);
+    } else {
+      throw 0;
+    }
+    for(String k in optionals){
+      if(this.containsKey(k)){
+        ret.add(k);
+      }
+    }
+    return ret;
+  }
+  T valueAs<T>(String key) {
+    YamlNode n = this.nodes[key];
+    if(n is YamlScalar){
+      Object? v = n.value;
+      if(v is T){
+        return v as T;
+      } else {
+        throw 0;
+      }
+    }
+    if(n is T){
+      return n as T;
+    } else {
+      throw 0;
     }
   }
 }
