@@ -143,7 +143,7 @@ class MemberProfile implements Comparable<MemberProfile>{
   bool get isViceRepresentative => this.roles.contains("副代表");
   bool get isPrevRepresentative => this.roles.contains("前 代表");
   bool get isFormerRepresentative => this.roles.contains("元 代表");
-  bool get isExecutive => this.roles.contains("運営") || this.isRepresentative || this.roles.isViceRepresentative;
+  bool get isExecutive => this.roles.contains("運営") || this.isRepresentative || this.isViceRepresentative;
   bool get isExecutivePlus => this.isExecutive || this.isPrevRepresentative || this.isFormerRepresentative;
 
   @override
@@ -316,7 +316,7 @@ extension YamlMapExt on YamlMap {
     return ret;
   }
   T valueAs<T>(String key) {
-    YamlNode n = this.nodes[key];
+    YamlNode n = this[key];
     if(n is YamlScalar){
       Object? v = n.value;
       if(v is T){
