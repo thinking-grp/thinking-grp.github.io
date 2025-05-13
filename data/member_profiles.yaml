@@ -5,8 +5,8 @@
   icon: /gasukaku.jpg
   join: 2022-09-23
   intro: |-
-Gasukaku（ガスカク）です。
-ちょっとしたホームページ作成、動画編集ならできます。
+    Gasukaku（ガスカク）です。
+    ちょっとしたホームページ作成、動画編集ならできます。
   site: https://www.gasukaku.net/
   twitter: gasukaku
   current: true
@@ -90,8 +90,8 @@ Gasukaku（ガスカク）です。
   icon: /
   join: 2022-08-21
   intro: |-
-こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
-よろしくお願いします。
+    こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
+    よろしくお願いします。
   current: true
 - name: さちはる
   color:
@@ -110,10 +110,10 @@ Gasukaku（ガスカク）です。
   icon: /tegakun.jpg
   join: 2024-04-12
   intro: |-
-数ヶ月前までHP制作を楽しくやってた人。
-(諸事情により出来なくなった)
-様々な言語を学びたいです。
-よろしくお願いします。
+    数ヶ月前までHP制作を楽しくやってた人。
+    (諸事情により出来なくなった)
+    様々な言語を学びたいです。
+    よろしくお願いします。
   site: https://tegakun.bt-ch.jp/
   github: tegakun
   twitter: tegakun_nichijo
@@ -132,9 +132,9 @@ Gasukaku（ガスカク）です。
   icon: /Kinoko_2K.jpg
   join: 2025-04-05
   intro: |-
-Kinoko_2K (@kinoko1216)です。
-DiscordやMinecraftサーバー関連の技術や情報をnoteにて、発信している人です。
-記事作成やドキュメント作成などの文書実務が得意です。
+    Kinoko_2K (@kinoko1216)です。
+    DiscordやMinecraftサーバー関連の技術や情報をnoteにて、発信している人です。
+    記事作成やドキュメント作成などの文書実務が得意です。
   site: https://github.com/kinoko2k/
   twitter: kinoko1216
   current: true
