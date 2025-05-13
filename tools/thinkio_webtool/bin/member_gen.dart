@@ -343,6 +343,9 @@ extension YamlMapExt on YamlMap {
     }
     if(n is YamlScalar){
       Object? v = n.value;
+      if(v == null){
+        return null;
+      }
       if(v is T){
         return v as T;
       } else {
