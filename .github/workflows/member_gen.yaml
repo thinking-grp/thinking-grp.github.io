@@ -27,7 +27,7 @@ jobs:
         git add -N .
         git diff --name-only --exit-code
       continue-on-error: true
-      working-directory: "./../.."
+      working-directory: "./"
     - name: Commit & Push
       run: |
         set -x
