@@ -42,7 +42,33 @@ void generate(File fin, File fout){
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
 <style>
-
+.membersColumn-item{
+  display: flex;
+  min-height: 7em;
+}
+.profilepic {
+  width: 5em;
+  padding: 19px 7px 7px;
+}
+.profilepic .icon-wrap {
+  position: relative;
+  width: 80%;
+  aspect-ratio: 1;
+  border: 2px solid;
+  background: light-gray;
+  border-radius: 50%;
+  margin: 3px;
+  padding: 0px;
+}
+.profilepic .icon-wrap img {
+  position: absolute;
+  margin: 1px;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  clip-path: circle(50%);
+}
 </style>
   </head>
   <body>
