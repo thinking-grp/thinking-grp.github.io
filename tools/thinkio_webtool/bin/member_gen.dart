@@ -67,7 +67,7 @@ void generate(File fin, File fout){
     throw YamlSchemaViolationError();
   }
 
-  fout.writeSync(ret);
+  fout.writeAsStringSync(ret);
 }
 
 final LineSplitter _ls = LineSplitter();
@@ -90,7 +90,7 @@ class MemberProfile implements Comparable<MemberProfile>{
      List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
 
     List<String> roles = <String>[];
-    YamlNode rc = yaml.nodes["roles"];
+    YamlNode rc = yaml["roles"];
     late Object? nv;
     if(rc is YamlList){
       for(YamlNode n in rc.nodes){
@@ -139,12 +139,12 @@ class MemberProfile implements Comparable<MemberProfile>{
       current: yaml.valueAs<bool>("current"));
   }
 
-  bool get isRepresentative() => this.roles.contains("代表");
-  bool get isViceRepresentative() => this.roles.contains("副代表");
-  bool get isPrevRepresentative() => this.roles.contains("前 代表");
-  bool get isFormerRepresentative() => this.roles.contains("元 代表");
-  bool get isExecutive() => this.roles.contains("運営") || this.isRepresentative || this.roles.isViceRepresentative;
-  bool get isExecutivePlus() => this.isExecutive || this.isPrevRepresentative || this.isFormerRepresentative;
+  bool get isRepresentative => this.roles.contains("代表");
+  bool get isViceRepresentative => this.roles.contains("副代表");
+  bool get isPrevRepresentative => this.roles.contains("前 代表");
+  bool get isFormerRepresentative => this.roles.contains("元 代表");
+  bool get isExecutive => this.roles.contains("運営") || this.isRepresentative || this.roles.isViceRepresentative;
+  bool get isExecutivePlus => this.isExecutive || this.isPrevRepresentative || this.isFormerRepresentative;
 
   @override
   int compareTo(MemberProfile other){
@@ -187,7 +187,7 @@ class MemberProfile implements Comparable<MemberProfile>{
     return this.join.compareTo(other.join);
   }
   @override
-  String toString([int? n = 0]){
+  String toString([int n = 0]){
 /*
         <div class="membersColumn">
           <div class="membersColumn-item" id="gasukaku">
@@ -228,11 +228,11 @@ class MemberProfile implements Comparable<MemberProfile>{
         </div>
 */
 
-    String profPic = "<div class="profilepic"></div>";
+    String profPic = "<div class=\"profilepic\"></div>";
 
     String baseName = this.name.replaceAllMapped(RegExp("(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp("( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
-    late String i;
+    late List<String> i;
     String? roles = this.roles.isEmpty ? null : _wrap(this.roles.map<String>((String s){
         if(s.startsWith("前 ")  || s.startsWith("元 ")){
           i = s.split(" ");
@@ -242,7 +242,7 @@ class MemberProfile implements Comparable<MemberProfile>{
         }
 }).join(", "), "p", "class=\"role\"");
 
-    List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", _indent(roles), "</h3>"]
+    List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", _indent(roles), "</h3>"];
 
     Iterable<String> intro = _pack(_ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
 
