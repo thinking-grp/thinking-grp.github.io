@@ -1,0 +1,21 @@
+name: Member Profile Generation
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches: [ master ]
+    paths:
+      - "/data/member_profiles.yaml"
+      - "/tools/thinkio_webtool/misc/manualRun.txt"
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image:  google/dart:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: pub get
+    - name: generate
+      run: pub run bin/member_gen.dart
