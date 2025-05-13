@@ -90,7 +90,8 @@ class MemberProfile implements Comparable<MemberProfile>{
      List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
 
     List<String> roles = <String>[];
-    YamlNode rc = yaml["roles"];
+    YamlNode rc = yam
+nodesl["roles"];
     late Object? nv;
     if(rc is YamlList){
       for(YamlNode n in rc.nodes){
@@ -316,7 +317,7 @@ extension YamlMapExt on YamlMap {
     return ret;
   }
   T valueAs<T>(String key) {
-    YamlNode n = this[key];
+    YamlNode n = this.nodes[key];
     if(n is YamlScalar){
       Object? v = n.value;
       if(v is T){
