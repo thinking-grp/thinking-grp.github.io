@@ -109,6 +109,7 @@ void generate(File fin, File fout){
 final LineSplitter _ls = LineSplitter();
 
 class MemberProfile implements Comparable<MemberProfile>{
+  final String id;
   final String name;
   final List<String> roles;
   final Color? color;
@@ -123,9 +124,9 @@ class MemberProfile implements Comparable<MemberProfile>{
 
   static Uri defaultIcon = Uri.parse("https://www.thinking-grp.org/image/noimage.jpg");
 
-  MemberProfile({required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
+  MemberProfile({required this.id, required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
   factory MemberProfile.fromYaml(YamlMap yaml){
-     List<String> _ = yaml.hasKeys(requires: <String>["name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
+     List<String> _ = yaml.hasKeys(requires: <String>["id", "name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
 
     List<String> roles = <String>[];
     YamlNode? rc = yaml.nodes["roles"];
@@ -169,6 +170,7 @@ class MemberProfile implements Comparable<MemberProfile>{
     DateTime dt = DateTime.parse(yaml.valueAs<String>("join"));
 
     return MemberProfile(
+      id: yaml.valueAs<String>("id"),
       name: yaml.valueAs<String>("name"),
       roles: roles, color: col, icon: icon,
       join: dt,
@@ -229,46 +231,6 @@ class MemberProfile implements Comparable<MemberProfile>{
   }
   @override
   String toString([int n = 0]){
-/*
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="gasukaku">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>Gasukaku
-                <p class="role">代表</p>
-              </h3>
-              <div class="p">
-                Gasukaku（ガスカク）です。
-                <br>
-                ちょっとしたホームページ作成、動画編集ならできます。
-              </div>
-              <div class="links">
-                <a href="https://www.gasukaku.net/">WebSite</a>
-                <a href="https://twitter.com/gasukaku">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="xilletex">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>佐藤 陽花　<small>(さとう はるか)</small>
-                <p class="role">副代表</p>
-              </h3>
-              <div class="p">
-                情報科学分野の研究者・技術者で、分散処理やコンピュータ言語、OS/CPUが専門です。DartやRustがメイン言語ですが、色々な言語に手だしています。
-              </div>
-              <div class="links">
-                <a href="https://github.com/halka9000stg">GitHub</a>
-                <a href="https://twitter.com/Distr_to_Yonder">Twitter</a>
-                <a href="https://youtube.com/@Halka_ch">YouTube</a>
-              </div>
-            </div>
-          </div>
-        </div>
-*/
-
     Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" />"], "div", "class=\"icon-wrap\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
@@ -295,7 +257,7 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
 
-    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersColumn-item\""), "div", "class=\"membersColumn\"");
+    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersColumn-item\" id=\"${this.id}\""), "div", "class=\"membersColumn\"");
 
     return _indentMap(column, n).join("\n");
   }
