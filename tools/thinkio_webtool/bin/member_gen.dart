@@ -158,18 +158,18 @@ class MemberProfile implements Comparable<MemberProfile>{
   @override
   int compareTo(MemberProfile other){
     if(this.isExecutivePlus != other.isExecutivePlus){
-      return this.isExecutivePlus ? −1 : 1;
+      return this.isExecutivePlus ? -1 : 1;
     }
     if(this.isExecutivePlus){
       if(this.isRepresentative){
-        return −1;
+        return -1;
       } else if(this.isViceRepresentative) {
         if(other.isRepresentative){
           return 1;
         } else if(other.isViceRepresentative){
           return 0;
         } else {
-          return −1;
+          return -1;
         }
       } else if(this.isPrevRepresentative) {
         if(other.isFormerRepresentative){
