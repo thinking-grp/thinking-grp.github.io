@@ -146,7 +146,7 @@ class MemberProfile implements Comparable<MemberProfile>{
     if(cs != null){
       col = Color.hex(cs);
     }
-    print("${yaml.valueAs<String>("name")}\nvalue color$cs\nparsed color: $col\n");
+    print("${yaml.valueAs<String>("name")}\nvalue color: $cs\nparsed color: #$col\n");
 
     Uri? icon = null;
     String? ics = yaml.valueAsOrNull<String>("icon");
@@ -269,7 +269,7 @@ class MemberProfile implements Comparable<MemberProfile>{
         </div>
 */
 
-    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: ${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
+    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
