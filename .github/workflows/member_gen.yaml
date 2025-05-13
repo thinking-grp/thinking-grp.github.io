@@ -21,6 +21,12 @@ jobs:
       run: dart pub get
     - name: generate
       run: dart run bin/member_gen.dart
+    - name: Diff
+      id: diff
+      run: |
+        git add -N .
+        git diff --name-only --exit-code
+      continue-on-error: true
     - name: Commit & Push
       run: |
         set -x
