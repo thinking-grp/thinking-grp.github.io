@@ -16,10 +16,13 @@ void main() {
   }
   try{
     generate(fin, fout);
-  } on YamlSchemaViolationError catch(e) {
+  } on YamlSchemaViolationError catch(e, t) {
     print(e);
-  } on YamlMapHasNotRequiredKeysError catch(e) {
+    print(t);
+
+  } on YamlMapHasNotRequiredKeysError catch(e, t) {
     print(e);
+    print(t);
   }
 }
 
