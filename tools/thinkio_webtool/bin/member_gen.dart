@@ -269,7 +269,7 @@ class MemberProfile implements Comparable<MemberProfile>{
         </div>
 */
 
-    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\" />"], "div", "class=\"icon-wrap\""), "div", "class=\"profilepic\"");
+    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" />"], "div", "class=\"icon-wrap\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
