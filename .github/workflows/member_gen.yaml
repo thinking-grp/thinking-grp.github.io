@@ -1,9 +1,8 @@
 name: Member Profile Generation
 on:
-  pull_request:
-    types: [opened, synchronize]
   push:
-    branches: [ master ]
+    branches:
+      - main
     paths:
       - "/data/member_profiles.yaml"
       - "/tools/thinkio_webtool/misc/manualRun.txt"
