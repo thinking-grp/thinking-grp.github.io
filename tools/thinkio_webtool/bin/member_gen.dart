@@ -107,13 +107,13 @@ class MemberProfile implements Comparable<MemberProfile>{
     }
 
     Color? col = null;
-    String? cs = yaml.valueAs<String?>("color");
+    String? cs = yaml.valueAsOrNull<String>("color");
     if(cs is String){
       col = Color.hex(cs);
     }
 
     Uri? icon = null;
-    String? ics = yaml.valueAs<String?>("icon");
+    String? ics = yaml.valueAsOrNull<String>("icon");
     if(ics is String){
       if(ics == "/"){
       } else if (ics.startsWith("/")) {
@@ -125,7 +125,7 @@ class MemberProfile implements Comparable<MemberProfile>{
     }
 
     Uri? site = null;
-    String? ss = yaml.valueAs<String?>("site");
+    String? ss = yaml.valueAsOrNull<String>("site");
     if(ss is String){
       site = Uri.tryParse(ss);
     }
@@ -136,11 +136,11 @@ class MemberProfile implements Comparable<MemberProfile>{
       name: yaml.valueAs<String>("name"),
       roles: roles, color: col, icon: icon,
       join: dt,
-      intro: yaml.valueAs<String?>("intro") ?? "",
+      intro: yaml.valueAsOrNull<String>("intro") ?? "",
       site: site,
-      github: yaml.valueAs<String?>("github"),
-      twitter: yaml.valueAs<String?>("twitter"),
-      youtube: yaml.valueAs<String?>("youtube"),
+      github: yaml.valueAsOrNull<String>("github"),
+      twitter: yaml.valueAsOrNull<String>("twitter"),
+      youtube: yaml.valueAsOrNull<String>("youtube"),
       current: yaml.valueAs<bool>("current"));
   }
 
@@ -322,6 +322,25 @@ extension YamlMapExt on YamlMap {
   }
   T valueAs<T>(String key) {
     YamlNode n = this.nodes[key]!;
+    if(n is YamlScalar){
+      Object? v = n.value;
+      if(v is T){
+        return v as T;
+      } else {
+        throw YamlSchemaViolationError(T, v.runtimeType);
+      }
+    }
+    if(n is T){
+      return n as T;
+    } else {
+      throw YamlSchemaViolationError(T, n.runtimeType);
+    }
+  }
+  T? valueAsOrNull<T>(String key) {
+    YamlNode? n = this.nodes[key];
+    if(n == null){
+      return null;
+    }
     if(n is YamlScalar){
       Object? v = n.value;
       if(v is T){
