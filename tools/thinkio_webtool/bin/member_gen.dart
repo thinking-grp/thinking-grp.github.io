@@ -42,7 +42,7 @@ void generate(File fin, File fout){
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
 <style>
-.membersColumn-item{
+.membersItem-details{
   display: flex;
   min-height: 7em;
 }
