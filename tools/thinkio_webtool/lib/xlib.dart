@@ -2,9 +2,9 @@ import "dart:convert";
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
 
-final LineSplitter _ls = LineSplitter();
+final LineSplitter ls = LineSplitter();
 
-String? _toUrlStrA(String? id, String base, String label, [bool Function(String)? test]){
+String? toUrlStrA(String? id, String base, String label, [bool Function(String)? test]){
   if(id == null){
     return null;
   }
@@ -15,18 +15,18 @@ String? _toUrlStrA(String? id, String base, String label, [bool Function(String)
   }
   return "<a href=\"$base$id\">$label</a>";
 }
-String _indent(String input, [int n = 1]) => "  " * n + input;
-Iterable<String> _indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => _indent(e, n));
-List<String> _indentMapL(Iterable<String> lines, [int n = 1]) => _indentMapL(lines, n).toList();
-Iterable<String> _pack(Iterable<String> lines, String tag, [String? attrs]) {
+String indent(String input, [int n = 1]) => "  " * n + input;
+Iterable<String> indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => indent(e, n));
+List<String> indentMapL(Iterable<String> lines, [int n = 1]) => indentMapL(lines, n).toList();
+Iterable<String> pack(Iterable<String> lines, String tag, [String? attrs]) {
   if(lines.isEmpty){
     return <String>[];
   }
   String attrx = attrs == null ? "" : " $attrs";
-  return <String>["<$tag$attrx>"].followedBy(_indentMap(lines)).followedBy(<String>["</$tag>"]);
+  return <String>["<$tag$attrx>"].followedBy(indentMap(lines)).followedBy(<String>["</$tag>"]);
 }
-List<String> _packL(Iterable<String> lines, String tag, [String? attrs]) => _pack(lines, tag, attrs).toList();
-String _wrap(String line, String tag, [String? attrs]){
+List<String> packL(Iterable<String> lines, String tag, [String? attrs]) => pack(lines, tag, attrs).toList();
+String wrap(String line, String tag, [String? attrs]){
   String attrx = attrs == null ? "" : " $attrs";
   return "<$tag$attrx>$line</$tag>";
 }

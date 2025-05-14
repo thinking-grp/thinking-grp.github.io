@@ -1,7 +1,7 @@
 import "dart:io";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
-import "./xlib.dart";
+import "package:thinkio_webtool/xlib.dart";
 
 class MemberProfile implements Comparable<MemberProfile>{
   final String id;
@@ -126,12 +126,12 @@ class MemberProfile implements Comparable<MemberProfile>{
   }
   @override
   String toString([int n = 0]){
-    Iterable<String> profPic = _pack(_pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" />"], "div", "class=\"icon-wrap\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\""), "div", "class=\"profilepic\"");
+    Iterable<String> profPic = pack(pack(<String>["<img src=\"${(this.icon ?? MemberProfile.defaultIcon).toString()}\" />"], "div", "class=\"icon-wrap\" style=\"border-color: #${(this.color ?? Color.hex("#b8b8b8")).toHexColor()};\""), "div", "class=\"profilepic\"");
 
     String baseName = this.name.replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>").replaceAllMapped(RegExp(r"( (か|または|又は|もしくは|若しくは|あるいは|或いは|or) )"), (Match m) => "<small>${m[1]}</small>");
 
     late List<String> i;
-    String? roles = this.roles.isEmpty ? null : _wrap(this.roles.map<String>((String s){
+    String? roles = this.roles.isEmpty ? null : wrap(this.roles.map<String>((String s){
         if(s.startsWith("前 ")  || s.startsWith("元 ")){
           i = s.split(" ");
           return "<small>${i.first}</small>${i.last}";
@@ -140,20 +140,20 @@ class MemberProfile implements Comparable<MemberProfile>{
         }
 }).join(", "), "p", "class=\"role\"");
 
-    List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", _indent(roles), "</h3>"];
+    List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", indent(roles), "</h3>"];
 
-    Iterable<String> intro = _pack(_ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
+    Iterable<String> intro = pack(ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
 
-    String? hpa = _toUrlStrA(this.site?.toString(), "", "WebSite", (_) => true);
-    String? gha = _toUrlStrA(this.github, "https://github.com/", "GitHub");
-    String? twa = _toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
-    String? yta = _toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
-  Iterable<String> links = _pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
+    String? hpa = toUrlStrA(this.site?.toString(), "", "WebSite", () => true);
+    String? gha = toUrlStrA(this.github, "https://github.com/", "GitHub");
+    String? twa = toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
+    String? yta = toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
+  Iterable<String> links = pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
 
-    Iterable<String> details = _pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
+    Iterable<String> details = pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
 
-    Iterable<String> column = _pack(_pack(profPic.followedBy(details), "div", "class=\"membersColumn-item\" id=\"${this.id}\""), "div", "class=\"membersColumn\"");
+    Iterable<String> column = pack(pack(profPic.followedBy(details), "div", "class=\"membersColumn-item\" id=\"${this.id}\""), "div", "class=\"membersColumn\"");
 
-    return _indentMap(column, n).join("\n");
+    return indentMap(column, n).join("\n");
   }
 }
