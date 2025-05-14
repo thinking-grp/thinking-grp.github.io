@@ -3,7 +3,7 @@ import "dart:convert";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
 
-const bool deploy = false;
+const bool deploy = true;
 
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
@@ -53,8 +53,6 @@ void generate(File fin, File fout){
   padding: 19px 7px 7px;
   overflow-x: hidden;
   flex-shrink: 0;
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
 }
 .profilepic .icon-wrap {
   position: relative;
