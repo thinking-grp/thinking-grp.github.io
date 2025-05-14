@@ -49,7 +49,7 @@ void generate(File fin, File fout){
   min-height: 7em;
 }
 .profilepic {
-  width: 5em;
+  width: 20px;
   padding: 19px 7px 7px;
   border-right: 1px solid gray;
 }
