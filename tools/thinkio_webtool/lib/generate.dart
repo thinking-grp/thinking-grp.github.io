@@ -1,6 +1,6 @@
 import "dart:io";
 import "package:yaml/yaml.dart";
-import "package:thinkio_webtool/mproof.dart";
+import "package:thinkio_webtool/mprof.dart";
 import "package:thinkio_webtool/errors.dart";
 
 void generate(File fin, File fout){
