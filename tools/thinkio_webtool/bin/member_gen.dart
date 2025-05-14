@@ -51,9 +51,10 @@ void generate(File fin, File fout){
 .profilepic {
   width: 5em;
   padding: 19px 7px 7px;
+  overflow-x: hidden;
+  flex-shrink: 0;
   border-right: 1px solid gray;
   border-left: 1px solid gray;
-  overflow-x: hidden;
 }
 .profilepic .icon-wrap {
   position: relative;
