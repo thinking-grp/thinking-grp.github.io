@@ -3,7 +3,7 @@ import "dart:convert";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
 
-const bool deploy = true;
+const bool deploy = false;
 
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
