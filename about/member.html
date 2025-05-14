@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="/style/member.css">
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
-  </head>
-  <body>
-    <div id="slider" class="slider-general">
-      <h2>メンバー一覧</h2>
-      <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
-    </div>
-    <main class="fadeIn">
-      <div id="members">
 <style>
 .membersColumn-item{
   display: flex;
@@ -29,7 +21,7 @@
   position: relative;
   width: 80%;
   aspect-ratio: 1;
-  border: 2px solid black;
+  border: 2px solid;
   background: light-gray;
   border-radius: 50%;
   margin: 3px;
@@ -45,31 +37,45 @@
   clip-path: circle(50%);
 }
 </style>
+  </head>
+  <body>
+    <div id="slider" class="slider-general">
+      <h2>メンバー一覧</h2>
+      <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
+    </div>
+    <main class="fadeIn">
+      <div id="members">
         <h2>Members</h2>
         <div class="membersColumn">
           <div class="membersColumn-item" id="gasukaku">
             <div class="profilepic">
-<div class="icon-wrap"><img src="/image/icon/gasukaku.jpg" /></div>
-</div>
+              <div class="icon-wrap" style="border-color: #008000;">
+                <img src="https://www.thinking-grp.org/image/icon/gasukaku.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
               <h3>Gasukaku
                 <p class="role">代表</p>
               </h3>
               <div class="p">
-                Gasukakuです。
+                Gasukaku（ガスカク）です。
                 <br>
-                電気系、写真・動画編集やホームページ作成を主に行っています。
+                ちょっとしたホームページ作成、動画編集ならできます。
               </div>
               <div class="links">
                 <a href="https://www.gasukaku.net/">WebSite</a>
-                <a href="https://twitter.com/gasukaku">Twitter</a>
+                <a href="https://twitter.com/@gasukaku">Twitter</a>
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="xilletex">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="haruka">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #36c8b5;">
+                <img src="https://www.thinking-grp.org/image/icon/haruka_logo.png" />
+              </div>
+            </div>
             <div class="membersItem-details">
               <h3>佐藤 陽花　<small>(さとう はるか)</small>
                 <p class="role">副代表</p>
@@ -79,19 +85,44 @@
               </div>
               <div class="links">
                 <a href="https://github.com/halka9000stg">GitHub</a>
-                <a href="https://twitter.com/Distr_to_Yonder">Twitter</a>
+                <a href="https://twitter.com/@Distr_to_Yonder">Twitter</a>
                 <a href="https://youtube.com/@Halka_ch">YouTube</a>
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="sorakime">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="rmys">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/rmys.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                Sorakime
-                <p class="role"><small>前</small> 代表</p>
+              <h3>RMYS
+                <p class="role">運営, SNS運営等管理責任者</p>
+              </h3>
+              <div class="p">
+                RMYSです。好きなことだけをするクリエイターです。動画編集は高度なのは無理だけど基礎的なものならできます。あと、PowerPoint強いです！
+              </div>
+              <div class="links">
+                <a href="https://sites.google.com/view/matisaba/t-home">WebSite</a>
+                <a href="https://github.com/sy9-t">GitHub</a>
+                <a href="https://twitter.com/@yk_rmys">Twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="membersColumn">
+          <div class="membersColumn-item" id="sorakime">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://avatars.githubusercontent.com/u/69241694?v=4" />
+              </div>
+            </div>
+            <div class="membersItem-details">
+              <h3>Sorakime
+                <p class="role"><small>前</small>代表</p>
               </h3>
               <div class="p">
                 あ、どうも。このグループを創設した人であり代表務めてました
@@ -100,77 +131,68 @@
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="yukkuri-rmys">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>RMYS
-                <p class="role">運営, SNS運営等管理責任者</p>
-              </h3>
-              <div class="p">
-                主に動画編集とか画像編集が好きな暇人です！
-                <br>
-                最近はフォントでも作ろうかな...と思っていたり。
-              </div>
-              <div class="links">
-                <a href="https://sites.google.com/view/matisaba/t-home">Website</a>
+          <div class="membersColumn-item" id="alice">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/alice.jpg" />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="alice">
-            <div class="profilepic"></div>
             <div class="membersItem-details">
-              <h3>
-                少名アリス
+              <h3>少名アリス
                 <p class="role">thinkOS開発責任者</p>
               </h3>
               <div class="p">
                 多趣味な人。最近は動画編集や電気系にはまってる。
               </div>
-              <div class="links">
-                <a href="https://github.com/Sukuna-Arice">GitHub</a>
-              </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="haru-lab">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="harulab">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/harulab.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                Haru Lab
+              <h3>Haru Lab
                 <p class="role">素材等管理責任者</p>
               </h3>
               <div class="p">
                 Design/Blender/DIY/Linuxいじり/動画編集/写真撮影をしている高校生
               </div>
               <div class="links">
-                <a href="https://sites.google.com/view/haru-lab/">ウェブサイト</a>
+                <a href="https://sites.google.com/view/haru-lab/">WebSite</a>
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
           <div class="membersColumn-item" id="mf7cli">
-            <div class="profilepic"></div>
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #117eff;">
+                <img src="https://www.thinking-grp.org/image/icon/mf7cli.png" />
+              </div>
+            </div>
             <div class="membersItem-details">
               <h3>mf7cli
-                <p class="role">Web開発責任者</p>
-                <p class="role">thinkerAI制作責任者</p>
+                <p class="role">Web開発責任者, thinkerAI制作責任者</p>
               </h3>
               <div class="p">
+                monochrome Project.にも所属してます。
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="mican">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/%E7%B2%89%E8%9C%9C%E6%9F%91_ver2.2.png" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                粉蜜柑
-              </h3>
+              <h3>粉蜜柑</h3>
               <div class="p">
                 中途半端な人。色々やってます。
               </div>
@@ -178,40 +200,26 @@
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="mizuyoukan">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>
-                ひとくち水ようかん <small>か</small> 水羊羹
-              </h3>
-              <div class="p">
-                こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
-                <br>
-                よろしくお願いします。
+          <div class="membersColumn-item" id="litesolt">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
             <div class="membersItem-details">
-              <h3>
-                LITESOLT
-              </h3>
-              <div class="p">
-                
-              </div>
+              <h3>LITESOLT</h3>
             </div>
           </div>
         </div>
         <div class="membersColumn">
           <div class="membersColumn-item" id="amania">
-            <div class="profilepic"></div>
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #ffa227;">
+                <img src="https://www.thinking-grp.org/image/icon/amania.png" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                amania
-              </h3>
+              <h3>amania</h3>
               <div class="p">
                 4~5年Pythonやってるのに進歩しない人です。最近はいろんな言語に手だしています
               </div>
@@ -222,71 +230,116 @@
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="mizuyoukan">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                さちはる
-              </h3>
+              <h3>ひとくち水ようかん<small> か </small>水羊羹</h3>
               <div class="p">
-                
+                こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
+                <br>
+                よろしくお願いします。
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="satihar">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                yuichi
-              </h3>
+              <h3>さちはる</h3>
+            </div>
+          </div>
+        </div>
+        <div class="membersColumn">
+          <div class="membersColumn-item" id="yuichi">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+              </div>
+            </div>
+            <div class="membersItem-details">
+              <h3>yuichi</h3>
+            </div>
+          </div>
+        </div>
+        <div class="membersColumn">
+          <div class="membersColumn-item" id="tegakun">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/tegakun.jpg" />
+              </div>
+            </div>
+            <div class="membersItem-details">
+              <h3>てーがーくん</h3>
               <div class="p">
-                
+                数ヶ月前までHP制作を楽しくやってた人。
+                <br>
+                (諸事情により出来なくなった)
+                <br>
+                様々な言語を学びたいです。
+                <br>
+                よろしくお願いします。
+              </div>
+              <div class="links">
+                <a href="https://tegakun.bt-ch.jp/">WebSite</a>
+                <a href="https://github.com/tegakun">GitHub</a>
+                <a href="https://twitter.com/@tegakun_nichijo">Twitter</a>
+                <a href="https://youtube.com/@tegakuntv">YouTube</a>
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="take">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #ede9ff;">
+                <img src="https://www.thinking-grp.org/image/icon/take.webp" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                
-              </h3>
+              <h3>take</h3>
               <div class="p">
-                てーがーくん
+                Web系とFlutter、動画編集ができます。thinkSocialを作りました。
+              </div>
+              <div class="links">
+                <a href="https://search3958.github.io/">WebSite</a>
+                <a href="https://github.com/search3958">GitHub</a>
               </div>
             </div>
           </div>
         </div>
         <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
+          <div class="membersColumn-item" id="kinoko2k">
+            <div class="profilepic">
+              <div class="icon-wrap" style="border-color: #b8b8b8;">
+                <img src="https://www.thinking-grp.org/image/icon/Kinoko_2K.jpg" />
+              </div>
+            </div>
             <div class="membersItem-details">
-              <h3>
-                take
-              </h3>
+              <h3>Kinoko_2K</h3>
               <div class="p">
-                
+                Kinoko_2K (@kinoko1216)です。
+                <br>
+                DiscordやMinecraftサーバー関連の技術や情報をnoteにて、発信している人です。
+                <br>
+                記事作成やドキュメント作成などの文書実務が得意です。
+              </div>
+              <div class="links">
+                <a href="https://github.com/kinoko2k/">WebSite</a>
+                <a href="https://twitter.com/@kinoko1216">Twitter</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="konamitu">
-            <div class="profilepic"></div>
-            <div class="membersItem-details">
-              <h3>
-                Kinoko_2K
-              </h3>
-              <div class="p">
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</div>
     </main>
   </body>
 </html>
