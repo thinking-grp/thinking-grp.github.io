@@ -49,9 +49,10 @@ void generate(File fin, File fout){
   min-height: 7em;
 }
 .profilepic {
-  width: 20px;
+  width: 5em;
   padding: 19px 7px 7px;
   border-right: 1px solid gray;
+  border-left: 1px solid gray;
 }
 .profilepic .icon-wrap {
   position: relative;
