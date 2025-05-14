@@ -1,7 +1,7 @@
 import "dart:io";
 import "package:yaml/yaml.dart";
 import "package:color/color.dart";
-import "package:thinkio_webtool/xlib.dart";
+import "./xlib.dart";
 
 class MemberProfile implements Comparable<MemberProfile>{
   final String id;
