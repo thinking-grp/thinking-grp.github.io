@@ -2,7 +2,7 @@ import "dart:io";
 import "package:thinkio_webtool/generate.dart";
 import "package:thinkio_webtool/errors.dart";
 
-const bool deploy = false;
+const bool deploy = true;
 
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
