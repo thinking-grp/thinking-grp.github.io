@@ -1,347 +1,494 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Members - thinking</title>
-    <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="/style/member.css">
-    <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
-    <script src="/script/common.js"></script>
-<style>
-.membersColumn-item{
-  display: flex;
-  min-height: 7em;
-}
-.profilepic {
-  width: 5em;
-  padding: 19px 7px 7px;
-  overflow-x: hidden;
-  flex-shrink: 0;
-}
-.profilepic .icon-wrap {
-  position: relative;
-  width: 80%;
-  aspect-ratio: 1;
-  border: 2px solid;
-  background: light-gray;
-  border-radius: 50%;
-  margin: 3px;
-  padding: 0px;
-}
-.profilepic .icon-wrap img {
-  position: absolute;
-  margin: 1px;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 6px);
-  height: calc(100% - 6px);
-  clip-path: circle(50%);
-}
-</style>
-  </head>
-  <body>
-    <div id="slider" class="slider-general">
-      <h2>メンバー一覧</h2>
-      <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Members - thinking</title>
+  <link rel="stylesheet" href="/style/main.css">
+  <link rel="stylesheet" href="/style/member.css">
+  <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
+  <script src="/script/common.js"></script>
+  <style>
+    .membersColumn-item {
+      display: flex;
+      min-height: 7em;
+    }
+
+    .profilepic {
+      width: 5em;
+      padding: 19px 7px 7px;
+      overflow-x: hidden;
+      flex-shrink: 0;
+    }
+
+    .profilepic .icon-wrap {
+      position: relative;
+      width: 80%;
+      aspect-ratio: 1;
+      border: 2px solid;
+      background: light-gray;
+      border-radius: 50%;
+      margin: 3px;
+      padding: 0px;
+    }
+
+    .profilepic .icon-wrap img {
+      position: absolute;
+      margin: 1px;
+      top: 2px;
+      left: 2px;
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      clip-path: circle(50%);
+    }
+
+    .links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .links a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .links a svg {
+      width: 16px;
+      height: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="slider" class="slider-general">
+    <h2>メンバー一覧</h2>
+    <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
+  </div>
+  <main class="fadeIn">
+    <div id="members">
+      <h2>Members</h2>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="gasukaku">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #008000;">
+              <img src="https://www.thinking-grp.org/image/icon/gasukaku.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>Gasukaku
+              <p class="role">代表</p>
+            </h3>
+            <div class="p">
+              Gasukaku（ガスカク）です。
+              <br>
+              ちょっとしたホームページ作成、動画編集ならできます。
+            </div>
+            <div class="links">
+              <a href="https://www.gasukaku.net/">
+                WebSite
+              </a>
+              <a href="https://twitter.com/@gasukaku">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="haruka">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #36c8b5;">
+              <img src="https://www.thinking-grp.org/image/icon/haruka_logo.png" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>佐藤 陽花　<small>(さとう はるか)</small>
+              <p class="role">副代表</p>
+            </h3>
+            <div class="p">
+              情報科学分野の研究者・技術者で、分散処理やコンピュータ言語、OS/CPUが専門です。DartやRustがメイン言語ですが、色々な言語に手だしています。
+            </div>
+            <div class="links">
+              <a href="https://github.com/halka9000stg">
+                <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                    transform="scale(64)" fill="#1B1F23" />
+                </svg>
+                GitHub
+              </a>
+              <a href="https://twitter.com/@Distr_to_Yonder">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+              <a href="https://youtube.com/@Halka_ch">
+                <svg viewBox="0 0 256 180" width="256" height="180" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"
+                    fill="red" />
+                  <path fill="#FFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z" />
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="rmys">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/rmys.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>RMYS
+              <p class="role">運営, SNS運営等管理責任者</p>
+            </h3>
+            <div class="p">
+              RMYSです。好きなことだけをするクリエイターです。動画編集は高度なのは無理だけど基礎的なものならできます。あと、PowerPoint強いです！
+            </div>
+            <div class="links">
+              <a href="https://sites.google.com/view/matisaba/t-home">
+                WebSite
+              </a>
+              <a href="https://github.com/sy9-t">
+                <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                    transform="scale(64)" fill="#1B1F23" />
+                </svg>
+                GitHub
+              </a>
+              <a href="https://twitter.com/@yk_rmys">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="sorakime">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://avatars.githubusercontent.com/u/69241694?v=4" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>Sorakime
+              <p class="role"><small>前</small>代表</p>
+            </h3>
+            <div class="p">
+              あ、どうも。このグループを創設した人であり代表務めてました
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="alice">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/alice.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>少名アリス
+              <p class="role">thinkOS開発責任者</p>
+            </h3>
+            <div class="p">
+              多趣味な人。最近は動画編集や電気系にはまってる。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="harulab">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/harulab.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>Haru Lab
+              <p class="role">素材等管理責任者</p>
+            </h3>
+            <div class="p">
+              Design/Blender/DIY/Linuxいじり/動画編集/写真撮影をしている高校生
+            </div>
+            <div class="links">
+              <a href="https://sites.google.com/view/haru-lab/">
+                WebSite
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="mf7cli">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #117eff;">
+              <img src="https://www.thinking-grp.org/image/icon/mf7cli.png" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>mf7cli
+              <p class="role">Web開発責任者, thinkerAI制作責任者</p>
+            </h3>
+            <div class="p">
+              monochrome Project.にも所属してます。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="mican">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/%E7%B2%89%E8%9C%9C%E6%9F%91_ver2.2.png" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>粉蜜柑</h3>
+            <div class="p">
+              中途半端な人。色々やってます。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="litesolt">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>LITESOLT</h3>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="amania">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #ffa227;">
+              <img src="https://www.thinking-grp.org/image/icon/amania.png" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>amania</h3>
+            <div class="p">
+              4~5年Pythonやってるのに進歩しない人です。最近はいろんな言語に手だしています
+            </div>
+            <div class="links">
+              <a href="https://twitter.com/@JailLife_jp">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="mizuyoukan">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>ひとくち水ようかん<small> か </small>水羊羹</h3>
+            <div class="p">
+              こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
+              <br>
+              よろしくお願いします。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="satihar">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>さちはる</h3>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="yuichi">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/noimage.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>yuichi</h3>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="tegakun">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/tegakun.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>てーがーくん</h3>
+            <div class="p">
+              数ヶ月前までHP制作を楽しくやってた人。
+              <br>
+              (諸事情により出来なくなった)
+              <br>
+              様々な言語を学びたいです。
+              <br>
+              よろしくお願いします。
+            </div>
+            <div class="links">
+              <a href="https://tegakun.bt-ch.jp/">
+                WebSite
+              </a>
+              <a href="https://github.com/tegakun">
+                <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                    transform="scale(64)" fill="#1B1F23" />
+                </svg>
+                GitHub
+              </a>
+              <a href="https://twitter.com/@tegakun_nichijo">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+              <a href="https://youtube.com/@tegakuntv">
+                <svg viewBox="0 0 256 180" width="256" height="180" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"
+                    fill="red" />
+                  <path fill="#FFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z" />
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="take">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #ede9ff;">
+              <img src="https://www.thinking-grp.org/image/icon/take.webp" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>take</h3>
+            <div class="p">
+              Web系とFlutter、動画編集ができます。thinkSocialを作りました。
+            </div>
+            <div class="links">
+              <a href="https://search3958.github.io/">
+                WebSite
+              </a>
+              <a href="https://github.com/search3958">
+                <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                    transform="scale(64)" fill="#1B1F23" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="membersColumn">
+        <div class="membersColumn-item" id="kinoko2k">
+          <div class="profilepic">
+            <div class="icon-wrap" style="border-color: #b8b8b8;">
+              <img src="https://www.thinking-grp.org/image/icon/Kinoko_2K.jpg" />
+            </div>
+          </div>
+          <div class="membersItem-details">
+            <h3>Kinoko_2K</h3>
+            <div class="p">
+              Kinoko_2K (@kinoko1216)です。
+              <br>
+              DiscordやMinecraftサーバー関連の技術や情報をnoteにて、発信している人です。
+              <br>
+              記事作成やドキュメント作成などの文書実務が得意です。
+            </div>
+            <div class="links">
+              <a href="https://github.com/kinoko2k/">
+                <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
+                    transform="scale(64)" fill="#1B1F23" />
+                </svg>
+
+                GitHub
+              </a>
+              <a href="https://twitter.com/@kinoko1216">
+                <svg viewBox="0 0 256 209" width="256" height="209" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid">
+                  <path
+                    d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+                    fill="#55acee" />
+                </svg>
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <main class="fadeIn">
-      <div id="members">
-        <h2>Members</h2>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="gasukaku">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #008000;">
-                <img src="https://www.thinking-grp.org/image/icon/gasukaku.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>Gasukaku
-                <p class="role">代表</p>
-              </h3>
-              <div class="p">
-                Gasukaku（ガスカク）です。
-                <br>
-                ちょっとしたホームページ作成、動画編集ならできます。
-              </div>
-              <div class="links">
-                <a href="https://www.gasukaku.net/">WebSite</a>
-                <a href="https://twitter.com/@gasukaku">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="haruka">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #36c8b5;">
-                <img src="https://www.thinking-grp.org/image/icon/haruka_logo.png" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>佐藤 陽花　<small>(さとう はるか)</small>
-                <p class="role">副代表</p>
-              </h3>
-              <div class="p">
-                情報科学分野の研究者・技術者で、分散処理やコンピュータ言語、OS/CPUが専門です。DartやRustがメイン言語ですが、色々な言語に手だしています。
-              </div>
-              <div class="links">
-                <a href="https://github.com/halka9000stg">GitHub</a>
-                <a href="https://twitter.com/@Distr_to_Yonder">Twitter</a>
-                <a href="https://youtube.com/@Halka_ch">YouTube</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="rmys">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/rmys.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>RMYS
-                <p class="role">運営, SNS運営等管理責任者</p>
-              </h3>
-              <div class="p">
-                RMYSです。好きなことだけをするクリエイターです。動画編集は高度なのは無理だけど基礎的なものならできます。あと、PowerPoint強いです！
-              </div>
-              <div class="links">
-                <a href="https://sites.google.com/view/matisaba/t-home">WebSite</a>
-                <a href="https://github.com/sy9-t">GitHub</a>
-                <a href="https://twitter.com/@yk_rmys">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="sorakime">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://avatars.githubusercontent.com/u/69241694?v=4" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>Sorakime
-                <p class="role"><small>前</small>代表</p>
-              </h3>
-              <div class="p">
-                あ、どうも。このグループを創設した人であり代表務めてました
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="alice">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/alice.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>少名アリス
-                <p class="role">thinkOS開発責任者</p>
-              </h3>
-              <div class="p">
-                多趣味な人。最近は動画編集や電気系にはまってる。
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="harulab">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/harulab.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>Haru Lab
-                <p class="role">素材等管理責任者</p>
-              </h3>
-              <div class="p">
-                Design/Blender/DIY/Linuxいじり/動画編集/写真撮影をしている高校生
-              </div>
-              <div class="links">
-                <a href="https://sites.google.com/view/haru-lab/">WebSite</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="mf7cli">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #117eff;">
-                <img src="https://www.thinking-grp.org/image/icon/mf7cli.png" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>mf7cli
-                <p class="role">Web開発責任者, thinkerAI制作責任者</p>
-              </h3>
-              <div class="p">
-                monochrome Project.にも所属してます。
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="mican">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/%E7%B2%89%E8%9C%9C%E6%9F%91_ver2.2.png" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>粉蜜柑</h3>
-              <div class="p">
-                中途半端な人。色々やってます。
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="litesolt">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>LITESOLT</h3>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="amania">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #ffa227;">
-                <img src="https://www.thinking-grp.org/image/icon/amania.png" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>amania</h3>
-              <div class="p">
-                4~5年Pythonやってるのに進歩しない人です。最近はいろんな言語に手だしています
-              </div>
-              <div class="links">
-                <a href="https://twitter.com/@JailLife_jp">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="mizuyoukan">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>ひとくち水ようかん<small> か </small>水羊羹</h3>
-              <div class="p">
-                こんにちは。水羊羹と申します。このグループに参加出来てとてもうれしいです。
-                <br>
-                よろしくお願いします。
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="satihar">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>さちはる</h3>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="yuichi">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/noimage.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>yuichi</h3>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="tegakun">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/tegakun.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>てーがーくん</h3>
-              <div class="p">
-                数ヶ月前までHP制作を楽しくやってた人。
-                <br>
-                (諸事情により出来なくなった)
-                <br>
-                様々な言語を学びたいです。
-                <br>
-                よろしくお願いします。
-              </div>
-              <div class="links">
-                <a href="https://tegakun.bt-ch.jp/">WebSite</a>
-                <a href="https://github.com/tegakun">GitHub</a>
-                <a href="https://twitter.com/@tegakun_nichijo">Twitter</a>
-                <a href="https://youtube.com/@tegakuntv">YouTube</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="take">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #ede9ff;">
-                <img src="https://www.thinking-grp.org/image/icon/take.webp" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>take</h3>
-              <div class="p">
-                Web系とFlutter、動画編集ができます。thinkSocialを作りました。
-              </div>
-              <div class="links">
-                <a href="https://search3958.github.io/">WebSite</a>
-                <a href="https://github.com/search3958">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="membersColumn">
-          <div class="membersColumn-item" id="kinoko2k">
-            <div class="profilepic">
-              <div class="icon-wrap" style="border-color: #b8b8b8;">
-                <img src="https://www.thinking-grp.org/image/icon/Kinoko_2K.jpg" />
-              </div>
-            </div>
-            <div class="membersItem-details">
-              <h3>Kinoko_2K</h3>
-              <div class="p">
-                Kinoko_2K (@kinoko1216)です。
-                <br>
-                DiscordやMinecraftサーバー関連の技術や情報をnoteにて、発信している人です。
-                <br>
-                記事作成やドキュメント作成などの文書実務が得意です。
-              </div>
-              <div class="links">
-                <a href="https://github.com/kinoko2k/">WebSite</a>
-                <a href="https://twitter.com/@kinoko1216">Twitter</a>
-              </div>
-            </div>
-          </div>
-        </div>
-</div>
-    </main>
-  </body>
+  </main>
+</body>
+
 </html>
