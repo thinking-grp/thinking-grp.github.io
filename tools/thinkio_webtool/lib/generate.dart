@@ -44,6 +44,35 @@ void generate(File fin, File fout){
   height: calc(100% - 6px);
   clip-path: circle(50%);
 }
+
+.links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+    }
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.links a:hover {
+  background-color: #f0f0f0;
+}
+
+.links a img {
+  width: 16px;
+  height: 16px;
+}
 </style>
   </head>
   <body>
