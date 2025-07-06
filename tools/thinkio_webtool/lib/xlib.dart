@@ -7,7 +7,7 @@ final LineSplitter ls = LineSplitter();
 typedef PageFiles = ({File data, File html, File? css});
 
 String? toUrlStrA(String? id, String base, String label, String? followIconPath, [bool Function(String)? test]){
-  String followIcon = followIconPath != null ? "<img src=\"$followIconPath\" alt=\"logo of $label\">"
+  String followIcon = followIconPath != null ? "<img src=\"$followIconPath\" alt=\"logo of $label\">" : "";
   if(id == null){
     return null;
   }
