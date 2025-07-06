@@ -1,4 +1,5 @@
 import "dart:io";
+import "package:thinkio_webtool/xlib.dart";
 import "package:thinkio_webtool/generate.dart";
 import "package:thinkio_webtool/errors.dart";
 
