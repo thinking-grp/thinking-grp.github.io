@@ -1,4 +1,5 @@
 import "dart:convert";
+import "dart:io" show File;
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
 
