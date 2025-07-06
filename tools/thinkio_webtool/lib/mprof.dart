@@ -144,10 +144,10 @@ class MemberProfile implements Comparable<MemberProfile>{
 
     Iterable<String> intro = pack(ls.convert(this.intro).eachInsert("<br>"), "div", "class=\"p\"");
 
-    String? hpa = toUrlStrA(this.site?.toString(), "", "WebSite", (_) => true);
-    String? gha = toUrlStrA(this.github, "https://github.com/", "GitHub");
-    String? twa = toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter");
-    String? yta = toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", (String s) => s.startsWith("https://youtube.com/"));
+    String? hpa = toUrlStrA(this.site?.toString(), "", "WebSite", null, (_) => true);
+    String? gha = toUrlStrA(this.github, "https://github.com/", "GitHub", "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg");
+    String? twa = toUrlStrA(this.twitter, "https://twitter.com/@", "Twitter", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/934px-Logo_of_Twitter.svg.png");
+    String? yta = toUrlStrA(this.youtube, "https://youtube.com/@", "YouTube", "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_play_button_icon_%282013–2017%29.svg", (String s) => s.startsWith("https://youtube.com/"));
   Iterable<String> links = pack(<String?>[hpa, gha, twa, yta].whereType<String>(), "div", "class=\"links\"");
 
     Iterable<String> details = pack(name.followedBy(intro).followedBy(links), "div", "class=\"membersItem-details\"");
