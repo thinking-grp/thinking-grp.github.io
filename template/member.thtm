@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Members - thinking</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/member.css">
+    <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
+    <script src="/script/common.js"></script>
+<style>
+{{css}}
+</style>
+  </head>
+  <body>
+    <div id="slider" class="slider-general">
+      <h2>メンバー一覧</h2>
+      <h3>私たちのクリエイティブなメンバーを紹介します。</h3>
+    </div>
+    <main class="fadeIn">
+      <div id="members">
+        <h2>Members</h2>
+{{body}}
+      </div>
+    </main>
+  </body>
+</html>
