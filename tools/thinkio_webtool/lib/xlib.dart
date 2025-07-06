@@ -6,16 +6,17 @@ import "package:thinkio_webtool/errors.dart";
 final LineSplitter ls = LineSplitter();
 typedef PageFiles = ({File data, File html, File? css});
 
-String? toUrlStrA(String? id, String base, String label, [bool Function(String)? test]){
+String? toUrlStrA(String? id, String base, String label, String? followIconPath, [bool Function(String)? test]){
+  String followIcon = followIconPath != null ? "<img src=\"$followIconPath\" alt=\"logo of $label\">"
   if(id == null){
     return null;
   }
   if(test != null){
     if(test(id)){
-      return "<a href=\"$id\">$label</a>";
+      return "<a href=\"$base$id\">$followIcon $label</a>";
     }
   }
-  return "<a href=\"$base$id\">$label</a>";
+  return "<a href=\"$base$id\">$followIcon $label</a>";
 }
 String indent(String input, [int n = 1]) => "  " * n + input;
 Iterable<String> indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => indent(e, n));
