@@ -3,7 +3,7 @@ import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
 
 final LineSplitter ls = LineSplitter();
-typedef PageFiles = ({required File data, required File html, File? css});
+typedef PageFiles = ({File data, File html, File? css});
 
 String? toUrlStrA(String? id, String base, String label, [bool Function(String)? test]){
   if(id == null){
