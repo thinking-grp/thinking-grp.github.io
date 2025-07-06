@@ -21,7 +21,7 @@ void main() {
     fout.createSync();
   }
   try{
-    generate((data: find, html: fint, style: fins), fout);
+    generate((data: find, html: fint, css: fins), fout);
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);
