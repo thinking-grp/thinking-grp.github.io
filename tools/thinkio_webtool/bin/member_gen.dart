@@ -10,7 +10,7 @@ void main() {
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
   Uri din = base.replace(pathSegments: base.pathSegments.followedBy(<String>["data", "member_profiles.yaml"]).toList()); // /data/member_profiles.yaml
   Uri tin = base.replace(pathSegments: base.pathSegments.followedBy(<String>["template", "member.thtm"]).toList()); // /template/member.thtm
-  Uri sin = base.replace(pathSegments: base.pathSegments.followedBy(<String>["template", "member_profiles.css"]).toList()); // /template/member.css
+  Uri sin = base.replace(pathSegments: base.pathSegments.followedBy(<String>["template", "member.css"]).toList()); // /template/member.css
   Uri dout = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", deploy ? "member.html" : "member_generated.html"]).toList()); // /about/member_generated.html (dryrun), /about/member.html (deploy)
 
   File find = File.fromUri(din);
