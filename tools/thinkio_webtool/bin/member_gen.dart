@@ -25,13 +25,22 @@ void main() {
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);
-
+    exit(72);
   } on YamlMapHasNotRequiredKeysError catch(e, t) {
     print(e);
     print(t);
-
+    exit(65);
+  } on PathNotFoundException catch(e, t) {
+    print(e);
+    print(t);
+    exit(45);
+  } on FileSystemException catch(e, t) {
+    print(e);
+    print(t);
+    exit(53);
   } catch(e, t) {
     print(e);
     print(t);
+    exit(14);
   }
 }
