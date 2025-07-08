@@ -3,7 +3,7 @@ import "package:yaml/yaml.dart";
 import "package:markdown/markdown.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-class ProjectSpec implements Comparable<ProjectSpec> {
+class ProjectSpec implements Buildable<ProjectSpec> {
 
   ProjectSpec();
   

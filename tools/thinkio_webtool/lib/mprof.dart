@@ -3,7 +3,7 @@ import "package:yaml/yaml.dart";
 import "package:color/color.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-class MemberProfile implements Comparable<MemberProfile>{
+class MemberProfile implements Buildable<MemberProfile> {
   final String id;
   final String name;
   final List<String> roles;

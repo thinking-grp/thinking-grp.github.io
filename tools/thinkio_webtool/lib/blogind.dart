@@ -2,7 +2,7 @@ import "dart:io";
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-class BlogRec implements Comparable<BlogRec> {
+class BlogRec implements Buildable<BlogRec> {
   final String title;
   final DateTime postedAt;
   final DateTime lastUpdatedAt;

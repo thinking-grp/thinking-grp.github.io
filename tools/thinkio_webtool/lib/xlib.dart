@@ -1,7 +1,12 @@
 import "dart:convert";
-import "dart:io" show File;
+import "dart:io";
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
+
+abstract class Buildable<With> implements Sortable<With> {
+  @override
+  String toString([int n = 0]);
+}
 
 final LineSplitter ls = LineSplitter();
 typedef PageFiles = ({File data, File html, File? css});
@@ -21,6 +26,7 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
 String indent(String input, [int n = 1]) => "  " * n + input;
 Iterable<String> indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => indent(e, n));
 List<String> indentMapL(Iterable<String> lines, [int n = 1]) => indentMapL(lines, n).toList();
+String indentMapS(String src, [int n = 1]) => indentMap(src.split("\n"), n).join("\n");
 Iterable<String> pack(Iterable<String> lines, String tag, [String? attrs]) {
   if(lines.isEmpty){
     return <String>[];
@@ -32,6 +38,25 @@ List<String> packL(Iterable<String> lines, String tag, [String? attrs]) => pack(
 String wrap(String line, String tag, [String? attrs]){
   String attrx = attrs == null ? "" : " $attrs";
   return "<$tag$attrx>$line</$tag>";
+}
+
+extension UriCD on Uri {
+  Uri cd(Iterable<String> path)
+    => this.replace(pathSegments: this.pathSegments.followedBy(path));
+}
+extension FSCD on Directory {
+  FSE cd<FSE extends FileSystemEntity>(Iterable<String> path){
+    final Uri u = this.uri.cd(path);
+    late final FileSystemEntity fse;
+    if(FileSystemEntity.isFile(u.path)){
+      fse = File.fromUri(u);
+    }else if(FileSystemEntity.isDirectory(u.path)){
+      fse = Directory.fromUri(u);
+    }else{
+      throw Error();
+    }
+    return fse as FSE;
+  }
 }
 
 extension EachInsertExtension<E> on Iterable<E> {
