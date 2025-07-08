@@ -9,6 +9,8 @@ abstract class Buildable<With> implements Sortable<With> {
 }
 
 final LineSplitter ls = LineSplitter();
+const HtmlEscape htmlEscape = HtmlEscape();
+
 typedef PageFiles = ({Directory base, Iterable<String> data, Iterable<String> html, Iterable<String>? css});
 
 String? toUrlStrA(String? id, String base, String label, String? followIconPath, [bool Function(String)? test]){
@@ -23,6 +25,32 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
   }
   return "<a href=\"$base$id\">$followIcon $label</a>";
 }
+
+String asAttr<V>({String? id, Iterable<String>? cls, StringMap<String, V>? attrs}){
+  String ids = attrOr("id", id);
+  String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""));
+  Iterable<String> attrss = attrs.entries.map<String>((MapEntry<String, V> me => attrOr(me.key, me.value.toString())));
+  return ids + (ids == "" ? "" : " ") + clss + (clss == "" ? "" : " ") + attrss.join(" ");
+}
+
+String attrOr<T>(String key, String? input)
+  => key + "=" input.doAsStr((T s) => quoted(htmlEscape.convert(s), "\""), "");
+
+
+extension<E> on E {
+  List<E> asList() => <E>[this];
+}
+extension<T> on T?{
+  R doAs<R>(R Function(T) convert, R ifNull)
+    => this == null ? ifNull : convert(this!);
+  String doAsStr(String Function(T) convert, String ifNull)
+    => this.doAs<String>(convert, ifNull);
+}
+ doAs<T, R>()
+String quoted(String content, String mark)
+  => quotedA(content, mark, mark);
+String quotedA(String content, String markS, String markE)
+  => "$markS$content$markE";
 String indent(String input, [int n = 1]) => "  " * n + input;
 Iterable<String> indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => indent(e, n));
 List<String> indentMapL(Iterable<String> lines, [int n = 1]) => indentMapL(lines, n).toList();
