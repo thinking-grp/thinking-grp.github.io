@@ -63,9 +63,3 @@ class BlogRec implements Buildable<BlogRec> {
             ), n).join("\n");
   }
 }
-          
-              <img src="/image/thinking-img.jpg" alt="公式サイト完成">
-              <div class="blogItem-details">
-                <h3>thinking公式サイト完成！</h3>
-                <p>2022年08月04日 by Sorakime</p>
-                <p class="blog-body">どうも代表Sorakimeです。thinking公式サイトが完成して公開したということで、ブログ書いてみました。これが一つ目のブログの投稿ですね。このサイトではthinkingの特徴とかthinkingのプロジェクトの紹介から、それからブログではお知らせはもちろん、ちょっとしたメンバーによる日記みたいなのも書こうかなーと思ってます。</p>
