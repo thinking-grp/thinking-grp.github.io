@@ -9,7 +9,7 @@ abstract class Buildable<With> implements Sortable<With> {
 }
 
 final LineSplitter ls = LineSplitter();
-typedef PageFiles = ({File data, File html, File? css});
+typedef PageFiles = ({Directory base, Iterable<String> data, Iterable<String> html, Iterable<String>? css});
 
 String? toUrlStrA(String? id, String base, String label, String? followIconPath, [bool Function(String)? test]){
   String followIcon = followIconPath != null ? "<img src=\"$followIconPath\" alt=\"logo of $label\">" : "";

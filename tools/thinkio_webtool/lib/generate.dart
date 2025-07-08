@@ -21,20 +21,23 @@ class Templater {
     YamlNode yn = loadYamlNode(data);
     
     if(yn is YamlList){
-    final List<H> hs = yn.nodes.map<H>((YamlNode ln){
-        if(ln is YamlMap){
-          return fromYaml(ln);
-        }else{
-          throw YamlSchemaViolationError(YamlMap, ln.runtimeType);
-        }
-      }).where((H h) => filter(h)).toList();
-    if(needSort){
-      hs.sort();
-    }
+      final List<H> hs = yn.nodes.map<H>((YamlNode ln){
+          if(ln is YamlMap){
+            return fromYaml(ln);
+          }else{
+            throw YamlSchemaViolationError(YamlMap, ln.runtimeType);
+          }
+        }).where((H h) => filter(h)).toList();
+      if(needSort){
+        hs.sort();
+      }
     
-    Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
-    this._internalHTML = this.internalHTML.replaceAll("{{$ident}}", resx.join("\n"));
-    return this;
+      Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
+      this._internalHTML = this.internalHTML.replaceAll("{{$ident}}", resx.join("\n"));
+      return this;
+    }else{
+      throw YamlSchemaViolationError(YamlList, yn.runtimeType);
+    }
   }
   
   Templater inject(String ident, Iterable<String> path, [int n = 0]){
@@ -43,7 +46,7 @@ class Templater {
     return this;
   }
   
-  void finite(){
+  void finate(){
     if(!this.out.existsSync()){
       this.out.createSync();
     }
@@ -52,28 +55,10 @@ class Templater {
 }
 
 void generate(PageFiles fin, File fout){
-  late String ret;
-  String data = fin.data.readAsStringSync();
-  String style = fin.css?.readAsStringSync() ?? "";
-  String template = fin.html.readAsStringSync();
-  YamlNode yn = loadYamlNode(data);
-
-  if(yn is YamlList){
-    final List<MemberProfile> mps = yn.nodes.map<MemberProfile>((YamlNode ln){
-        if(ln is YamlMap){
-          return MemberProfile.fromYaml(ln);
-        }else{
-          throw YamlSchemaViolationError(YamlMap, ln.runtimeType);
-        }
-      }).where((MemberProfile mp) => mp.current).toList();
-    mps.sort();
-    Iterable<String> resx = mps.map<String>((MemberProfile mp) => mp.toString(4));
-    ret = template
-      .replaceAll("{{css}}", style)
-      .replaceAll("{{body}}", resx.join("\n"));
-  }else{
-    throw YamlSchemaViolationError(YamlList, yn.runtimeType);
+  final tlr = Templater(fin.base, fin.html, fout);
+  if(fin.css !=null){
+    tlr.inject("css", fin.css!, 1);
   }
-
-  fout.writeAsStringSync(ret);
+  tlr.construct<MemberProfile>("body", fin.data, MemberProfile.fromYaml, needSort: true, filterItem: (MemberProfile mp) => mp.current, n: 4);
+  tlr.finate();
 }
