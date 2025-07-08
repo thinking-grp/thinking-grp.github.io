@@ -34,6 +34,7 @@ window.onload = () => {
       <p><a href="/project/thinkfont">thinkFont</a></p>
       <p><a href="/project/thinkos">thinkOS</a></p>
       <p><a href="/project/thinkerAI/">thinkerAI</a></p>
+      <p><a href="/project/thinkingsns/">thinkSocial</a></p>
       <p><a href="https://mncrp.github.io/">monochrome Project.</a></p>
     </div>
     <div class="footerColumn">
