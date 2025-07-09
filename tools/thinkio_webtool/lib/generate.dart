@@ -39,7 +39,7 @@ class Templater {
         hs = hs.take(min<int>(limit, hs.length));
       }
       Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
-      this._internalHTML = this.internalHTML.replaceAll("{{$ident}}", resx.join("\n"));
+      this._replace(ident, resx.join("\n"));
       return this;
     }else{
       throw YamlSchemaViolationError(YamlList, yn.runtimeType);
@@ -48,7 +48,7 @@ class Templater {
   
   Templater inject(String ident, Iterable<String> path, [int n = 0]){
     String src = this.base.cd<File>(path).readAsStringSync();
-    this._internalHTML = this.internalHTML.replaceAll("{{$ident}}", indentMapS(src, n));
+    this._replace(ident, indentMapS(src, n));
     return this;
   }
   
@@ -58,6 +58,11 @@ class Templater {
     }
     this.out.writeAsStringSync(this._internalHTML);
   }
+  void _replace(String ident, String dataString){
+    this._internalHTML = this._internalHTML.replaceAll(Templater.identOn(ident), dataString);
+  }
+  static RegExp identOn(String ident)
+    => RegExp(r"\s*(?<!\\){{$ident}}");
 }
 
 void generate(PageFiles fin, File fout){
