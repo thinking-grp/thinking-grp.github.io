@@ -56,8 +56,8 @@ class Templater {
 
 void generate(PageFiles fin, File fout){
   final tlr = Templater(fin.base, fin.html, fout);
-  if(fin.css !=null){
-    tlr.inject("css", fin.css!, 1);
+  if(fin.css != null){
+    tlr.inject("css", fin.css!, 3);
   }
   tlr.construct<MemberProfile>("body", fin.data, MemberProfile.fromYaml, needSort: true, filterItem: (MemberProfile mp) => mp.current, n: 4);
   tlr.finate();

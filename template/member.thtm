@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/style/member.css">
     <link rel="icon" href="https://www.thinking-grp.org/image/logo/favicon.ico" type="image/x-icon">
     <script src="/script/common.js"></script>
-<style>
+    <style>
 {{css}}
-</style>
+    </style>
   </head>
   <body>
     <div id="slider" class="slider-general">
