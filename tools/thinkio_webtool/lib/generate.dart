@@ -1,4 +1,5 @@
 import "dart:io";
+import "dart:math" show min;
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/mprof.dart";
 import "package:thinkio_webtool/errors.dart";
@@ -15,13 +16,13 @@ class Templater {
     this._internalHTML = this.base.cd<File>(this.templatePath).readAsStringSync();
   }
   
-  Templater construct<H extends Buildable>(String ident, Iterable<String> path, Iterable<H> Function(YamlList) fromYaml, {bool needSort = false, int n = 0, bool Function(H)? filterItem}){
+  Templater construct<H extends Buildable>(String ident, Iterable<String> path, Iterable<H> Function(YamlList) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
     bool Function(H) filter = filterItem ?? ((H _) => true);
     String data = this.base.cd<File>(path).readAsStringSync();
     YamlNode yn = loadYamlNode(data);
     
     if(yn is YamlList){
-      final List<H> hs = yn.nodes.map<H>((YamlNode ln){
+      List<H> hs = yn.nodes.map<H>((YamlNode ln){
           if(ln is YamlMap){
             return fromYaml(ln);
           }else{
@@ -31,7 +32,12 @@ class Templater {
       if(needSort){
         hs.sort();
       }
-    
+      if (reverse) {
+        hs = hs.reversed;
+      }
+      if (limit != null) {
+        hs = hs.take(min<int>(limit, hs.length));
+      }
       Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
       this._internalHTML = this.internalHTML.replaceAll("{{$ident}}", resx.join("\n"));
       return this;
