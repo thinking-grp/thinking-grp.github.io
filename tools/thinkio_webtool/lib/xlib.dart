@@ -3,7 +3,7 @@ import "dart:io";
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
 
-abstract class Buildable<With> implements Sortable<With> {
+abstract class Buildable<With> implements Comparable<With> {
   @override
   String toString([int n = 0]);
 }
@@ -26,15 +26,15 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
   return "<a href=\"$base$id\">$followIcon $label</a>";
 }
 
-String asAttr<V>({String? id, Iterable<String>? cls, StringMap<String, V>? attrs}){
+String asAttr<V>({String? id, Iterable<String>? cls, Map<String, V>? attrs}){
   String ids = attrOr("id", id);
   String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""));
-  Iterable<String> attrss = attrs.entries.map<String>((MapEntry<String, V> me => attrOr(me.key, me.value.toString())));
+  Iterable<String> attrss = attrs.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString()));
   return ids + (ids == "" ? "" : " ") + clss + (clss == "" ? "" : " ") + attrss.join(" ");
 }
 
 String attrOr<T>(String key, String? input)
-  => key + "=" input.doAsStr((T s) => quoted(htmlEscape.convert(s), "\""), "");
+  => key + "=" + input.doAsStr((T s) => quoted(htmlEscape.convert(s), "\""), "");
 
 
 extension<E> on E {
@@ -46,7 +46,7 @@ extension<T> on T?{
   String doAsStr(String Function(T) convert, String ifNull)
     => this.doAs<String>(convert, ifNull);
 }
- doAs<T, R>()
+R doAs<T, R>(T frm){}
 String quoted(String content, String mark)
   => quotedA(content, mark, mark);
 String quotedA(String content, String markS, String markE)
@@ -76,9 +76,9 @@ extension FSCD on Directory {
   FSE cd<FSE extends FileSystemEntity>(Iterable<String> path){
     final Uri u = this.uri.cd(path);
     late final FileSystemEntity fse;
-    if(FileSystemEntity.isFile(u.path)){
+    if(FileSystemEntity.isFileSync(u.path)){
       fse = File.fromUri(u);
-    }else if(FileSystemEntity.isDirectory(u.path)){
+    }else if(FileSystemEntity.isDirectorySync(u.path)){
       fse = Directory.fromUri(u);
     }else{
       throw Error();

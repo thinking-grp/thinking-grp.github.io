@@ -16,7 +16,7 @@ class Templater {
     this._internalHTML = this.base.cd<File>(this.templatePath).readAsStringSync();
   }
   
-  Templater construct<H extends Buildable>(String ident, Iterable<String> path, Iterable<H> Function(YamlList) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
+  Templater construct<H extends Buildable>(String ident, Iterable<String> path, Iterable<H> Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
     bool Function(H) filter = filterItem ?? ((H _) => true);
     String data = this.base.cd<File>(path).readAsStringSync();
     YamlNode yn = loadYamlNode(data);
@@ -33,10 +33,10 @@ class Templater {
         hs.sort();
       }
       if (reverse) {
-        hs = hs.reversed;
+        hs = hs.reversed.toList();
       }
       if (limit != null) {
-        hs = hs.take(min<int>(limit, hs.length));
+        hs = hs.take(min<int>(limit, hs.length)).toList();
       }
       Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
       this._replace(ident, resx.join("\n"));

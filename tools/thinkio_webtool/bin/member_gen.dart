@@ -9,7 +9,7 @@ void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
   PageFiles pf = (
-      base: base,
+      base: Directory.fromUri(base),
       html: <String>["template", "member.thtm"],
       data: <String>["data", "member_profiles.yaml"],
       css: <String>["template", "member.css"]
