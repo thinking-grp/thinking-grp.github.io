@@ -29,12 +29,12 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
 String asAttr<V>({String? id, Iterable<String>? cls, Map<String, V>? attrs}){
   String ids = attrOr("id", id);
   String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""));
-  Iterable<String> attrss = attrs.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString()));
+  Iterable<String> attrss = attrs?.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString())) ?? Iterable<String>();
   return ids + (ids == "" ? "" : " ") + clss + (clss == "" ? "" : " ") + attrss.join(" ");
 }
 
 String attrOr<T>(String key, String? input)
-  => key + "=" + input.doAsStr((T s) => quoted(htmlEscape.convert(s), "\""), "");
+  => key + "=" + input.doAsStr((T s) => quoted(htmlEscape.convert(s.toString()), "\""), "");
 
 
 extension<E> on E {
@@ -46,15 +46,17 @@ extension<T> on T?{
   String doAsStr(String Function(T) convert, String ifNull)
     => this.doAs<String>(convert, ifNull);
 }
-R doAs<T, R>(T frm){}
+
 String quoted(String content, String mark)
   => quotedA(content, mark, mark);
 String quotedA(String content, String markS, String markE)
   => "$markS$content$markE";
 String indent(String input, [int n = 1]) => "  " * n + input;
+
 Iterable<String> indentMap(Iterable<String> lines, [int n = 1]) => lines.map<String>((String e) => indent(e, n));
 List<String> indentMapL(Iterable<String> lines, [int n = 1]) => indentMapL(lines, n).toList();
 String indentMapS(String src, [int n = 1]) => indentMap(src.split("\n"), n).join("\n");
+
 Iterable<String> pack(Iterable<String> lines, String tag, [String? attrs]) {
   if(lines.isEmpty){
     return <String>[];
@@ -63,6 +65,7 @@ Iterable<String> pack(Iterable<String> lines, String tag, [String? attrs]) {
   return <String>["<$tag$attrx>"].followedBy(indentMap(lines)).followedBy(<String>["</$tag>"]);
 }
 List<String> packL(Iterable<String> lines, String tag, [String? attrs]) => pack(lines, tag, attrs).toList();
+
 String wrap(String line, String tag, [String? attrs]){
   String attrx = attrs == null ? "" : " $attrs";
   return "<$tag$attrx>$line</$tag>";

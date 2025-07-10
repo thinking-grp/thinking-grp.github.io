@@ -16,7 +16,7 @@ class Templater {
     this._internalHTML = this.base.cd<File>(this.templatePath).readAsStringSync();
   }
   
-  Templater construct<H extends Buildable>(String ident, Iterable<String> path, Iterable<H> Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
+  Templater construct<H extends Buildable>(String ident, Iterable<String> path, H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
     bool Function(H) filter = filterItem ?? ((H _) => true);
     String data = this.base.cd<File>(path).readAsStringSync();
     YamlNode yn = loadYamlNode(data);
