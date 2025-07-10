@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "args",
+      "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/args-2.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "clock",
+      "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/clock-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/collection-1.19.1",
       "packageUri": "lib/",
@@ -12,6 +24,24 @@
       "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/color-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/intl-0.20.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "markdown",
+      "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/markdown-7.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "meta",
+      "rootUri": "file:///home/runner/.pub-cache/hosted/pub.dev/meta-1.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
     },
     {
       "name": "path",
@@ -50,7 +80,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-07-08T03:39:59.079862Z",
+  "generated": "2025-07-10T11:20:52.072057Z",
   "generator": "pub",
   "generatorVersion": "3.7.3",
   "pubCache": "file:///home/runner/.pub-cache"
