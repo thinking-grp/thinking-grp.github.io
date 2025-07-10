@@ -62,7 +62,7 @@ class Templater {
     this._internalHTML = this._internalHTML.replaceAll(Templater.identOn(ident), dataString);
   }
   static RegExp identOn(String ident)
-    => RegExp(r"\s*(?<!\\){{$ident}}");
+    => RegExp(r"\s*(?<!\\){{" + ident + "}}");
 }
 
 void generate(PageFiles fin, File fout){
