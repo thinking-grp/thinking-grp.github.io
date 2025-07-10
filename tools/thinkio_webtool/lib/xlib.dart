@@ -29,12 +29,12 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
 String asAttr<V>({String? id, Iterable<String>? cls, Map<String, V>? attrs}){
   String ids = attrOr("id", id);
   String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""));
-  Iterable<String> attrss = attrs?.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString())) ?? Iterable<String>();
+  Iterable<String> attrss = attrs?.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString())) ?? <String>[];
   return ids + (ids == "" ? "" : " ") + clss + (clss == "" ? "" : " ") + attrss.join(" ");
 }
 
 String attrOr<T>(String key, String? input)
-  => key + "=" + input.doAsStr((T s) => quoted(htmlEscape.convert(s.toString()), "\""), "");
+  => key + "=" + input.doAsStr((String s) => quoted(htmlEscape.convert(s), "\""), "");
 
 
 extension<E> on E {
