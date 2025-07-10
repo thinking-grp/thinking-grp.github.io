@@ -28,12 +28,16 @@
   clip-path: circle(50%);
 }
 
+.membersItem-details {
+  margin-bottom: 1.5em;
+}
+
 .links {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 8px;
-    }
+}
 
 .links a {
   display: flex;
