@@ -77,11 +77,12 @@ class MemberProfile implements Buildable<MemberProfile> {
       current: yaml.valueAs<bool>("current"));
   }
 
-  bool get isRepresentative => this.roles.contains("代表");
-  bool get isViceRepresentative => this.roles.contains("副代表");
-  bool get isPrevRepresentative => this.roles.contains("前 代表");
-  bool get isFormerRepresentative => this.roles.contains("元 代表");
-  bool get isExecutive => this.roles.contains("運営") || this.isRepresentative || this.isViceRepresentative;
+  bool get isRepresentative => this.roles.nuked.contains("代表");
+  bool get isViceRepresentative => this.roles.nuked.contains("副代表");
+  bool get isPrevRepresentative => this.roles.nuked.contains("前 代表");
+  bool get isFormerRepresentative => this.roles.nuked.contains("元 代表");
+  bool get isExecutive => this.roles
+  .nuked.contains("運営") || this.isRepresentative || this.isViceRepresentative;
   bool get isExecutivePlus => this.isExecutive || this.isPrevRepresentative || this.isFormerRepresentative;
 
   @override

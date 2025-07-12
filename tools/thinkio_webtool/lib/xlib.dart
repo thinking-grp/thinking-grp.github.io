@@ -157,3 +157,9 @@ extension YamlMapExt on YamlMap {
     }
   }
 }
+extension Role on String {
+  String get nuked => this.split(" ").where((String s) => !(s.startsWith("(") && s.endsWith(")"))).join(" ");
+}
+extension RoleCollection on Iterable<String> {
+  Iterable<String> get nuked => this.map<String>((String r) => r.nuked);
+}
