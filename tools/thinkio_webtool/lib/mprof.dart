@@ -138,7 +138,7 @@ class MemberProfile implements Buildable<MemberProfile> {
         } else {
           return s;
         }
-}).join(", "), "p", "class=\"role\"");
+}).join(", ").replaceAllMapped(RegExp(r"(\([^)]*\))"), (Match m) => "<small>${m[1]}</small>"), "p", "class=\"role\"");
 
     List<String> name = (roles == null) ? <String>["<h3>$baseName</h3>"] : <String>["<h3>$baseName", indent(roles), "</h3>"];
 
