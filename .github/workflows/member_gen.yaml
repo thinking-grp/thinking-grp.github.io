@@ -21,6 +21,7 @@ jobs:
       run: dart pub get
     - name: generate
       run: |
+        set -x
         echo "LOG_FILE=./log/gen/"`date '+%Y%m%d_%H%M'`".log" >> $GITHUB_ENV
         touch ${LOG_FILE}
         dart run bin/member_gen.dart >> $LOG_FILE
