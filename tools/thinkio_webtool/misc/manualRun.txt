@@ -1,1 +1,1 @@
-do log2
+do log
