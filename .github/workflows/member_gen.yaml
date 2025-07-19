@@ -23,6 +23,10 @@ jobs:
       run: |
         set -x
         LOG_FILE="./log/gen/"`date '+%Y%m%d_%H%M'`".log"
+        if [ -d "ディレクトリ名" ]; then
+        else
+          mkdir -p ".log/gen/"
+        fi
         touch ${LOG_FILE}
         dart run bin/member_gen.dart >> $LOG_FILE
         STAT=`$?`
