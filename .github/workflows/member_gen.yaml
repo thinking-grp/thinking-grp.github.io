@@ -23,8 +23,7 @@ jobs:
       run: |
         set -x
         LOG_FILE="./log/gen/"`date '+%Y%m%d_%H%M'`".log"
-        if [ -d "ディレクトリ名" ]; then
-        else
+        if [ ! -d "ディレクトリ名" ]; then
           mkdir -p ".log/gen/"
         fi
         touch ${LOG_FILE}
