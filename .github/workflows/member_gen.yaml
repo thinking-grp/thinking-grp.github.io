@@ -20,7 +20,13 @@ jobs:
     - name: install dependencies
       run: dart pub get
     - name: generate
-      run: dart run bin/member_gen.dart
+      run: |
+        echo "LOG_FILE=./log/gen/"`date '+%Y%m%d_%H%M'`".log" >> $GITHUB_ENV
+        touch $LOG_FILE
+        dart run bin/member_gen.dart >> $LOG_FILE
+        echo "STAT="`$?` >> $GITHUB_ENV
+        echo $STAT
+        cat $LOG_FILE
     - name: Diff
       id: diff
       run: |
