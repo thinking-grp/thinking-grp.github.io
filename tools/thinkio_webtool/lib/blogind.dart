@@ -111,7 +111,7 @@ class BlogRec implements Buildable<BlogRec> {
           pack(
             item,
             "a",
-            asAttr(attrs: <String, Uri>{"href": uri})
+            asAttr(attrs: <String, Uri>{"href": this.path})
           ),
           "div",
           asAttr(id: "blogsColumn")

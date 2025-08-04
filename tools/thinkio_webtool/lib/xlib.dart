@@ -37,10 +37,10 @@ String attrOr<T>(String key, String? input)
   => key + "=" + input.doAsStr((String s) => quoted(htmlEscape.convert(s), "\""), "");
 
 
-extension<E> on E {
+extension ScalarWrapToList<E> on E {
   List<E> asList() => <E>[this];
 }
-extension<T> on T?{
+extension DoAs<T> on T?{
   R doAs<R>(R Function(T) convert, R ifNull)
     => this == null ? ifNull : convert(this!);
   String doAsStr(String Function(T) convert, String ifNull)
