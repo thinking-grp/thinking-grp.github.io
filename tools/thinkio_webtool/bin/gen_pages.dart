@@ -8,18 +8,26 @@ const bool deploy = true;
 void main() {
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
-  PageFiles pf = (
+  PageFiles pf_m = (
       base: Directory.fromUri(base),
       html: <String>["template", "member.thtm"],
       data: <String>["data", "member_profiles.yaml"],
       css: <String>["template", "member.css"]
     );
-  Uri dout = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", deploy ? "member.html" : "member_generated.html"]).toList()); // /about/member_generated.html (dryrun), /about/member.html (deploy)
-
-  File fout = File.fromUri(dout);
+  Uri dout_m = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", deploy ? "member.html" : "member_generated.html"]).toList()); // /about/member_generated.html (dryrun), /about/member.html (deploy)
+  File fout_m = File.fromUri(dout_m);
+  
+  PageFiles pf_b = (
+      base: Directory.fromUri(base),
+      html: <String>["template", "blog_index.thtm"],
+      data: <String>["data", "blog_index.yaml"]
+    );
+  Uri dout_b = base.replace(pathSegments: base.pathSegments.followedBy(<String>["blog", deploy ? "index.html" : "index_generated.html"]).toList()); // /blog/index_generated.html (dryrun), /blog/index.html (deploy)
+  File fout_b = File.fromUri(dout_b);
   
   try{
-    generate_member(pf, fout);
+    generate_member(pf_m, fout_m);
+    generate_blog_index(pf_b, fout_b);
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);
