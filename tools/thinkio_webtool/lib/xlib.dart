@@ -66,9 +66,12 @@ Iterable<String> pack(Iterable<String> lines, String tag, [String? attrs]) {
 }
 String packInline(String line, String tag, [String? attrs]){
   String attrx = attrs == null ? "" : " $attrs";
+  return line == "" ? "<$tag$attrx />" : "<$tag$attrx>$line</$tag>";
+}
+String wrap(String line, String tag, [String? attrs]){
+  String attrx = attrs == null ? "" : " $attrs";
   return "<$tag$attrx>$line</$tag>";
 }
-String wrap(String line, String tag, [String? attrs]) => packInline(line, tag, attrs);
 
 List<String> packL(Iterable<String> lines, String tag, [String? attrs]) => pack(lines, tag, attrs).toList();
 

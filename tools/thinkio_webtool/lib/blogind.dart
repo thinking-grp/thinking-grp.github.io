@@ -43,10 +43,10 @@ class BlogRec implements Buildable<BlogRec> {
       luat = DateTime.parse(luatStr);
     }
     
-    DateTime? img = null;
+    Uri img = BlogRec.defaultImage;
     String? imgStr = yaml.valueAsOrNull<String>("image");
     if(imgStr != null){
-      img = Uri.parse(luatStr);
+      img = Uri.parse(imgStr);
     }
     
     List<BlogTag> tags = <BlogTag>[];
@@ -98,9 +98,9 @@ class BlogRec implements Buildable<BlogRec> {
       );
     Iterable<String> item = pack(
         packInline(
-          null,
+          "",
           "img",
-          asAttr(attrs: <String, Object>{"src": this.image, "alt: this.title"})
+          asAttr(attrs: <String, Object>{"src": this.image, "alt": this.title})
         ).asList()
         .followedBy(details),
         "div",
