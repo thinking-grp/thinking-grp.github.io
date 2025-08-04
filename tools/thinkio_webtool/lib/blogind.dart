@@ -3,7 +3,7 @@ import "package:yaml/yaml.dart";
 import "package:intl/intl.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-final get DateFormat fmt {
+DateFormat get fmt {
   initializeDateFormatting("ja-JP"); 
   return DateFormat("yyyy年MM月dd日", "ja-JP");
 }
