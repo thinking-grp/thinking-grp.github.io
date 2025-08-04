@@ -4,7 +4,9 @@ on:
     branches:
       - main
     paths:
-      - "data/member_profiles.yaml"
+      - "data/*.yaml"
+      - "template/*.thtm"
+      - "template/*.css"
       - "tools/thinkio_webtool/misc/manualRun.txt"
 defaults:
   run:
