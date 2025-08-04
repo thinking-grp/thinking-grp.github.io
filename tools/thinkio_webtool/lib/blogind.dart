@@ -38,13 +38,13 @@ class BlogRec implements Buildable<BlogRec> {
     List<String> _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
     
     DateTime? luat = null;
-    String luatStr = yaml.valueAsOrNull<String>("lastUpdatedAt");
+    String? luatStr = yaml.valueAsOrNull<String>("lastUpdatedAt");
     if(luatStr != null){
       luat = DateTime.parse(luatStr);
     }
     
     DateTime? img = null;
-    String imgStr = yaml.valueAsOrNull<String>("image");
+    String? imgStr = yaml.valueAsOrNull<String>("image");
     if(imgStr != null){
       img = Uri.parse(luatStr);
     }
@@ -57,7 +57,7 @@ class BlogRec implements Buildable<BlogRec> {
         if(n is YamlScalar){
           nv = n.value;
           if(nv is String){
-            roles.add(BlogTag(nv));
+            tags.add(BlogTag(nv));
           }
         }
       }
@@ -71,7 +71,7 @@ class BlogRec implements Buildable<BlogRec> {
       path: Uri.parse(yaml.valueAs<String>("path")),
       image: img,
       tags: tags,
-      lead: yaml.valueAsOrNull<String>("lead")
+      lead: yaml.valueAsOrNull<String>("lead") ?? ""
     );
   }
   
@@ -91,10 +91,10 @@ class BlogRec implements Buildable<BlogRec> {
           ].followedBy(pack(
               this.lead.split("\n"),
               "p",
-              asAttr(cls: "blog-body")
+              asAttr(cls: <String>["blog-body"])
             )),
         "div",
-        asAttr(cls: "blogItem-details")
+        asAttr(cls: <String>["blogItem-details"])
       );
     Iterable<String> item = pack(
         packInline(
@@ -102,9 +102,9 @@ class BlogRec implements Buildable<BlogRec> {
           "img",
           asAttr(attrs: <String, Object>{"src": this.image, "alt: this.title"})
         ).asList()
-        .followedBy(item),
+        .followedBy(details),
         "div",
-        asAttr(cls: "blogsColumn-item")
+        asAttr(cls: <String>["blogsColumn-item"])
       );
     return indentMap(
         pack(
