@@ -3,7 +3,10 @@ import "package:yaml/yaml.dart";
 import "package:intl/intl.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-final DateFormat fmt = DateFormat("yyyy年MM月dd日", "ja-JP");
+final get DateFormat fmt {
+  initializeDateFormatting("ja-JP"); 
+  return DateFormat("yyyy年MM月dd日", "ja-JP");
+}
 
 extension type BlogTag._(String name){
   BlogTag(String tagName):
