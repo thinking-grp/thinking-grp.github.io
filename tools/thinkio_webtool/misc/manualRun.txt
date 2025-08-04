@@ -1,1 +1,1 @@
-do blog 6
+do blog
