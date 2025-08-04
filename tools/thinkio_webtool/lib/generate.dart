@@ -4,7 +4,6 @@ import "package:thinkio_webtool/blogind.dart";
 import "package:thinkio_webtool/templater.dart";
 import "package:thinkio_webtool/xlib.dart";
 
-
 void generate_member(PageFiles fin, File fout){
   final tlr = Templater(fin.base, fin.html, fout);
   if(fin.css != null){

@@ -2,6 +2,7 @@ import "dart:io";
 import "dart:math" show min;
 import "package:yaml/yaml.dart";
 import "package:thinkio_webtool/errors.dart";
+import "package:thinkio_webtool/xlib.dart";
 
 class Templater {
   final Directory base;

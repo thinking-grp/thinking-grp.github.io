@@ -63,17 +63,19 @@ class BlogRec implements Buildable<BlogRec> {
                   ].followedBy(pack(
                     this.lead.split("\n"),
                     "p",
-                    asAttr(cls: "blog-body"),
-                    "div",
-                    asAttr(cls: "blogItem-details")
-                  )),
+                    asAttr(cls: "blog-body")
+                  ),
                   "div",
-                  asAttr(cls: "blogsColumn-item">)
+                  asAttr(cls: "blogItem-details")
                 ),
-                "a",
-                asAttr(attrs: <String, Uri>{"href": uri})
+                "div",
+                asAttr(cls: "blogsColumn-item")
               ),
-              "div",
-              asAttr(id: "blogsColumn")
-            ), n).join("\n");
+              "a",
+              asAttr(attrs: <String, Uri>{"href": uri})
+            ),
+          "div",
+          asAttr(id: "blogsColumn")
+        ), n)
+      .join("\n");
 }
