@@ -1,4 +1,4 @@
-name: Member Profile Generation
+name: Templated Pages Generation
 on:
   push:
     branches:
@@ -27,7 +27,7 @@ jobs:
           mkdir -p "./../../log/gen/"
         fi
         touch ${LOG_FILE}
-        dart run bin/member_gen.dart >> $LOG_FILE
+        dart run bin/gen_pages.dart >> $LOG_FILE
         STAT=`echo $?`
         echo $STAT
         cat ${LOG_FILE}

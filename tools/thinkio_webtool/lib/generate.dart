@@ -65,7 +65,7 @@ class Templater {
     => RegExp(r"\s*(?<!\\){{" + ident + "}}");
 }
 
-void generate(PageFiles fin, File fout){
+void generate_member(PageFiles fin, File fout){
   final tlr = Templater(fin.base, fin.html, fout);
   if(fin.css != null){
     tlr.inject("css", fin.css!, 3);

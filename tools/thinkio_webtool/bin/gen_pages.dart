@@ -19,7 +19,7 @@ void main() {
   File fout = File.fromUri(dout);
   
   try{
-    generate(pf, fout);
+    generate_member(pf, fout);
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);

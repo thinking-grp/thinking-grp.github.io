@@ -46,7 +46,7 @@ class BlogRec implements Buildable<BlogRec> {
   }
   
   @override
-  String toString([int n = 0]){
+  String toString([int n = 0])
     => indentMap(
           pack(
             pack(
@@ -76,5 +76,4 @@ class BlogRec implements Buildable<BlogRec> {
               "div",
               asAttr(id: "blogsColumn")
             ), n).join("\n");
-  }
 }
