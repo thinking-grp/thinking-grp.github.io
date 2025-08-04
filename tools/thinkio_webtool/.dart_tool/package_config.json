@@ -77,10 +77,10 @@
       "name": "thinkio_webtool",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-07-19T23:22:58.025475Z",
+  "generated": "2025-08-04T04:38:34.020683Z",
   "generator": "pub",
   "generatorVersion": "3.7.3",
   "pubCache": "file:///home/runner/.pub-cache"
