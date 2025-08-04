@@ -20,6 +20,7 @@ void main() {
   PageFiles pf_b = (
       base: Directory.fromUri(base),
       html: <String>["template", "blog_index.thtm"],
+      css: null,
       data: <String>["data", "blog_index.yaml"]
     );
   Uri dout_b = base.replace(pathSegments: base.pathSegments.followedBy(<String>["blog", deploy ? "index.html" : "index_generated.html"]).toList()); // /blog/index_generated.html (dryrun), /blog/index.html (deploy)

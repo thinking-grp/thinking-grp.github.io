@@ -13,7 +13,7 @@ extension type BlogTag._(String name){
   //      and make validate use the param
   //               as matcher
   static String validate(String input)
-    => true;
+    => input;
 }
 
 class BlogRec implements Buildable<BlogRec> {
@@ -36,6 +36,43 @@ class BlogRec implements Buildable<BlogRec> {
   
   factory BlogRec.fromYaml(YamlMap yaml) {
     List<String> _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
+    
+    DateTime? luat = null;
+    String luatStr = yaml.valueAsOrNull<String>("lastUpdatedAt");
+    if(luatStr != null){
+      luat = DateTime.parse(luatStr);
+    }
+    
+    DateTime? img = null;
+    String imgStr = yaml.valueAsOrNull<String>("image");
+    if(imgStr != null){
+      img = Uri.parse(luatStr);
+    }
+    
+    List<BlogTag> tags = <BlogTag>[];
+    YamlNode? rc = yaml.nodes["tags"];
+    late Object? nv;
+    if(rc != null && rc is YamlList){
+      for(YamlNode n in rc.nodes){
+        if(n is YamlScalar){
+          nv = n.value;
+          if(nv is String){
+            roles.add(BlogTag(nv));
+          }
+        }
+      }
+    }
+    
+    return BlogRec(
+      title: yaml.valueAs<String>("title"),
+      postedAt: DateTime.parse(yaml.valueAs("postedAt"),
+      lastUpdatedAt: luat,
+      author: yaml.valueAs<String>("author"),
+      path: Uri.parse(yaml.valueAs<String>("path")),
+      image: img,
+      tags: tags,
+      lead: yaml.valueAsOrNull<String>("lead")
+    );
   }
   
   @override
