@@ -33,6 +33,7 @@ jobs:
         STAT=`echo $?`
         echo $STAT
         cat ${LOG_FILE}
+      continue-on-error: true
     - name: Diff
       id: diff
       run: |
