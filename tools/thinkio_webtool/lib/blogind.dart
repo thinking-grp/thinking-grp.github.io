@@ -65,7 +65,7 @@ class BlogRec implements Buildable<BlogRec> {
     
     return BlogRec(
       title: yaml.valueAs<String>("title"),
-      postedAt: DateTime.parse(yaml.valueAs("postedAt"),
+      postedAt: DateTime.parse(yaml.valueAs("postedAt")),
       lastUpdatedAt: luat,
       author: yaml.valueAs<String>("author"),
       path: Uri.parse(yaml.valueAs<String>("path")),
@@ -83,36 +83,39 @@ class BlogRec implements Buildable<BlogRec> {
   }
   
   @override
-  String toString([int n = 0])
-    => indentMap(
+  String toString([int n = 0]){
+    Iterable<String> details = pack(
+        <String>[
+          packInline(this.title, "h3"),
+          packInline("${fmt.format(this.postedAt)} by ${this.author}", "p")
+          ].followedBy(pack(
+              this.lead.split("\n"),
+              "p",
+              asAttr(cls: "blog-body")
+            )),
+        "div",
+        asAttr(cls: "blogItem-details")
+      );
+    Iterable<String> item = pack(
+        packInline(
+          null,
+          "img",
+          asAttr(attrs: <String, Object>{"src": this.image, "alt: this.title"})
+        ).asList()
+        .followedBy(item),
+        "div",
+        asAttr(cls: "blogsColumn-item")
+      );
+    return indentMap(
+        pack(
           pack(
-            pack(
-              pack(
-                packInline(
-                  null,
-                  "img",
-                  asAttr(attrs: <String, Object>{"src": this.image, "alt: this.title"})
-                ).asList()
-                .followedBy(pack(
-                  <String>[
-                    packInline(this.title, "h3"),
-                    packInline("${fmt.format(this.postedAt)} by ${this.author}", "p")
-                  ].followedBy(pack(
-                    this.lead.split("\n"),
-                    "p",
-                    asAttr(cls: "blog-body")
-                  ),
-                  "div",
-                  asAttr(cls: "blogItem-details")
-                ),
-                "div",
-                asAttr(cls: "blogsColumn-item")
-              ),
-              "a",
-              asAttr(attrs: <String, Uri>{"href": uri})
-            ),
+            item,
+            "a",
+            asAttr(attrs: <String, Uri>{"href": uri})
+          ),
           "div",
           asAttr(id: "blogsColumn")
         ), n)
       .join("\n");
+  }
 }
