@@ -1,0 +1,82 @@
+Gasukaku
+value color: #008000
+parsed color: #008000
+
+佐藤 陽花　(さとう はるか)
+value color: #36c8b5
+parsed color: #36c8b5
+
+RMYS
+value color: null
+parsed color: #null
+
+Sorakime
+value color: null
+parsed color: #null
+
+少名アリス
+value color: null
+parsed color: #null
+
+Haru Lab
+value color: null
+parsed color: #null
+
+mf7cli
+value color: #1592F7
+parsed color: #1592f7
+
+粉蜜柑
+value color: null
+parsed color: #null
+
+LITESOLT
+value color: null
+parsed color: #null
+
+amania
+value color: #ffa227
+parsed color: #ffa227
+
+ひとくち水ようかん か 水羊羹
+value color: null
+parsed color: #null
+
+さちはる
+value color: null
+parsed color: #null
+
+yuichi
+value color: null
+parsed color: #null
+
+てーがーくん
+value color: null
+parsed color: #null
+
+take
+value color: #ede9ff
+parsed color: #ede9ff
+
+Kinoko_2K
+value color: null
+parsed color: #null
+
+LocaleDataException: Locale data has not been initialized, call initializeDateFormatting(<locale>).
+#0      UninitializedLocaleData._throwException (package:intl/src/intl_helpers.dart:79:5)
+#1      UninitializedLocaleData.containsKey (package:intl/src/intl_helpers.dart:73:7)
+#2      DateFormat.localeExists (package:intl/src/intl/date_format.dart:902:28)
+#3      verifiedLocale (package:intl/src/intl_helpers.dart:184:19)
+#4      new DateFormat (package:intl/src/intl/date_format.dart:267:27)
+#5      fmt (package:thinkio_webtool/blogind.dart:6:24)
+#6      fmt (package:thinkio_webtool/blogind.dart)
+#7      BlogRec.toString (package:thinkio_webtool/blogind.dart:90:25)
+#8      Templater.construct.<anonymous closure> (package:thinkio_webtool/templater.dart:39:59)
+#9      MappedListIterable.elementAt (dart:_internal/iterable.dart:442:31)
+#10     ListIterable.join (dart:_internal/iterable.dart:159:25)
+#11     Templater.construct (package:thinkio_webtool/templater.dart:40:33)
+#12     generate_blog_index (package:thinkio_webtool/generate.dart:20:7)
+#13     main (file:///home/runner/work/thinking-grp.github.io/thinking-grp.github.io/tools/thinkio_webtool/bin/gen_pages.dart:31:5)
+#14     _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:315:19)
+#15     _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:194:12)
+
