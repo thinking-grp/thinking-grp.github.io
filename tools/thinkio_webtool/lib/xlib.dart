@@ -26,16 +26,15 @@ String? toUrlStrA(String? id, String base, String label, String? followIconPath,
   return "<a href=\"$base$id\">$followIcon $label</a>";
 }
 
-String asAttr<V>({String? id, Iterable<String>? cls, Map<String, V>? attrs}){
-  String ids = attrOr("id", id);
-  String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""));
-  Iterable<String> attrss = attrs?.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString())) ?? <String>[];
+String asAttr<V>({String? id, Iterable<String>? cls, Map<String, V>? attrs, bool useEscape = false}){
+  String ids = attrOr("id", id, useEscape);
+  String clss = attrOr("class", cls.doAs<String>((Iterable<String> it) => it.join(" "), ""), useEscape);
+  Iterable<String> attrss = attrs?.entries.map<String>((MapEntry<String, V> me) => attrOr(me.key, me.value.toString(), useEscape)) ?? <String>[];
   return ids + (ids == "" ? "" : " ") + clss + (clss == "" ? "" : " ") + attrss.join(" ");
 }
 
-String attrOr<T>(String key, String? input)
-  => key + "=" + input.doAsStr((String s) => quoted(htmlEscape.convert(s), "\""), "");
-
+String attrOr<T>(String key, String? input, [bool useEscape = false])
+  => input == null ? "" : key + "=" + input.doAsStr((String s) => quoted(useEscape ? htmlEscape.convert(s) : s, "\""), "");
 
 extension ScalarWrapToList<E> on E {
   List<E> asList() => <E>[this];
