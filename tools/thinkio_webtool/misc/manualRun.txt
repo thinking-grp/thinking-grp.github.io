@@ -1,1 +1,1 @@
-do blog loc test
+do blog loc test 2
