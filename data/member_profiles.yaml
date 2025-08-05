@@ -2,6 +2,7 @@
   name: Gasukaku
   roles:
     - 代表
+    - 運営
   color: "#008000"
   icon: /gasukaku.jpg
   join: 2022-09-23
@@ -14,7 +15,9 @@
 - id: haruka
   name: 佐藤 陽花　(さとう はるか)
   roles:
-    - 副代表 (停職中)
+    - 副代表 (停職中, ~2025.10.11)
+    - 運営
+    - Web開発責任者 (共同)
   color: "#36c8b5"
   icon: /haruka_logo.png
   join: 2025-04-06
@@ -67,7 +70,7 @@
 - id: mf7cli
   name: mf7cli
   roles:
-    - Web開発責任者
+    - Web開発責任者 (共同)
     - thinkerAI制作責任者
   color: "#1592F7"
   icon: /mf7cli.png
