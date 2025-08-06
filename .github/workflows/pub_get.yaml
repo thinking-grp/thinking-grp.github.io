@@ -1,0 +1,38 @@
+name: Pub Get Updated Dependencies
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "tools/*/pubspec.yaml"
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: dart-lang/setup-dart@v1
+      with:
+        sdk: 3.7
+    - name: install dependencies [thinkio_webtool]
+      run: dart pub get
+      working-directory: "./tools/thinkio_webtool"
+    - name: install dependencies [thinkdocs_web]
+      run: dart pub get
+      working-directory: "./tools/thinkdocs_web"
+    - name: Diff
+      id: diff
+      run: |
+        git add -N .
+        git diff --name-only --exit-code
+      continue-on-error: true
+      working-directory: "./"
+    - name: Commit & Push
+      run: |
+        set -x
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        git add .
+        git commit --author=. -m 'generated'
+        git push
+      working-directory: "./"
+      if: steps.diff.outcome == 'failure'
