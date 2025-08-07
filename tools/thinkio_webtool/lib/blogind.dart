@@ -72,8 +72,8 @@ class BlogRec implements Buildable<BlogRec> {
           Uri.parse(yaml.valueAs<String>("path")),
           (Uri u) => !u.hasAuthority,
           (Uri u) => u.replace(
-            pathSegments: <String>["blog"]
-              .followedBy(u.pathSegments)
+            pathSegments: <String>["", "blog"]
+              .followedBy(u.pathSegments.first == "" ? u.pathSegments.skip(1) : u.pathSegments)
             )
         ),
       image: img,
