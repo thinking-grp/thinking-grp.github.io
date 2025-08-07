@@ -68,7 +68,14 @@ class BlogRec implements Buildable<BlogRec> {
       postedAt: DateTime.parse(yaml.valueAs("postedAt")),
       lastUpdatedAt: luat,
       author: yaml.valueAs<String>("author"),
-      path: casedUpdate<Uri>(Uri.parse(yaml.valueAs<String>("path")), (Uri u) =>!u.hasAuthority, (Uri u) => u.replace(pathSegments: <String>["blog"].followedBy(u.pathSegments)),
+      path: casedUpdate<Uri>(
+          Uri.parse(yaml.valueAs<String>("path")),
+          (Uri u) => !u.hasAuthority,
+          (Uri u) => u.replace(
+            pathSegments: <String>["blog"]
+              .followedBy(u.pathSegments)
+            )
+        ),
       image: img,
       tags: tags,
       lead: yaml.valueAsOrNull<String>("lead") ?? ""
