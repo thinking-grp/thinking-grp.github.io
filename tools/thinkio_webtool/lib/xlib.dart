@@ -13,6 +13,9 @@ const HtmlEscape htmlEscape = HtmlEscape();
 
 typedef PageFiles = ({Directory base, Iterable<String> data, Iterable<String> html, Iterable<String>? css});
 
+T casedUpdate<T>(T input, bool Function(T) test, T Function(T) update, [T Function(T)? elseUpdate])
+  => test(input) ? update(input) : (elseUpdate ?? ((T i) => i))(input);
+
 String? toUrlStrA(String? id, String base, String label, String? followIconPath, [bool Function(String)? test]){
   String followIcon = followIconPath != null ? "<img src=\"$followIconPath\" alt=\"logo of $label\">" : "";
   if(id == null){
@@ -78,6 +81,7 @@ extension UriCD on Uri {
   Uri cd(Iterable<String> path)
     => this.replace(pathSegments: this.pathSegments.followedBy(path));
 }
+
 extension FSCD on Directory {
   FSE cd<FSE extends FileSystemEntity>(Iterable<String> path){
     final Uri u = this.uri.cd(path);
@@ -121,6 +125,7 @@ extension YamlMapExt on YamlMap {
     }
     return ret;
   }
+  
   T valueAs<T>(String key) {
     YamlNode n = this.nodes[key]!;
     if(n is YamlScalar){
