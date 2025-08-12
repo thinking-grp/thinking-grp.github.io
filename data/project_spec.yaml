@@ -1,0 +1,12 @@
+- name:
+    main: !string
+    original: !string option
+    abbr: !string option
+  status: (plan/dev/release/closed)
+  lead: !string option
+  image: !uri option
+  desc: !string option
+  features: !string md
+  members:
+    - <id>: <post !string>
+  plan: !string md
