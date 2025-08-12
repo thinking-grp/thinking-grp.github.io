@@ -1,9 +1,9 @@
 import "package:yaml/yaml.dart";
 import "package:web/web.dart";
 
-import "package:thinkdocs_web/ext/gen.dart";
-import "package:thinkdocs_web/ext/yaml.dart";
-import "package:thinkdocs_web/ext/mark.dart";
+import "package:xlib_think_ext/gen.dart";
+import "package:xlib_think_ext/yaml.dart";
+import "package:xlib_think_ext/mark.dart";
 import "package:thinkdocs_web/markdown.dart";
 
 enum Clearance implements Comparable<Clearance> {
@@ -29,6 +29,17 @@ enum Clearance implements Comparable<Clearance> {
   @override
   int compareTo(Clearance other) => this.level.compareTo(other.level);
   
+  bool operator <(Clearance other) => this.level < other.level;
+  
+  static Clearance min(Clearance a, Clearance b) => switch(a.compareTo(b)){
+    > 0 => b,
+    _ => a
+  }
+  static Clearance max(Clearance a, Clearance b) => switch(a.compareTo(b)){
+    > 0 => a,
+    _ => b
+  }
+  
   static Clearance parse(String value): switch(value.toLowerCase()){
       "exec" => Clearance.parse("executive"),
       "repr" => Clearance.parse("representative"),
@@ -45,30 +56,91 @@ enum Clearance implements Comparable<Clearance> {
       tryDo: () => Clearance.parse(name),
       catchDo: (_) => null);
 
-  static Clearance fromLevel(int level){}
-}
-
-
-class ArticleMeta {
-  final String title;
-  final List<List<String>> categories;
-  final Clearance access;
-  final Clearance editable;
-  final List<String> authors;
-  final String version;
-  DateTime createdAt;
-  DateTime thisVerAt;
-  DateTime latestVerAt;
-
-  ArticleMeta({required this.title, });
-  
-  factory Meta.fromYaml(YamlMap yaml){
-    
+  static Clearance fromLevel(int level){
+    if (level < 0 || 7 < level) {
+      throw RangeError("");
+    }
+    Iterable<Clearance> cand = Clearance.values.where((Clearance c) => c.level level);
+    if (cand.isEmpty) {
+      throw FormatException("");
+    } else if (cand.length != 1) {
+      throw FormatException("");
+    } else {
+      return cand.single;
+    }
   }
 }
 
+class Capability {
+  final Clearance read;
+  final Clearance write;
+  final Clearance exec;
+  
+  Capability(Clearance read, Clearance write, [Clearance exec]):
+    this.read = read,
+    this.write = write,
+    this.exec = exec ?? (read.compareTo(write) < 0 ? read : write);
+  
+  bool canRead(Clearance cap) => cap.compareTo(this.read) >= 0;
+  bool canWrite(Clearance cap) => this.canRead(cap) && cap.compareTo(this.write) >= 0;
+  bool canExec(Clearance cap) => this.canWrite(cap) && cap.compareTo(this.exec) >= 0;
+}
+class ArticleMeta {
+  /// [required] title of the article
+  final String title;
+  /// [optional] categories
+  final List<List<String>> categories;
+  /// [optional] clearance level to read the article
+  final Clearance access;
+  /// [optional] clearance level to edit the article
+  final Clearance editable;
+  /// [required] author or authors of the article
+  final List<String> authors;
+  /// [required] hash-id of this version
+  final String version;
+  /// [required] created datetime of first version
+  DateTime createdAt;
+  /// [required] updated datetime of this version
+  DateTime thisVerAt;
+  /// [optional] updated datetime of latest version
+  DateTime latestVerAt;
+
+  ArticleMeta({
+    required this.title,
+    List<List<String>>? categories,
+    this.access = Clearance.all,
+    this.editable = Clearance.all,
+    required this.authors,
+    required this.version,
+    required this.createdAt,
+    required DateTime thisVerAt,
+    DateTime? latestVerAt}):
+    this.categories = categories ?? <List<String>>[],
+    this.thisVerAt = thisVerAt,
+    this.latestVerAt = latestVerAt ?? thisVerAt;
+  
+  /// construct from YAML data
+  factory ArticleMeta.fromYaml(YamlMap yaml){
+    return ArticleMeta(
+      title: yaml.valueAs<String>(),
+      categories: ,
+      access: ,
+      editable: ,
+      authors: ,
+      version: ,
+      createdAt: ,
+      thisVerAt: ,
+      latestVerAt: l
+    )
+  }
+  
+  /// bandle clearances to `Capability`
+  Capability get clearances => Capability(access, editable);
+}
+
 extension MetaExt<M extends ArticleMeta> on M {
-  ArticleMeta toMeta() => ArticleMeta(title: this.title);
+  /// convert to ArticleMeta
+  ArticleMeta toMeta() => this as ArticleMeta;
 }
 
 class BlogArticle implements ArticleMeta {
@@ -90,21 +162,55 @@ class BlogArticle implements ArticleMeta {
   final DateTime thisVerAt;
   @override
   final DateTime latestVerAt;
-  /// html source lines
+  /** html elements or source lines
+   * witch type choose for use?
+   * - `HTMLElement` (for Front with `pkg:web`)
+   * - `List<String>` (for Server in native)
+   * - `type` (for Jaspr with `pkg:jaspr`)
+   * - `type` (for Server with `pkg:html`)
+   */
   final HTMLElement html;
   
-  BlogArticle(this.meta, this.html);
+  BlogArticle({
+    required this.title,
+    List<List<String>>? categories,
+    this.access = Clearance.all,
+    this.editable = Clearance.all,
+    required this.authors,
+    required this.version,
+    required this.createdAt,
+    required DateTime thisVerAt,
+    DateTime? latestVerAt,
+    required this.html
+  }):
+    this.categories = categories ?? <List<String>>[],
+    this.thisVerAt = thisVerAt,
+    this.latestVerAt = latestVerAt ?? thisVerAt;
   
+  BlogArticle.withMeta(ArticleMeta meta, this.html):
+    this.title = meta.title,
+    this.categories = meta.categories,
+    this.access = meta.access,
+    this.editable = meta.editable,
+    this.authors = meta.authors,
+    this.version = meta.version,
+    this.createdAt = meta.createdAt,
+    this.thisVerAt = meta.thisVerAt,
+    this.latestVerAt = meta.latestVerAt;
+    
   factory BlogArticle.fromYaml(YamlList yaml){
     if (yaml.nodes.length < 2) {
-    throw StateError("YAMLストリームには少なくとも2ドキュメント必要です");
+    throw FormatException("YAML stream of YAML-compatible YAML-frontmatter Markdown needs least 2 documents in a data.");
     }
   
     final meta = ArticleMeta.fromYaml(
       yaml.nodes[0].nodeAs<YamlMap>());
   
     List<Node> nodes = document.parse(
-      yaml.nodes[1].nodeAs<YamlScalar>().valueAs<String>());
+      yaml.nodes[1].valueAs<String>());
+    // 
+    
+    return BlogArticle.withMeta(meta, );
   }
 }
 
