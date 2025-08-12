@@ -21,7 +21,7 @@ class MemberProfile implements Buildable<MemberProfile> {
 
   MemberProfile({required this.id, required this.name, this.roles = const <String>[], this.color, this.icon, required this.join, this.intro = "", this.site, this.github, this.twitter, this.youtube, required this.current});
   factory MemberProfile.fromYaml(YamlMap yaml){
-     List<String> _ = yaml.hasKeys(requires: <String>["id", "name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
+     YamlKeyResult _ = yaml.hasKeys(requires: <String>["id", "name", "join", "current"], optionals: <String>["roles", "color", "icon", "intro", "site", "github", "twitter", "youtube"]);
 
     List<String> roles = <String>[];
     YamlNode? rc = yaml.nodes["roles"];

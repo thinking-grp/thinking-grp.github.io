@@ -13,7 +13,22 @@ extension type BlogTag._(String name){
   //      and make validate use the param
   //               as matcher
   static String validate(String input)
-    => input;
+    => BlogTag._isREReady ? BlogTag.re.hasMatch(input) ? input : throw FormatException("") : input;
+  static RegExp re = RegExp(r"^[a-z]$");
+  static bool _isREReady = false;
+}
+enum PubKind {
+  natives, markdown, wordpress;
+  static PubKind parse(String input) => switch(input.toLowerCase()){
+    "native" => 
+  }
+  static PubKind? tryParse(String input){
+    try {
+      return PubKind.parse(input);
+    } catch (_) {
+      return null;
+    }
+  }
 }
 
 class BlogRec implements Buildable<BlogRec> {
@@ -22,6 +37,7 @@ class BlogRec implements Buildable<BlogRec> {
   final DateTime lastUpdatedAt;
   final String author;
   final List<BlogTag> tags;
+  final PubKind pub;
   final Uri path;
   final Uri image;
   final String lead;
@@ -35,7 +51,7 @@ class BlogRec implements Buildable<BlogRec> {
       this.tags = tags?.toList() ?? <BlogTag>[];
   
   factory BlogRec.fromYaml(YamlMap yaml) {
-    List<String> _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
+    YamlKeyResult _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
     
     DateTime? luat = null;
     String? luatStr = yaml.valueAsOrNull<String>("lastUpdatedAt");

@@ -109,9 +109,9 @@ extension EachInsertExtension<E> on Iterable<E> {
     }
   }
 }
-
+typedef YamlKeyResult = ({List<String> exists, List<String> chosen});
 extension YamlMapExt on YamlMap {
-  List<String> hasKeys({List<String> requires = const <String>[], List<String> optionals = const <String>[]}){
+  YamlKeyResult hasKeys({List<String> requires = const <String>[], List<String> optionals = const <String>[]}){
     List<String> ret = <String>[];
     if(requires.every((String k) => this.containsKey(k))){
       ret.addAll(requires);
