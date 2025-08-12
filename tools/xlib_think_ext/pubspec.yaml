@@ -1,22 +1,18 @@
-name: thinkio_webtool
+name: thinkdocs_web
 version: 0.1.1
 description: >
-  Supporting tools/scripts for the development of the thinking group official website (www.thinking-grp.org).
+  Documentation articles
 author: Haruka Sato <as.he.that.doth.serve@gmail.com>
 homepage: https://www.thinking-grp.org
 repository: https://github.com/thinking-grp/thinking-grp.github.io
 environment:
   sdk: ">=3.4.0 <4.0.0"
 dependencies:
-  xlib_think_ext:
-    git:
-      url: https://github.com/thinking-grp/thinking-grp.github.io
-      path: /tools/xlib_think_ext
+  web: ^1.1.1
   yaml: ^3.1.3
   markdown: ^7.3.0
-  intl: ^0.20.2
-  color: ^3.0.0
 topics:
   - thinking-grp
   - website
+  - documentation
 publish_to: none

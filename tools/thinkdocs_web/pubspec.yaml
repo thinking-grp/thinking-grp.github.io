@@ -8,6 +8,10 @@ repository: https://github.com/thinking-grp/thinking-grp.github.io
 environment:
   sdk: ">=3.4.0 <4.0.0"
 dependencies:
+  xlib_think_ext:
+    git:
+      url: https://github.com/thinking-grp/thinking-grp.github.io
+      path: /tools/xlib_think_ext
   web: ^1.1.1
   vermay:
     git:
