@@ -13,12 +13,15 @@ jobs:
     - uses: dart-lang/setup-dart@v1
       with:
         sdk: 3.7
-    - name: install dependencies [thinkio_webtool]
-      run: dart pub get
-      working-directory: "./tools/thinkio_webtool"
     - name: install dependencies [xlib_think_ext]
       run: dart pub get
       working-directory: "./tools/xlib_think_ext"
+    - name: install dependencies [thinkio_webtool]
+      run: dart pub get
+      working-directory: "./tools/thinkio_webtool"
+    - name: install dependencies [thinkdocs_web]
+      run: dart pub get
+      working-directory: "./tools/thinkdocs_web"
     - name: Diff
       id: diff
       run: |
