@@ -1,7 +1,7 @@
 name: thinkdocs_web
 version: 0.1.1
 description: >
-  Documentation articles
+  Common Libraries Accumulates on thinking Web Foundations
 author: Haruka Sato <as.he.that.doth.serve@gmail.com>
 homepage: https://www.thinking-grp.org
 repository: https://github.com/thinking-grp/thinking-grp.github.io
@@ -14,5 +14,5 @@ dependencies:
 topics:
   - thinking-grp
   - website
-  - documentation
+  - library
 publish_to: none

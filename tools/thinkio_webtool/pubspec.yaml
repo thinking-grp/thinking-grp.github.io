@@ -11,7 +11,7 @@ dependencies:
   xlib_think_ext:
     git:
       url: https://github.com/thinking-grp/thinking-grp.github.io
-      path: /tools/xlib_think_ext
+      path: tools/xlib_think_ext
   yaml: ^3.1.3
   markdown: ^7.3.0
   intl: ^0.20.2
