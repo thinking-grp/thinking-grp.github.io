@@ -29,7 +29,7 @@ class PubKindP {
     "wordpress" || "wp" =>
       PubKind.wordpress,
     _ => throw FormatException(""),
-  }
+  };
   static PubKind? tryParse(String input){
     try {
       return PubKindP.parse(input);
