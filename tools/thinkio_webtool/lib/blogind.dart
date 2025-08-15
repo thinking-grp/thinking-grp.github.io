@@ -22,17 +22,17 @@ enum PubKind {
 }
 class PubKindP {
   static PubKind parse(String input) => switch(input.toLowerCase()){
-    "native" | "natives" =>
+    "native" || "natives" =>
       PubKind.natives,
-    "markdown" | "md" =>
+    "markdown" || "md" =>
       PubKind.markdown,
-    "wordpress" | "wp" =>
+    "wordpress" || "wp" =>
       PubKind.wordpress,
-    _ throw FormatException(""),
+    _ => throw FormatException(""),
   }
   static PubKind? tryParse(String input){
     try {
-      return PubKind.parse(input);
+      return PubKindP.parse(input);
     } catch (_) {
       return null;
     }
