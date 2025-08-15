@@ -123,7 +123,7 @@ extension YamlMapExt on YamlMap {
         ret.add(k);
       }
     }
-    return ret;
+    return (exists: ret, <String>[]);
   }
   
   T valueAs<T>(String key) {

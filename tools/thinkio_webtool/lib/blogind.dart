@@ -18,9 +18,17 @@ extension type BlogTag._(String name){
   static bool _isREReady = false;
 }
 enum PubKind {
-  natives, markdown, wordpress;
+  natives, markdown, wordpress
+}
+class PubKindP {
   static PubKind parse(String input) => switch(input.toLowerCase()){
-    "native" => 
+    "native" | "natives" =>
+      PubKind.natives,
+    "markdown" | "md" =>
+      PubKind.markdown,
+    "wordpress" | "wp" =>
+      PubKind.wordpress,
+    _ throw FormatException(""),
   }
   static PubKind? tryParse(String input){
     try {
@@ -84,7 +92,7 @@ class BlogRec implements Buildable<BlogRec> {
       postedAt: DateTime.parse(yaml.valueAs("postedAt")),
       lastUpdatedAt: luat,
       author: yaml.valueAs<String>("author"),
-      pub: PubKind.parse(yaml.valueAs<String>("pub")),
+      pub: PubKindP.parse(yaml.valueAs<String>("pub")),
       path: casedUpdate<Uri>(
           Uri.parse(yaml.valueAs<String>("path")),
           (Uri u) => !u.hasAuthority,
