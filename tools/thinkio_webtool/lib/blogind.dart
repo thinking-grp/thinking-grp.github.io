@@ -44,14 +44,14 @@ class BlogRec implements Buildable<BlogRec> {
   
   static Uri defaultImage = Uri.parse("/image/thinking-img.jpg");
   
-  BlogRec({required this.title, required DateTime postedAt, DateTime? lastUpdatedAt, required this.author, required this.path, Uri? image, Iterable<BlogTag>? tags, this.lead = ""}):
+  BlogRec({required this.title, required DateTime postedAt, DateTime? lastUpdatedAt, required this.author, required this.pub, required this.path, Uri? image, Iterable<BlogTag>? tags, this.lead = ""}):
       this.postedAt = postedAt,
       this.lastUpdatedAt = lastUpdatedAt ?? postedAt,
       this.image = image ?? BlogRec.defaultImage,
       this.tags = tags?.toList() ?? <BlogTag>[];
   
   factory BlogRec.fromYaml(YamlMap yaml) {
-    YamlKeyResult _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
+    YamlKeyResult _ = yaml.hasKeys(requires: <String>["title", "postedAt", "author", "pub", "path"], optionals: <String>["lastUpdatedAt", "image", "tags", "lead"]);
     
     DateTime? luat = null;
     String? luatStr = yaml.valueAsOrNull<String>("lastUpdatedAt");
@@ -84,6 +84,7 @@ class BlogRec implements Buildable<BlogRec> {
       postedAt: DateTime.parse(yaml.valueAs("postedAt")),
       lastUpdatedAt: luat,
       author: yaml.valueAs<String>("author"),
+      pub: PubKind.parse(yaml.valueAs<String>("pub")),
       path: casedUpdate<Uri>(
           Uri.parse(yaml.valueAs<String>("path")),
           (Uri u) => !u.hasAuthority,
