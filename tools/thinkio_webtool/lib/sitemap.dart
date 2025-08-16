@@ -3,7 +3,7 @@ import "package:sitemap/sitemap.dart";
 import "package:thinkio_webtool/blogind.dart";
 import "package:thinkio_webtool/pagenode.dart";
 
-void genSitemap(File out, Iterable<BlogRec> blogs) {
+void genSitemap(Directory base, File out, Iterable<BlogRec> blogs) {
   final sm = Sitemap();
   
   final index = PageNode.root();
@@ -30,12 +30,12 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
   final num blogPriority = 0.95;
   
   sm.entries.addAll(
-      staticPages.entries.map<SitemapEntry>((MapEntry<PageNode, num> e) => visit(e.key.path, e.value))
+      staticPages.entries.map<SitemapEntry>((MapEntry<PageNode, num> e) => visit(base, e.key.path, e.value))
     );
   sm.entries.addAll(
       blogs
         .where((BlogRec br) => !br.path.hasAuthority)
-        .map<SitemapEntry>((BlogRec br) => visit(br.path.pathSegments, blogPriority))
+        .map<SitemapEntry>((BlogRec br) => visit(base, br.path.pathSegments, blogPriority))
   );
   
   if (!out.existsSync()) {
@@ -44,10 +44,11 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
   out.writeAsStringSync(sm.generate());
 }
 
-SitemapEntry visit(Iterable<String> path, num priority) {
+SitemapEntry visit(Directory base, Iterable<String> path, num priority) {
   final base = Uri.parse("https://www.thinking-grp.org/");
   final Iterable<String> ps = path.first == "" ? path.skip(1) : path;
-  final Uri fu = Uri(pathSegments: ps.isEmpty || ps.last.contains(".") ? ps : ps.followedBy(<String>["index.html"]));
+  final Iterable<String> fis = base.uri.pathSegments.followedBy(ps);
+  final Uri fu = Uri(pathSegments: fis.last.contains(".") ? fis : fis.followedBy(<String>["index.html"]));
   final Uri loc = base.replace(pathSegments: ps);
   final f = File.fromUri(fu);
   final sme = SitemapEntry();
