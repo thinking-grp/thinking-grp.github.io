@@ -6,7 +6,7 @@ class PageNode {
   PageNode child(String segment) => PageNode._(<String>[...(this.path), segment]);
   
   PageNode cd([List<String> segments = const <String>[]]) => this._cd(segments, false);
-  PathNode _cd(Iterable<String> segments, bool isMiddle){
+  PageNode _cd(Iterable<String> segments, bool isMiddle){
     if (segments.isEmpty) {
       return this;
     }

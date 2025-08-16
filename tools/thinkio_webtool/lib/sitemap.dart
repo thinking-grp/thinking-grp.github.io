@@ -35,7 +35,7 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
   sm.entries.addAll(
       blogs
         .where((BlogRec br) => !br.path.hasAuthority)
-        .map<SitemapEntry>((BlogRec br) => visit(br.path.pathSegments, blogPriority)
+        .map<SitemapEntry>((BlogRec br) => visit(br.path.pathSegments, blogPriority))
   );
   
   if (!out.existsSync()) {

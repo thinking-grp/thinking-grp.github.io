@@ -16,7 +16,7 @@ class Templater {
   
   Templater construct<H extends Buildable>(String ident, Iterable<String> path, H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
     String data = this.base.cd<File>(path).readAsStringSync();
-    List<H> hs = data.construct<H>(fromYaml, needSort: needSort, reverse: reverse, limit: limit, filterItem: filterItem);
+    List<H> hs = data.construct<H>(fromYaml, needSort: needSort, reverse: reverse, limit: limit, filterItem: filterItem).toList();
     Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
     this._replace(ident, resx.join("\n"));
     return this;
