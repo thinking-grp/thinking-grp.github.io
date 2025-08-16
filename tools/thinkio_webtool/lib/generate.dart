@@ -6,10 +6,13 @@ import "package:thinkio_webtool/sitemap.dart";
 import "package:thinkio_webtool/xlib.dart";
 
 
-void generate_sitemap(Uri base, Iterable<String> dataPath){
+void generate_sitemap(Uri baseU, Directory base, Iterable<String> dataPath){
+  print("generate:generate_sitemap()");
   String data = base.cd<File>(dataPath).readAsStringSync();
   File out = File.fromUri(base.uri.cd(<String>["sitemap.xml"]));
-  genSitemap(base, out, data.construct<BlogRec>(BlogRec.fromYaml, needSort: true, reverse: true));
+  print("base.uri: Uri");
+  print(base.uri.pathSegments);
+  genSitemap(baseU, out, data.construct<BlogRec>(BlogRec.fromYaml, needSort: true, reverse: true));
 }
 void generate_member(PageFiles fin, File fout){
   final tlr = Templater(fin.base, fin.html, fout);
