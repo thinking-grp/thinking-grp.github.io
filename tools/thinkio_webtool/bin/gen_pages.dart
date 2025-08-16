@@ -34,7 +34,7 @@ void main() {
   try{
     generate_sitemap(pf_b.base, pf_b.data);
     generate_member(pf_m, fout_m);
-    generate_blog_index(pf_b, fout_b);
+    generate_blog_index(base, pf_b, fout_b);
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);
