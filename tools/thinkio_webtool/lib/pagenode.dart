@@ -1,4 +1,7 @@
-extension type PageNode._(List<String> path) {
+classPageNode._() PageNode {
+  final List<String> path;
+  
+  PageNode._(this.path);
   PageNode.root(): this.path = <String>[""];
   PageNode child(String segment) => PageNode._(<String>[...(this.path), segment]);
   
@@ -8,13 +11,13 @@ extension type PageNode._(List<String> path) {
       return this;
     }
     if (!isMiddle && segments.first == "") {
-      return PathNode._(segments);
+      return PathNode._(segments.toList());
     }
     List<String> res = switch(segments.first) {
       "" || "." => this.path,
       ".." => this.path.take(this.path.length - 1),
       _ => this.path.followedBy(segments.take(1)),
-    }
+    }.toList();
     return PathNode._(res)._cd(segments.skip(1), true);
   }
   
@@ -28,13 +31,14 @@ extension type PageNode._(List<String> path) {
   String get absolutePath => this.uri.toString();
   String get relativePath => this.path.skip(1).join("/");
   Uri absoluteUri(Uri base) => base.replace(pathSegments: this.path);
-  
+
   @override
   bool operator ==(Object other) =>
       other is PageNode && this._listEquals(this.path, other.path);
   @override
   int get hashCode => Object.hashAll(this.path);
-  static bool _listEquals(List<String> a, List<String> b) {
+  
+  bool _listEquals(List<String> a, List<String> b) {
     if (identical(a, b)) return true;
     if (a.length != b.length) return false;
     for (var i = 0; i < a.length; i++) {
@@ -42,7 +46,7 @@ extension type PageNode._(List<String> path) {
     }
     return true;
   }
-  
+
   @override
   String toString() => this.absolutePath;
 }
