@@ -1,0 +1,13 @@
+PathNotFoundException: Cannot retrieve modification time, path = 'home/runner/work/thinking-grp.github.io/thinking-grp.github.io//index.html' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:782:7)
+#1      _File.lastModifiedSync (dart:io/file_impl.dart:530:5)
+#2      visit (package:thinkio_webtool/sitemap.dart:57:24)
+#3      genSitemap.<anonymous closure> (package:thinkio_webtool/sitemap.dart:33:76)
+#4      MappedIterator.moveNext (dart:_internal/iterable.dart:420:20)
+#5      List.addAll (dart:core-patch/growable_array.dart:324:13)
+#6      genSitemap (package:thinkio_webtool/sitemap.dart:32:14)
+#7      generate_sitemap (package:thinkio_webtool/generate.dart:12:3)
+#8      main (file:///home/runner/work/thinking-grp.github.io/thinking-grp.github.io/tools/thinkio_webtool/bin/gen_pages.dart:30:5)
+#9      _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:315:19)
+#10     _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:194:12)
+
