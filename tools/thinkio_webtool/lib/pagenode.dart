@@ -11,14 +11,14 @@ class PageNode {
       return this;
     }
     if (!isMiddle && segments.first == "") {
-      return PathNode._(segments.toList());
+      return PageNode._(segments.toList());
     }
     List<String> res = switch(segments.first) {
       "" || "." => this.path,
       ".." => this.path.take(this.path.length - 1),
       _ => this.path.followedBy(segments.take(1)),
     }.toList();
-    return PathNode._(res)._cd(segments.skip(1), true);
+    return PageNode._(res)._cd(segments.skip(1), true);
   }
   
    PageNode get parent {

@@ -16,7 +16,7 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
   final PageNode thinkos = project.child("thinkos");
   final PageNode blog = index.child("blog");
   
-  final Map<PageNode, num> staticPages = <List<String>, num>{
+  final Map<PageNode, num> staticPages = <PageNode, num>{
     index: 0.6,
     about: 0.6,
     member: 0.8,
