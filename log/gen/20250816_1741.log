@@ -1,0 +1,7 @@
+Instance of 'Error'
+#0      FSCD.cd (package:thinkio_webtool/xlib.dart:94:7)
+#1      generate_sitemap (package:thinkio_webtool/generate.dart:11:19)
+#2      main (file:///home/runner/work/thinking-grp.github.io/thinking-grp.github.io/tools/thinkio_webtool/bin/gen_pages.dart:30:5)
+#3      _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:315:19)
+#4      _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:194:12)
+
