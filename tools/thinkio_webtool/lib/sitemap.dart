@@ -47,7 +47,7 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
 SitemapEntry visit(Iterable<String> path, num priority) {
   final base = Uri.parse("https://www.thinking-grp.org/");
   final Iterable<String> ps = path.first == "" ? path.skip(1) : path;
-  final Uri fu = Uri(pathSegments: ps.last.contains(".") ? ps : ps.followedBy(<String>["index.html"]));
+  final Uri fu = Uri(pathSegments: ps.isEmpty || ps.last.contains(".") ? ps : ps.followedBy(<String>["index.html"]));
   final Uri loc = base.replace(pathSegments: ps);
   final f = File.fromUri(fu);
   final sme = SitemapEntry();
