@@ -52,7 +52,7 @@ SitemapEntry visit(Uri base, Iterable<String> path, num priority) {
   final Iterable<String> ps = path.first == "" ? path.skip(1) : path;
   final Iterable<String> fis = <String>[""].followedBy(base.pathSegments).followedBy(ps);
   print("fu: Uri");
-  final Uri fu = Uri(pathSegments: fis.last.contains(".")  && fis.last != "." ? fis : fis.followedBy(<String>["index.html"]));
+  final Uri fu = Uri(pathSegments: FileSystemEntity.isFileSync(Uri(pathSegments: fis).path) ? fis : fis.followedBy(<String>["index.html"]));
   print(fu.pathSegments);
   final Uri loc = origin.replace(pathSegments: ps);
   final f = File.fromUri(fu);
