@@ -6,8 +6,13 @@ import "package:thinkio_webtool/errors.dart";
 const bool deploy = true;
 
 void main() {
+  print("main()");
+  print("curr: Uri");
   Uri curr = Platform.script;  // /tools/thinkio_webtool/bin/member_gen.dart
+  print(curr.pathSegments);
+  print("base: Uri");
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
+  print(base.pathSegments);
   PageFiles pf_m = (
       base: Directory.fromUri(base),
       html: <String>["template", "member.thtm"],
