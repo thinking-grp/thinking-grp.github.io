@@ -45,11 +45,11 @@ void genSitemap(Directory base, File out, Iterable<BlogRec> blogs) {
 }
 
 SitemapEntry visit(Directory base, Iterable<String> path, num priority) {
-  final base = Uri.parse("https://www.thinking-grp.org/");
+  final baseOrigin = Uri.parse("https://www.thinking-grp.org/");
   final Iterable<String> ps = path.first == "" ? path.skip(1) : path;
   final Iterable<String> fis = base.uri.pathSegments.followedBy(ps);
   final Uri fu = Uri(pathSegments: fis.last.contains(".") ? fis : fis.followedBy(<String>["index.html"]));
-  final Uri loc = base.replace(pathSegments: ps);
+  final Uri loc = baseOrigin.replace(pathSegments: ps);
   final f = File.fromUri(fu);
   final sme = SitemapEntry();
   
