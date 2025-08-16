@@ -1,4 +1,4 @@
-classPageNode._() PageNode {
+class PageNode {
   final List<String> path;
   
   PageNode._(this.path);
@@ -25,7 +25,7 @@ classPageNode._() PageNode {
     if (path.length <= 1) return this;
     return PageNode._(path.take(path.length - 1).toList());
   }
-  int get depth => path.length - 1;
+  int get depth => this.path.length - 1;
   
   Uri get uri => Uri(pathSegments: this.path);
   String get absolutePath => this.uri.toString();

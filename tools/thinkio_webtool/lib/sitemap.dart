@@ -27,7 +27,7 @@ void genSitemap(File out, Iterable<BlogRec> blogs) {
     thinkos: 0.75,
     blog: 0.8,
   };
-  final int blogPriority = 0.95;
+  final num blogPriority = 0.95;
   
   sm.entries.addAll(
       staticPages.entries.map<SitemapEntry>((MapEntry<PageNode, num> e) => visit(e.key.path, e.value))
