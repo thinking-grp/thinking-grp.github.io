@@ -2,8 +2,15 @@ import "dart:io";
 import "package:thinkio_webtool/mprof.dart";
 import "package:thinkio_webtool/blogind.dart";
 import "package:thinkio_webtool/templater.dart";
+import "package:thinkio_webtool/sitemap.dart";
 import "package:thinkio_webtool/xlib.dart";
 
+
+void generate_sitemap(Directory base, Iterable<String> data){
+  String data = base.cd<File>(data).readAsStringSync();
+  File out = base.cd<File>(<String>["sitemap.xml"]);
+  genSitemap(out, data.construct(BlogRec.fromYaml, needSort: true, reverse: true));
+}
 void generate_member(PageFiles fin, File fout){
   final tlr = Templater(fin.base, fin.html, fout);
   if(fin.css != null){

@@ -16,6 +16,7 @@ dependencies:
   markdown: ^7.3.0
   intl: ^0.20.2
   color: ^3.0.0
+  sitemap: ^1.0.0
 topics:
   - thinking-grp
   - website
