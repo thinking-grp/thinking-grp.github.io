@@ -14,9 +14,10 @@ class Templater {
     this._internalHTML = this.base.cd<File>(this.templatePath).readAsStringSync();
   }
   
-  Templater construct<H extends Buildable>(String ident, Iterable<String> path, H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem}){
-    String data = this.base.cd<File>(path).readAsStringSync();
-    List<H> hs = data.construct<H>(fromYaml, needSort: needSort, reverse: reverse, limit: limit, filterItem: filterItem).toList();
+  Templater construct<H extends Buildable>(String ident, Iterable<String> path, H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, int n = 0, bool Function(H)? filterItem})
+    => this.constructWith(ident, this.base.cd<File>(path).readAsStringSync().construct<H>(fromYaml, needSort: needSort, reverse: reverse, limit: limit, filterItem: filterItem), n: n);
+  
+  Templater constructWith<H extends Buildable>(String ident, Iterable<H> hs, {int n = 0}){
     Iterable<String> resx = hs.map<String>((H mp) => mp.toString(n));
     this._replace(ident, resx.join("\n"));
     return this;
@@ -34,12 +35,15 @@ class Templater {
     }
     this.out.writeAsStringSync(this._internalHTML);
   }
+  
   void _replace(String ident, String dataString){
     this._internalHTML = this._internalHTML.replaceAll(Templater.identOn(ident), dataString);
   }
+  
   static RegExp identOn(String ident)
     => RegExp(r"[^\S\n\r]*(?<!\\){{" + ident + "}}");
 }
+
 extension DataConstructor on String {
   Iterable<H> construct<H extends Buildable>(H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, bool Function(H)? filterItem}){
     bool Function(H) filter = filterItem ?? ((H _) => true);
