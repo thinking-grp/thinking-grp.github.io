@@ -1,5 +1,6 @@
 import "dart:io";
 import "package:sitemap/sitemap.dart";
+import "package:thinkio_webtool/xlib.dart";
 import "package:thinkio_webtool/blogind.dart";
 import "package:thinkio_webtool/pagenode.dart";
 
@@ -50,7 +51,7 @@ SitemapEntry visit(Uri base, Iterable<String> path, num priority) {
   print(path);
   final origin = Uri.parse("https://www.thinking-grp.org/");
   final Iterable<String> ps = path.first == "" ? path.skip(1) : path;
-  final Iterable<String> fis = <String>[""].followedBy(base.pathSegments).followedBy(ps);
+  final Iterable<String> fis = <String>[""].followedBy(base.cd(ps).pathSegments);
   print("fu: Uri");
   final Uri fu = Uri(pathSegments: FileSystemEntity.isFileSync(Uri(pathSegments: fis).path) ? fis : fis.followedBy(<String>["index.html"]));
   print(fu.pathSegments);

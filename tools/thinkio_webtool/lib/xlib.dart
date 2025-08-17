@@ -79,7 +79,7 @@ List<String> packL(Iterable<String> lines, String tag, [String? attrs]) => pack(
 
 extension UriCD on Uri {
   Uri cd(Iterable<String> path)
-    => this.replace(pathSegments: this.pathSegments.followedBy(path));
+    => this.replace(pathSegments: (this.pathSegments.isEmpty || this.pathSegments.last != "" ? this.pathSegments : this.pathSegments.take(this.pathSegments.length - 1)).followedBy(path));
 }
 
 extension FSCD on Directory {

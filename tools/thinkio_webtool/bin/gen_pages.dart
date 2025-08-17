@@ -32,7 +32,7 @@ void main() {
   File fout_b = File.fromUri(dout_b);
   
   try{
-    generate_sitemap(base, pf_b.base, pf_b.data);
+    generate_sitemap(pf_b.base, pf_b.data);
     generate_member(pf_m, fout_m);
     generate_blog_index(pf_b, fout_b);
   } on YamlSchemaViolationError catch(e, t) {
