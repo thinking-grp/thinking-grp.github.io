@@ -21,7 +21,6 @@ class LoadedData {
   
   static Iterable<H> load<H extends Buildable>(Directory base, Iterable<String> dataPath, H Function(YamlMap) fromYaml, {bool needSort = false, bool reverse = false, int? limit, bool Function(H)? filterItem})
     => base.cd<File>(dataPath).readAsStringSync().construct<H>(fromYaml, needSort: needSort, reverse: reverse, limit: limit, filterItem: filterItem);
-  }
 }
 
 void generate_sitemap(LoadedData ld){
