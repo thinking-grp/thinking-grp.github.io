@@ -30,27 +30,27 @@ void generate_sitemap(LoadedData ld){
   File out = File.fromUri(u.cd(<String>["sitemap.xml"]));
   genSitemap(u, out, ld.blogsAll);
 }
-void generate_member(PageFiles fin, File fout){
-  final tlr = Templater(fin.base, fin.html, fout);
+void generate_member(LoadedData ld, PageFiles fin, File fout){
+  final tlr = Templater(ld.base, fin.html, fout);
   if(fin.css != null){
     tlr.inject("css", fin.css!, 3);
   }
-  tlr.construct<MemberProfile>("body", fin.data, MemberProfile.fromYaml, needSort: true, filterItem: (MemberProfile mp) => mp.current, n: 4);
+  tlr.constructWith<MemberProfile>("body", ld.members, n: 4);
   tlr.finate();
 }
-void generate_blog_index(PageFiles fin, File fout){
-  final tlr = Templater(fin.base, fin.html, fout);
+void generate_blog_index(LoadedData ld, PageFiles fin, File fout){
+  final tlr = Templater(ld.base, fin.html, fout);
   if(fin.css != null){
     tlr.inject("css", fin.css!, 3);
   }
-  tlr.construct<BlogRec>("articles", fin.data, BlogRec.fromYaml, needSort: true, limit: 5, reverse: true, n: 4);
+  tlr.constructWith<BlogRec>("articles", ld.blogsAll, n: 4);
   tlr.finate();
 }
-void generate_root_index(PageFiles fin, File fout){
-  final tlr = Templater(fin.base, fin.html, fout);
+void generate_root_index(LoadedData ld, PageFiles fin, File fout){
+  final tlr = Templater(ld.base, fin.html, fout);
   if(fin.css != null){
     tlr.inject("css", fin.css!, 3);
   }
-  tlr.construct<BlogRec>("articles", fin.data, BlogRec.fromYaml, needSort: true, limit: 5, reverse: true, n: 4);
+  tlr.constructWith<BlogRec>("articles", ld.blogsLimit(5), n: 4);
   tlr.finate();
 }

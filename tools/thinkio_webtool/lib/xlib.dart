@@ -11,7 +11,7 @@ abstract class Buildable<With> implements Comparable<With> {
 final LineSplitter ls = LineSplitter();
 const HtmlEscape htmlEscape = HtmlEscape();
 
-typedef PageFiles = ({Directory base, Iterable<String> data, Iterable<String> html, Iterable<String>? css});
+typedef PageFiles = ({Iterable<String> html, Iterable<String>? css});
 
 T casedUpdate<T>(T input, bool Function(T) test, T Function(T) update, [T Function(T)? elseUpdate])
   => test(input) ? update(input) : (elseUpdate ?? ((T i) => i))(input);

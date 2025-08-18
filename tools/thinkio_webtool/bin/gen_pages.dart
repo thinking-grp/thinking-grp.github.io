@@ -14,19 +14,15 @@ void main() {
   Uri base = curr.replace(pathSegments: curr.pathSegments.take(curr.pathSegments.length - 4).toList()); // /
   print(base.pathSegments);
   PageFiles pf_m = (
-      base: Directory.fromUri(base),
       html: <String>["template", "member.thtm"],
-      data: <String>["data", "member_profiles.yaml"],
       css: <String>["template", "member.css"]
     );
   Uri dout_m = base.replace(pathSegments: base.pathSegments.followedBy(<String>["about", deploy ? "member.html" : "member_generated.html"]).toList()); // /about/member_generated.html (dryrun), /about/member.html (deploy)
   File fout_m = File.fromUri(dout_m);
   
   PageFiles pf_b = (
-      base: Directory.fromUri(base),
       html: <String>["template", "blog_index.thtm"],
       css: null,
-      data: <String>["data", "blog_index.yaml"]
     );
   Uri dout_b = base.replace(pathSegments: base.pathSegments.followedBy(<String>["blog", deploy ? "index.html" : "index_generated.html"]).toList()); // /blog/index_generated.html (dryrun), /blog/index.html (deploy)
   File fout_b = File.fromUri(dout_b);
@@ -39,8 +35,8 @@ void main() {
       );
     
     generate_sitemap(ld);
-    generate_member(pf_m, fout_m);
-    generate_blog_index(pf_b, fout_b);
+    generate_member(ld, pf_m, fout_m);
+    generate_blog_index(ld, pf_b, fout_b);
   } on YamlSchemaViolationError catch(e, t) {
     print(e);
     print(t);
